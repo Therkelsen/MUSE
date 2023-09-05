@@ -1,0 +1,99 @@
+; -----------------------------------------------------------------------------
+;
+; Quadra Picometer USB device driver installer, uses TI VID number under
+; TI sublicense.
+;
+; (C) Eliko LLC 2004 - 2017
+;
+; -----------------------------------------------------------------------------
+
+
+[Version]
+Signature="$Windows NT$"
+Class=ElikoBulkDeviceClass
+ClassGuid={7B4DBAF1-339E-4942-A1D1-0ADFC37AADFA}
+
+Provider=%ProviderName%
+DriverPackageType=PlugAndPlay
+DriverPackageDisplayName=%PackageName%
+DriverVer=01/16/2016,1.6.0
+CatalogFile.NTx86=QuadraPicometer_x86.cat
+CatalogFile.NTamd64=QuadraPicometer_amd64.cat
+
+[ClassInstall32]
+AddReg=CustomClassAddReg
+
+[CustomClassAddReg]
+HKR,,,,%DisplayClassName%
+HKR,,Icon,,-159
+
+[Manufacturer]
+%ProviderName% = ElikoWinUSBDevice,NTx86,NTamd64
+
+[ElikoWinUSBDevice.NTx86]
+%DeviceName%=USB_Install, USB\VID_1CBE&PID_0234
+
+[ElikoWinUSBDevice.NTamd64]
+%DeviceName%=USB_Install, USB\VID_1CBE&PID_0234
+
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+[USB_Install.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.11
+
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{D7024F71-28DE-4E81-8A6B-113CA2BFB60D}"
+
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WinUSBCoInstaller2.dll","WdfCoInstaller01011.dll,WdfCoInstaller"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01011.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+[SourceDisksNames]
+1 = %InstallDisk%,,,\x86
+2 = %InstallDisk%,,,\amd64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01011.dll=1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01011.dll=2
+
+[Strings]
+ProviderName="Eliko OÜ"
+Manufacturer="Eliko OÜ"
+DeviceName="Quadra Picometer"
+DisplayClassName="Eliko Impedance Devices"
+InstallDisk="Eliko Install Disk v1.6.0"
+WinUSB_SvcDesc="WinUSBService"
+PackageName = "Quadra Picometer USB Driver"

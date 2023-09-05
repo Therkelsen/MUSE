@@ -1,0 +1,97 @@
+========================================================
+              END USER LICENSE AGREEMENT
+========================================================
+
+"Licensed Materials" include the client software, device
+firmware, any whole or partial copies, and any accompanying
+instructions, documentation, techical data, images,
+recordings and other related materials.
+
+The following License Agreement governs your use of the
+Licensed Materials unless you have a separate written
+agreement with Eliko, in which case, that written
+agreement will control and take precedence.
+
+LICENCE GRANT
+Eliko grants you a non-exclusive license to use one copy
+of the Licensed Materials at no charge pursuant in
+conjunction with hardware product bought from Eliko.
+With respect to the software portion of the Licensed
+Materials, "use" means to install, store, display,
+execute and use the software on the single computer
+that operates with Eliko hardware product. 
+
+LICENSE RESTRICTIONS
+You may make copies or adaptations of the Licensed
+Materials only for archival purposes or only when
+copying or adaptation is an essential step in the
+authorized use of the Licensed Materials. You must
+reproduce all copyright notices in the original
+Licensed Materials on all permitted copies or
+adaptations. Except as provided here, you may not
+copy, modify or translate the Licensed Materials
+or disable any of its features. You may not copy
+the Licensed Materials onto any public or
+distributed network or service bureau.
+
+UPGRADES, UPDATES, ERROR & BUG FIXES, TECHNICAL SUPPORT
+Any upgrades, updates, error and bug fixes will
+become commercially available in Eliko's sole
+discretion. Application specific modifications and
+technical support can be purchased separately.
+The upgrades, updates, error and bug fixes, as well
+as the appllication specific modifications shall be
+considered part of the Licensed Materials, i.e. these
+may be used only in accordance with the terms and
+conditions of this Agreement.
+
+OWNERSHIP
+The Licensed Materials are owned and copyrighted by ELIKO.
+Your license confers no title to, or ownership in,
+the Licensed Materials.
+
+NO DISASSAMBLY
+You may not disassemble or decompile the Licensed
+Materials.
+
+NO FIRMWARE EXTRACTION
+You may not extract and copy binary firmware code from
+the device. The device firmware algoritms are covered
+by patent rights and other intellectual property rights.
+
+HIGH RISK ACTIVITIES
+The Licensed Materials are not specifically designed,
+manufactured or intended for use in the planning,
+construction, maintenance or direct operation of a
+nuclear facility, nor for use in on-line control or
+fail safe operation of aircraft navigation, control
+or communication systems, weapon systems or direct
+life support systems.
+
+WARRANTIES AND LIMITATIONS
+Eliko do not guarantee that this product is free
+from defects. The software provided with Licenced
+Materials are provided "AS IS". Use the software at
+your own risk. The authors make no warranties as to
+performance or fitness for a particular purpose, or
+any other warranties. Eliko is not liable for any
+special, indirect, incidental, punitive or consequential
+damages caused by the use of the Licensed Materials.
+
+
+ATTENTION NOTICES
+USING THE LICENSED MATERIALS INDICATES YOUR ACCEPTANCE OF THE LICENSE TERMS.
+
+
+COPYRIGHT & TRADEMARK
+Copyright © 2004 - 2016, OÜ Eliko.
+All Rights Reserved.
+Quadra™ is trademark of Eliko Electrical Impedance Devices
+
+
+
+OÜ Eliko, www.eliko.ee
+Mäealuse 2/1 (3rd floor)
+Tallinn, 12618, Estonia
+Phone: +372 6599 881
+E-mail: info@eliko.ee
