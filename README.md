@@ -34,3 +34,57 @@ Thomas Therkelsen and Simon Vinkel will act as project managers. The gathering o
 The intended recipients are people with disruptive or weak motor control of their arms, narrowing in on people with Parkinson's disease. It is the intent of the project to go into a collaboration with volunteers with this disease, to gather empiri for the model and to properly understand the challenges at hand. Moreover, to be able to properly test the final product.
 
 
+
+# Setup Development environment on Windows
+
+1. Install Visual Studio Code [Stable](https://code.visualstudio.com/download) or [Insiders](https://code.visualstudio.com/insiders/) (doesn't matter).
+2. Install MinGW
+
+    a. Download the  [latest installer](https://github.com/msys2/msys2-installer/releases/download/2023-05-26/msys2-x86_64-20230526.exe). (link is current, as of September 2023)
+    
+    b. Run the installer
+
+    c. Use the default settings in the installer, but at the end ensure that the **Run MSYS2 now** box is checked and select **Finish**.
+
+    d. In the shell that is now open, install the MinGW-w64 toolchain by running the following command: `pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`
+
+    e. Accept the default number of packages in the toolchain group by pressing **Enter**.
+
+    f. Enter **Y** when prompted whether to proceed with the installation.
+
+    g. Add the path to your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
+    
+    * In the Windows search bar, type **Settings** to open your Windows Settings.
+    * Search for **Edit environment variables for your account**.
+    * In your **User variables**, select the `Path` variable and then select **Edit**.
+    * Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you used the default settings above, then this will be the path: `C:\msys64\ucrt64\bin`.
+    * Select **OK** to save the updated **PATH**. You will need to reopen any console windows for the new **PATH** location to be available.
+
+    h. Check your MinGW installation
+
+    * To check that your MinGW-w64 tools are correctly installed and available, open a new Command Prompt and type:
+
+            gcc --version
+            g++ --version
+            gdb --version
+
+3. Install CMake
+   
+   a. Get the latest precompiled windows binaries from the [downloads page](https://cmake.org/download/)
+   
+   b. Run the installer and make sure to keep the **Add to PATH** option ticked.
+
+
+4. Install vscode extensions
+   
+   a. [clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd)
+
+   b. [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+
+   c. [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
+
+5. Restart your vscode
+
+Now your vscode it setup to build and run the C++ program.
+
+From `./MUSE/` you should be able to run the `CMake: Build Target` and `CMake: Run Without Debugging` commands. On my machine, the keyboard shortcuts for these defaulted to `F7` and `Shift + F5`, respectively.
