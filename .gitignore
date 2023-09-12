@@ -1,4 +1,4 @@
-build/*
-.cache/*
-Code/build/*
-Code/.cache/*
+build/
+.cache/
+Code/build/
+Code/.cache/

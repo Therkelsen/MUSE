@@ -23,7 +23,8 @@ public:
 
     void set_raw_sensor_data(std::vector<std::vector<std::pair<int, int>>> data);
     void set_raw_sensor_data_point(int real, int img, int freq_idx, int data_idx);
-    
+
+    void print_data(std::vector<std::vector<std::pair<int, int>>> data);
 
 private:
     // private member variables and methods here

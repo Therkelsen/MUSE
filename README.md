@@ -44,13 +44,17 @@ The intended recipients are people with disruptive or weak motor control of thei
     
     b. Run the installer
 
-    c. Use the default settings in the installer, but at the end ensure that the **Run MSYS2 now** box is checked and select **Finish**.
+    c. Use the default settings in the installer, but at the end ensure that the **Run MSYS2 now** box isn't checked and select **Finish**.
 
-    d. In the shell that is now open, install the MinGW-w64 toolchain by running the following command: `pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`
+    d. After Installation is complete: Open MSYS2 terminal (pink icon).
 
-    e. Accept the default number of packages in the toolchain group by pressing **Enter**.
+    * Update the package database and base packages by running: `pacman -Syu && pacman -Su` and typing `Y` at the prompts that require it.
 
-    f. Enter **Y** when prompted whether to proceed with the installation.
+    e. Now switch over to MSYS2 MinGW 64-bit terminal (blue icon).
+
+    * To install gcc/g++ and debugger for C and C++, by running: `pacman -S mingw-w64-x86_64-gcc && pacman -S mingw-w64-x86_64-gdb && pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`
+
+    f. Enter **Y** when prompted and accept the default number of packages in the toolchain group by pressing **Enter**.
 
     g. Add the path to your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
     
@@ -73,6 +77,14 @@ The intended recipients are people with disruptive or weak motor control of thei
    a. Get the latest precompiled windows binaries from the [downloads page](https://cmake.org/download/)
    
    b. Run the installer and make sure to keep the **Add to PATH** option ticked.
+
+4. Install LLVM for clangd formatting
+   
+   a. Get the latest version of LLVM for windows on the GitHub [release page](https://github.com/llvm/llvm-project/releases).
+
+   b. Don't get the pre-release. The file will be called something like **LLVM-xx.xx.x-win64.exe** 
+
+   c. Simply run the installer. Make sure the **Add to PATH** option is ticked.
 
 
 4. Install vscode extensions
