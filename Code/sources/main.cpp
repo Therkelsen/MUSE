@@ -15,4 +15,4 @@ int main() {
   Filter F;
 
   F.set_highpass_filter_coefficients(c);
-}
+} 
