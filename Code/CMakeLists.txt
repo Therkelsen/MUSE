@@ -6,7 +6,7 @@ enable_testing()
 
 project(MUSE)
 set(CMAKE_CXX_STANDARD 20)
-add_executable(MUSE sources/main.cpp sources/DataInterface.cpp headers/DataInterface.h)
+add_executable(MUSE sources/main.cpp sources/DataInterface.cpp headers/DataInterface.h sources/Filter.cpp headers/Filter.h)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

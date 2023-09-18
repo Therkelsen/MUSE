@@ -18,17 +18,17 @@ public:
         std::cout << "Data Interface: Shutting down." << std::endl;
     };
 
-    std::vector<std::vector<std::pair<int, int>>> get_raw_sensor_data();
-    std::pair<int, int> get_raw_sensor_data_point(int freq_idx, int data_idx);
+    std::vector<std::vector<std::pair<double, double>>> get_raw_sensor_data();
+    std::pair<double, double> get_raw_sensor_data_point(int freq_idx, int data_idx);
 
-    void set_raw_sensor_data(std::vector<std::vector<std::pair<int, int>>> data);
-    void set_raw_sensor_data_point(int real, int img, int freq_idx, int data_idx);
+    void set_raw_sensor_data(std::vector<std::vector<std::pair<double, double>>> data);
+    void set_raw_sensor_data_point(double real, double img, int freq_idx, int data_idx);
 
-    void print_data(std::vector<std::vector<std::pair<int, int>>> data);
+    void print_data(std::vector<std::vector<std::pair<double, double>>> data);
 
 private:
     // private member variables and methods here
-    std::vector<std::vector<std::pair<int, int>>> raw_sensor_data_;
+    std::vector<std::vector<std::pair<double, double>>> raw_sensor_data_;
 };
 
 #endif // DATA_INTERFACE_H

@@ -5,7 +5,7 @@
             "name": "CMake Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/MUSE.exe", // Update this to your executable name
+            "program": "${workspaceFolder}/build/MUSE.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

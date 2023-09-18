@@ -95,6 +95,8 @@ The intended recipients are people with disruptive or weak motor control of thei
 
    c. [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
 
+   d. [C/C++ extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
+
 5. Restart your vscode
 
 Now your vscode it setup to build and run the C++ program.
