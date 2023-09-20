@@ -1,4 +1,8 @@
-build/
-.cache/
-Code/build/
-Code/.cache/
+/Code/Debug/
+/Code/Release/
+/Code/MUSE/Debug
+/Code/MUSE/Release
+/Code/.vs/MUSE/v17
+/Code/.vs/MUSE/FileContentIndex
+/Code/.vs/PicometerReader/v16
+/Code/.vs/PicometerReader/v17

@@ -35,70 +35,12 @@ The intended recipients are people with disruptive or weak motor control of thei
 
 
 
-# Setup Development environment on Windows
+# Setup Development environment on Windows (The sensor doesn't work on Ubuntu)
 
-1. Install Visual Studio Code [Stable](https://code.visualstudio.com/download) or [Insiders](https://code.visualstudio.com/insiders/) (doesn't matter).
-2. Install MinGW
+1. Install [Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2414&workload=dotnetwebcloud&flight=FlipMacCodeCF;35d&installerFlight=FlipMacCodeCF;35d&passive=false#dotnet).
+2. Clone the repo by running the following in your shell: `git clone git@github.com:Therkelsen/MUSE.git`
+3. Open `../Github/MUSE/Code/PicometerReader.sln`
+4. Make sure you're using the x86 compiler
+5. Great success!
 
-    a. Download the  [latest installer](https://github.com/msys2/msys2-installer/releases/download/2023-05-26/msys2-x86_64-20230526.exe). (link is current, as of September 2023)
-    
-    b. Run the installer
-
-    c. Use the default settings in the installer, but at the end ensure that the **Run MSYS2 now** box isn't checked and select **Finish**.
-
-    d. After Installation is complete: Open MSYS2 terminal (pink icon).
-
-    * Update the package database and base packages by running: `pacman -Syu && pacman -Su` and typing `Y` at the prompts that require it.
-
-    e. Now switch over to MSYS2 MinGW 64-bit terminal (blue icon).
-
-    * To install gcc/g++ and debugger for C and C++, by running: `pacman -S mingw-w64-x86_64-gcc && pacman -S mingw-w64-x86_64-gdb && pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`
-
-    f. Enter **Y** when prompted and accept the default number of packages in the toolchain group by pressing **Enter**.
-
-    g. Add the path to your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
-    
-    * In the Windows search bar, type **Settings** to open your Windows Settings.
-    * Search for **Edit environment variables for your account**.
-    * In your **User variables**, select the `Path` variable and then select **Edit**.
-    * Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you used the default settings above, then this will be the path: `C:\msys64\ucrt64\bin`.
-    * Select **OK** to save the updated **PATH**. You will need to reopen any console windows for the new **PATH** location to be available.
-
-    h. Check your MinGW installation
-
-    * To check that your MinGW-w64 tools are correctly installed and available, open a new Command Prompt and type:
-
-            gcc --version
-            g++ --version
-            gdb --version
-
-3. Install CMake
-   
-   a. Get the latest precompiled windows binaries from the [downloads page](https://cmake.org/download/)
-   
-   b. Run the installer and make sure to keep the **Add to PATH** option ticked.
-
-4. Install LLVM for clangd formatting
-   
-   a. Get the latest version of LLVM for windows on the GitHub [release page](https://github.com/llvm/llvm-project/releases).
-
-   b. Don't get the pre-release. The file will be called something like **LLVM-xx.xx.x-win64.exe** 
-
-   c. Simply run the installer. Make sure the **Add to PATH** option is ticked.
-
-
-4. Install vscode extensions
-   
-   a. [clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd)
-
-   b. [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
-
-   c. [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
-
-   d. [C/C++ extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
-
-5. Restart your vscode
-
-Now your vscode it setup to build and run the C++ program.
-
-From `./MUSE/` you should be able to run the `CMake: Build Target` and `CMake: Run Without Debugging` commands. On my machine, the keyboard shortcuts for these defaulted to `F7` and `Shift + F5`, respectively.
+   ![](https://th.bing.com/th/id/R.96690b2065c29c6e848b69e15c94d0a0?rik=PbCJ86cV%2bS4Gow&riu=http%3a%2f%2fdailyurbanista.com%2fwp-content%2fuploads%2f2016%2f02%2fgreat-success-gif.gif&ehk=QL3L4jXfujCmot5FczjvzdLFwJmBX%2bFG5v2lYJJPkLE%3d&risl=&pid=ImgRaw&r=0)
