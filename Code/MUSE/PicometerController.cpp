@@ -132,39 +132,6 @@ std::pair<std::vector<float>, std::vector<float>> PicometerController::get_data(
 	}
 }
 
-std::vector<std::vector<float>> PicometerController::get_n_data_steps(size_t n) {
-	std::vector<std::vector<float>> result;
-	result.reserve(n);
-
-	for (size_t i = 0; i < n; ++i) {
-		if(picometer_status != PicometerStatus::CONNECTED) {
-			break;
-		}
-		// Call get_data to retrieve impedance data for each time step
-		auto impedanceData = get_data().first;
-
-		// Append the impedance data to the result vector
-		result.emplace_back(impedanceData);
-	}
-
-	return result;
-}
-
-std::vector<std::vector<float>> PicometerController::get_raw_sensor_data() {
-	if(!raw_data_ready) {
-		std::cerr << "PicometerController: Raw sensor data not ready!" << std::endl;
-		return {};
-	}
-	return raw_sensor_data;
-}
-std::vector<std::vector<float>> PicometerController::get_filtered_sensor_data() {
-	if(!filtered_data_ready) {
-		std::cerr << "PicometerController: Filtered sensor data not ready!" << std::endl;
-		return {};
-	}
-	return filtered_sensor_data;
-}
-
 void PicometerController::set_samplingrate_divider() {
 	char* ErrorStrPtr = PicometerControl(SET_SAMPLINGRATE_DIVIDER, SamplingRateDivider, NULL, NULL);
 
@@ -205,52 +172,51 @@ void PicometerController::set_input_gains(unsigned long gianvalues) {
 	}
 }
 
-void PicometerController::set_raw_sensor_data(std::vector<std::vector<float>> data) {
-	bool is_empty = true;
-	for (const auto& element : data) {
-		for (const auto& value : element) {
-			if (value != 0) {
-				is_empty = false;
-				break;
-			}
-		}
-	}
-
-	if (is_empty) {
-		std::cerr << "PicometerController: No data to save!" << std::endl;
-		return;
-	}
-	
-	raw_sensor_data = data;
-	raw_data_ready = true;
-}
-
-void PicometerController::set_filtered_sensor_data(std::vector<std::vector<float>> data) {
-	bool is_empty = true;
-	for (const auto& element : data) {
-		for (const auto& value : element) {
-			if (value != 0) {
-				is_empty = false;
-				break;
-			}
-		}
-	}
-
-	if (is_empty) {
-		std::cerr << "PicometerController: No data to save!" << std::endl;
-		return;
-	}
-
-	filtered_sensor_data = data;
-	filtered_data_ready = true;
-}
-
 std::vector<float> PicometerController::get_frequency_column(const std::vector<std::vector<float>> data_matrix, int column_indx) {
 	std::vector<float> output;
 	output.reserve(data_matrix.size());
-	for (size_t i = 0; i < data_matrix[0].size(); i++) {
+	for (size_t i = 0; i < data_matrix.size(); i++) {
 		output.emplace_back(data_matrix[i][column_indx]);
 	}
 
 	return output;
+}
+
+bool PicometerController::file_exists(const std::string& path) {
+	std::ifstream file(path);
+	return file.good();
+}
+
+void PicometerController::write_data_to_csv(const std::vector<std::vector<float>>& data, const std::string& path) {
+	// Check if the file exists before attempting to delete it
+	if (file_exists(path)) {
+		if (std::remove(path.c_str()) != 0) {
+			std::perror("Error deleting the existing file");
+			return;
+		}
+	}
+
+	std::ofstream file(path);
+
+	if (!file.is_open()) {
+		std::cerr << "Failed to open the file: " << path << std::endl;
+		return;
+	}
+
+	// Write header row
+	file << "\"freq_1\", \"freq_2\", \"freq_3\", \"freq_4\", \"freq_5\", \"freq_6\", \"freq_7\", \"freq_8\", \"freq_9\", \"freq_10\", \"freq_11\", \"freq_12\", \"freq_13\", \"freq_14\", \"freq_15\"\n";
+
+	// Write data rows
+	for (const std::vector<float>& row : data) {
+		for (size_t i = 0; i < row.size(); ++i) {
+			file << row[i];
+			if (i < row.size() - 1) {
+				file << ",";
+			}
+		}
+		file << "\n";
+	}
+
+	file.close();
+	std::cout << "Data has been written to " << path << std::endl;
 }

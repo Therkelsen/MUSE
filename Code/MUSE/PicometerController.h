@@ -5,6 +5,8 @@
 #define NOMINMAX
 
 #include <algorithm>
+#include <cstdio>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <stdio.h>
@@ -21,7 +23,7 @@ extern "C" char* GetDLLVersion(unsigned long*);
 extern "C" char* PicometerControl(unsigned char, unsigned long, unsigned long*, unsigned char*);
 
 // 15 (number of frequencies) x 4 (float byte size) = 60
-constexpr auto BUFFER_SIZE = 30;
+constexpr auto BUFFER_SIZE = 1;
 
 class PicometerController {
 public:
@@ -99,17 +101,16 @@ public:
 	
 	void get_error();
 	std::pair<std::vector<float>, std::vector<float>> get_data();
-	std::vector<std::vector<float>> get_n_data_steps(size_t n);
 	void get_configuration();
-	std::vector<std::vector<float>> get_raw_sensor_data();
-	std::vector<std::vector<float>> get_filtered_sensor_data();
 
 	void set_samplingrate_divider();
 	void set_compensation();
 	void set_excitation_level(unsigned long excitation_level);
 	void set_input_gains(unsigned long gianvalues);
-	void set_raw_sensor_data(std::vector<std::vector<float>> data);
-	void set_filtered_sensor_data(std::vector<std::vector<float>> data);
+
+	void write_data_to_csv(const std::vector<std::vector<float>>& data, const std::string& path);
+
+	bool file_exists(const std::string& path);
 
 	std::vector<float> get_frequency_column(const std::vector<std::vector<float>> data_matrix, int column_indx);
 
