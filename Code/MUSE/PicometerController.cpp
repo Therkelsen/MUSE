@@ -244,3 +244,13 @@ void PicometerController::set_filtered_sensor_data(std::vector<std::vector<float
 	filtered_sensor_data = data;
 	filtered_data_ready = true;
 }
+
+std::vector<float> PicometerController::get_frequency_column(const std::vector<std::vector<float>> data_matrix, int column_indx) {
+	std::vector<float> output;
+	output.reserve(data_matrix.size());
+	for (size_t i = 0; i < data_matrix[0].size(); i++) {
+		output.emplace_back(data_matrix[i][column_indx]);
+	}
+
+	return output;
+}

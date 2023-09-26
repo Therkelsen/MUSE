@@ -154,7 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DataInterface.cpp" />
+    <ClCompile Include="DataProcessing.cpp" />
     <ClCompile Include="FIR_filter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PicometerController.cpp" />
@@ -167,7 +167,7 @@
     <Library Include="PicometerCtrl.lib" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataInterface.h" />
+    <ClInclude Include="DataProcessing.h" />
     <ClInclude Include="FIR_filter.h" />
     <ClInclude Include="PicometerController.h" />
     <ClInclude Include="pre_defined_params.h" />

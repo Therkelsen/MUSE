@@ -21,7 +21,7 @@ extern "C" char* GetDLLVersion(unsigned long*);
 extern "C" char* PicometerControl(unsigned char, unsigned long, unsigned long*, unsigned char*);
 
 // 15 (number of frequencies) x 4 (float byte size) = 60
-constexpr auto BUFFER_SIZE = 15 * 4;
+constexpr auto BUFFER_SIZE = 30;
 
 class PicometerController {
 public:
@@ -110,6 +110,8 @@ public:
 	void set_input_gains(unsigned long gianvalues);
 	void set_raw_sensor_data(std::vector<std::vector<float>> data);
 	void set_filtered_sensor_data(std::vector<std::vector<float>> data);
+
+	std::vector<float> get_frequency_column(const std::vector<std::vector<float>> data_matrix, int column_indx);
 
 	unsigned long Idx = 0;
 	unsigned char TxtBfr[16];

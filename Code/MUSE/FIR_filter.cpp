@@ -51,7 +51,6 @@ float filter_update(FIRFilter *fir, float inp) {
 
         /* Decrements buffer index and wraps around if necessary */
         if(sumIndex > 0) {
-
             sumIndex--;
         } else {
             sumIndex = FIR_FILTER_LENGTH-1;
@@ -68,7 +67,7 @@ float filter_update(FIRFilter *fir, float inp) {
 std::vector<float> apply_filter(FIRFilter* fir, std::vector<float> input_signal) {
     std::vector<float> output_signal; 
     output_signal.reserve(input_signal.size());
-    for(int i = 0; i < input_signal.size(); i++) {
+    for(unsigned int i = 0; i < input_signal.size(); i++) {
 		output_signal.emplace_back(filter_update(fir, input_signal[i]));
 	}
     return output_signal;

@@ -18,9 +18,6 @@
     <ClCompile Include="PicometerReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FIR_filter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -28,6 +25,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PicometerController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataProcessing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,10 +45,10 @@
     <ClInclude Include="pre_defined_params.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataInterface.h">
+    <ClInclude Include="FIR_filter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FIR_filter.h">
+    <ClInclude Include="DataProcessing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PicometerController.h">
