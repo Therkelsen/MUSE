@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 from matplotlib import gridspec
 from matplotlib.animation import FuncAnimation
 
+
 def update_data(i):
     # Load your data in each iteration (update)
     raw_sensor_data = pd.read_csv("Code/Data/raw_sensor_data.csv")
     filtered_sensor_data = pd.read_csv("Code/Data/filtered_data.csv").iloc[3:]
-    noise_data = pd.read_csv("Code/Data/noise_data.csv")
 
     # Clear the current plots
     plt.clf()

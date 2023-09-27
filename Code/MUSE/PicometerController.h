@@ -1,4 +1,3 @@
-#pragma once
 #ifndef PICOMETER_CONTROLLER_H
 #define PICOMETER_CONTROLLER_H
 
@@ -63,11 +62,11 @@ public:
 		ExcitationLevel = 0;
 		GainVals = 0x00;
 		Idx = 0;
-		for (int i = 0; i < (sizeof(TxtBfr) / sizeof(*TxtBfr)); i++){
+		for (int i = 0; i < (sizeof(TxtBfr) / sizeof(*TxtBfr)); i++) {
 			TxtBfr[i] = 0;
 		}
 
-		staticUSE();
+		static_use();
 		connect_device();
 		set_samplingrate_divider(); // this function should be run in idle mode
 		get_configuration(); // this function should be run in idle mode
@@ -92,13 +91,13 @@ public:
 	}
 
 	// Function declarations
-	void staticUSE();
+	void static_use();
 	void connect_device();
 	void disconnect_device();
 	void device_start();
 	void device_stop();
 	void print_data(std::vector<std::vector<float>> data);
-	
+
 	void get_error();
 	std::pair<std::vector<float>, std::vector<float>> get_data();
 	void get_configuration();

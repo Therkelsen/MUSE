@@ -171,6 +171,11 @@
     <ClInclude Include="FIR_filter.h" />
     <ClInclude Include="PicometerController.h" />
     <ClInclude Include="pre_defined_params.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MUSE.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

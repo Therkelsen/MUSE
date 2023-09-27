@@ -1,0 +1,9 @@
+﻿  main.cpp
+  PicometerController.cpp
+  Generating Code...
+PicometerController.obj : error LNK2019: unresolved external symbol GetDLLVersion referenced in function "public: void __cdecl PicometerController::staticUSE(void)" (?staticUSE@PicometerController@@QEAAXXZ)
+PicometerReader.obj : error LNK2001: unresolved external symbol GetDLLVersion
+PicometerController.obj : error LNK2019: unresolved external symbol PicometerControl referenced in function "public: void __cdecl PicometerController::connect_device(void)" (?connect_device@PicometerController@@QEAAXXZ)
+PicometerReader.obj : error LNK2001: unresolved external symbol PicometerControl
+PicometerCtrl.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Documents\GitHub\MUSE\Code\x64\Debug\MUSE.exe : fatal error LNK1120: 2 unresolved externals

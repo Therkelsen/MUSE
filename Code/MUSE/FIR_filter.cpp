@@ -1,84 +1,66 @@
-#include <stdint.h>
 #include "FIR_filter.h"
 
-// Array that will contain our impulse respons.
-static float FIR_IMPULSE_RESPONSE[FIR_FILTER_LENGTH] = {
-    -0.0096885631125593965617959213432186516,
-    - 0.018288704022953281014274296012445120141,
-    0.058878785660602249441009092834065086208,
-    0.089240442198602568102394627658213721588,
-    - 0.154440953757407795077227774527273140848,
-    - 0.189740787364098023592973163431452121586,
-    0.223994076947065801075353874693973921239,
-    0.223994076947065801075353874693973921239,
-    - 0.189740787364098023592973163431452121586,
-    - 0.154440953757407795077227774527273140848,
-    0.089240442198602568102394627658213721588,
-    0.058878785660602249441009092834065086208,
-    - 0.018288704022953281014274296012445120141,
-    - 0.0096885631125593965617959213432186516};
+void filter_init(FIRFilter* fir, const std::vector<float>& filter_coefficients) {
+	/* Initialize buf with zeros */
+	fir->buf.assign(filter_coefficients.size(), 0.0f);
 
-void filter_init(FIRFilter *fir) {
+	/* Initialize impulse_response with filter_coefficients */
+	fir->impulse_response = filter_coefficients;
 
-    /* Clear filter buffer */
-    for(uint8_t n = 0; n < FIR_FILTER_LENGTH; n++) {
-        fir->buf[n] = 0.0f;
+	/* Reset buffer index */
+	fir->buf_index = 0;
 
-    }
-
-    /* Reset buffer index */
-    fir->bufIndex = 0;
-
-    /* Clear filter output */
-    fir->out = 0.0f;
-};
+	/* Clear filter output */
+	fir->out = 0.0f;
+}
 
 /* Follows the math of the convolution operation:
-        y[n] = sum(j=0 to n-1)(h[j]*x[n-j])
-        
-        Where y is the output, h is the impulse response, n is the length of the impulse response
-        x[n-j] is the shifted samples of our input buffer of our circular buffer
+		y[n] = sum(j=0 to n-1)(h[j]*x[n-j])
+
+		Where y is the output, h is the impulse response, n is the length of the impulse response
+		x[n-j] is the shifted samples of our input buffer of our circular buffer
 */
 
-float filter_update(FIRFilter *fir, float inp) {
-    
-    /* Stores latest sample buffer */
-    fir->buf[fir->bufIndex] = inp;
+float filter_update(FIRFilter* fir, float inp) {
 
-    /* Increments buffer index and wraps around if necessary */
-    fir->bufIndex++;
+	/* Stores latest sample buffer */
+	fir->buf[fir->buf_index] = inp;
 
-    if (fir->bufIndex == FIR_FILTER_LENGTH) {
-        fir->bufIndex = 0;
-    }
+	/* Increments buffer index and wraps around if necessary */
+	fir->buf_index++;
 
-    /* Compute new output sample (via convolution) */
-    fir->out = 0.0f;
+	if (fir->buf_index == fir->impulse_response.size()) {
+		fir->buf_index = 0;
+	}
 
-    uint8_t sumIndex = fir->bufIndex;
+	/* Compute new output sample (via convolution) */
+	fir->out = 0.0f;
 
-    for(uint8_t n = 0; n < FIR_FILTER_LENGTH; n++) {
+	uint8_t sumIndex = fir->buf_index;
 
-        /* Decrements buffer index and wraps around if necessary */
-        if(sumIndex > 0) {
-            sumIndex--;
-        } else {
-            sumIndex = FIR_FILTER_LENGTH-1;
-        }
+	for (uint8_t n = 0; n < fir->impulse_response.size(); n++) {
 
-        /* Multiply impulse response with shifted input sample and add to output */
-        fir->out += FIR_IMPULSE_RESPONSE[n] * fir->buf[sumIndex];
-    }
+		/* Decrements buffer index and wraps around if necessary */
+		if (sumIndex > 0) {
+			sumIndex--;
+		}
+		else {
+			sumIndex = fir->impulse_response.size() - 1;
+		}
 
-    /* Return filter output */
-    return fir->out;
+		/* Multiply impulse response with shifted input sample and add to output */
+		fir->out += fir->impulse_response[n] * fir->buf[sumIndex];
+	}
+
+	/* Return filter output */
+	return fir->out;
 }
 
 std::vector<float> apply_filter(FIRFilter* fir, std::vector<float> input_signal) {
-    std::vector<float> output_signal; 
-    output_signal.reserve(input_signal.size());
-    for(unsigned int i = 0; i < input_signal.size(); i++) {
+	std::vector<float> output_signal;
+	output_signal.reserve(input_signal.size());
+	for (unsigned int i = 0; i < input_signal.size(); i++) {
 		output_signal.emplace_back(filter_update(fir, input_signal[i]));
 	}
-    return output_signal;
+	return output_signal;
 }

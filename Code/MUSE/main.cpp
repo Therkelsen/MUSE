@@ -1,149 +1,113 @@
-#include <iostream>
-#include <vector>
-#include <thread>
 #include <chrono>
 #include <conio.h>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <thread>
+#include <vector>
 
 #include "Filter.h"
 #include "FIR_filter.h"
 #include "PicometerController.h"
+#include "Utils.h"
 
-
-enum class MainStatus {
-    IDLE,
-    COLLECTING,
-    SAVING,
-    CONTINUOUS,
-    STOPPING,
-};
-
-void collect_data(PicometerController& PC, FIRFilter& filter, std::vector<std::vector<float>>& raw, std::vector<std::vector<float>>& filtered) {
-    if (PC.picometer_status == PicometerController::PicometerStatus::CONNECTED) {
-        raw.emplace_back(PC.get_data().first);
-        filtered.emplace_back(apply_filter(&filter, raw.back()));
-    }
-}
-
-void write_data(PicometerController& PC, std::vector<std::vector<float>> raw, std::vector<std::vector<float>> filtered) {
-    PC.write_data_to_csv(raw, "../Data/raw_sensor_data.csv");
-    PC.write_data_to_csv(filtered, "../Data/filtered_data.csv");
-}   
+PicometerController* PC;
 
 int main() {
-    PicometerController PC;
-    FIRFilter filter = {};
+	FIRFilter filter = {};
 
-    MainStatus status = MainStatus::IDLE;
-  
-    unsigned int cutoff = 3;
-    int column_index = 9;
+	utils::MainStatus status = utils::MainStatus::IDLE;
 
-    std::vector<std::vector<float>> result;
-    std::vector<std::vector<float>> input_signal;
+	unsigned int cutoff = 3;
+	int column_index = 9;
 
-    std::vector<std::vector<float>> output_signal;
+	std::vector<std::vector<float>> result;
+	std::vector<std::vector<float>> input_signal;
+	std::vector<std::vector<float>> output_signal;
+	std::vector<float> filter_coefficients;
 
-    filter_init(&filter);
-    result.reserve(1000);
-    input_signal.reserve(PC.get_data().first.size() - cutoff);
-    output_signal.reserve(PC.get_data().first.size() - cutoff);
-    bool print_start_info = true;
+	const std::string input_file = "../Data/input_data.csv";
+	const std::string filter_coefficients_file = "../Data/filter_coefficients.csv";
 
-    ///*************************************************************** FOR CALCULATING SAMPLERATE ***************************************************************/
-    //// Samplerate on Simons computer is: 17samples / 1.022seconds = 16.63 Hertz
-    //// Get the current time
-    //auto start_time = std::chrono::high_resolution_clock::now();
+	filter_init(&filter, utils::get_filter_coefficients(filter_coefficients_file));
+	bool print_start_info = true;
 
-    //// Specify the duration you want the loop to run (1 second in this case)
-    //std::chrono::milliseconds duration(1000);
+	while (true) {
+		switch (status) {
+		case utils::MainStatus::IDLE:
+			// Check if a key has been pressed
+			if (print_start_info) {
+				print_start_info = false;
+				std::cout << "\n\nPress s to start the program" << std::endl;
+				std::cout << "While collecting data, press k to stop collecting data, and save it" << std::endl;
+				std::cout << "Press f to run in offline mode (Eliko device is not connected)" << std::endl;
+				std::cout << "Ctrl + C at any point to exit.\n" << std::endl;
+			}
 
-    //while (true) {
-    //    if (PC.picometer_status != PicometerController::PicometerStatus::CONNECTED) {
-    //        break;
-    //    }
-    //    // Call get_data to retrieve impedance data for each time step
-    //    auto impedanceData = PC.get_data().first;
+			if (_kbhit()) {
+				char key = _getch();
+				std::cout << "Key Pressed: " << key << std::endl;
+				if (key == 's') {
+					std::cout << "Starting..." << std::endl;
+					status = utils::MainStatus::COLLECTING;
+					break;
+				}
 
-    //    // Append the impedance data to the result vector
-    //    result.emplace_back(impedanceData);
+				if (key == 'f') {
+					std::cout << "Starting in offline mode..." << std::endl;
+					status = utils::MainStatus::OFFLINE_MODE;
+					break;
+				}
+			}
+			break;
 
-    //    // Get the current time again
-    //    auto current_time = std::chrono::high_resolution_clock::now();
+		case utils::MainStatus::OFFLINE_MODE:
+			utils::collect_data_from_file(filter, input_file, input_signal, output_signal);
+			status = utils::MainStatus::SAVING;
+			break;
 
-    //    // Calculate the elapsed time
-    //    auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time);
+		case utils::MainStatus::COLLECTING:
+			PC = new PicometerController();
+			input_signal.reserve(PC->get_data().first.size() - cutoff);
+			output_signal.reserve(PC->get_data().first.size() - cutoff);
+			utils::collect_data(*PC, filter, input_signal, output_signal);
+			// Check if a key has been pressed
+			if (_kbhit()) {
+				char key = _getch();
+				if (key == 'k') {
+					std::cout << "Key Pressed: " << key << std::endl;
+					std::cout << "Stopping..." << std::endl;
 
-    //    // Check if the desired duration has passed
-    //    if (elapsed_time >= duration) {
-    //        std::cout << "Loop completed after " << elapsed_time << " seconds." << std::endl;
-    //        break; // Exit the loop after 1 second
-    //    }
-    //}
-    //
-    //for (auto i = 0; i < result.size(); i++)
-    //    std::cout << result[i][0] << std::endl;
-    ///*************************************************************** SAMPLERATE END ***************************************************************/
+					status = utils::MainStatus::SAVING;
+					break;
+				}
+			}
+			break;
 
-    while (true) {
-        switch (status) {
-            case MainStatus::IDLE:
-                // Check if a key has been pressed
-                if (print_start_info) {
-                    print_start_info = false;
-                    std::cout << "\n\nPress s to start the program" << std::endl;
-                    std::cout << "While collecting data, press k to stop collecting data, and save it" << std::endl;
-                    std::cout << "Ctrl + C at any point to exit.\n" << std::endl;
-                }
-                if (_kbhit()) {
-                    char key = _getch();
-                    if (key == 's') {
-                        std::cout << "Key Pressed: " << key << std::endl;
-                        std::cout << "Starting..." << std::endl;
+		case utils::MainStatus::SAVING:
+			utils::write_data_to_csv(input_signal, "../Data/raw_sensor_data.csv");
+			utils::write_data_to_csv(output_signal, "../Data/filtered_data.csv");
+			status = utils::MainStatus::STOPPING;
+			break;
 
-                        status = MainStatus::COLLECTING;
-                        break;
-                    }
-                }
-                break;
+		case utils::MainStatus::CONTINUOUS:
+			utils::write_data_to_csv(input_signal, "../Data/raw_sensor_data.csv");
+			utils::write_data_to_csv(output_signal, "../Data/filtered_data.csv");
+			status = utils::MainStatus::SAVING;
+			break;
 
-            case MainStatus::COLLECTING:
-                collect_data(PC, filter, input_signal, output_signal);
-                // Check if a key has been pressed
-                if (_kbhit()) {
-                    char key = _getch();
-                    if (key == 'k') {
-                        std::cout << "Key Pressed: " << key << std::endl;
-                        std::cout << "Stopping..." << std::endl;
+		case utils::MainStatus::STOPPING:
+			std::cout << "Data gathered and saved, stopping..." << std::endl;
+			print_start_info = true;
+			input_signal.clear();
+			output_signal.clear();
+			status = utils::MainStatus::IDLE;
+			break;
 
-                        status = MainStatus::SAVING;
-                        break;
-                    }
-                }
-                break;
-
-            case MainStatus::SAVING:
-                write_data(PC, input_signal, output_signal);
-                status = MainStatus::STOPPING;
-                break;
-
-            case MainStatus::CONTINUOUS:
-                write_data(PC, input_signal, output_signal);
-                status = MainStatus::SAVING;
-                break;
-
-            case MainStatus::STOPPING:
-                std::cout << "Data gathered and saved, stopping..." << std::endl;
-                print_start_info = true;
-                input_signal.clear();
-                input_signal.reserve(PC.get_data().first.size() - cutoff);
-                output_signal.clear();
-                output_signal.reserve(PC.get_data().first.size() - cutoff);
-                status = MainStatus::IDLE;
-				break;
-            
-            default:
-                status = MainStatus::IDLE;
-                break;
-            }
-        }
-    }
+		default:
+			status = utils::MainStatus::IDLE;
+			break;
+		}
+	}
+	delete PC;
+}

@@ -3,95 +3,93 @@
 // do not remove
 static unsigned long ErrEvent = 0;
 
-void PicometerController::staticUSE() {
+// Function to throw an exception with an error message
+void throw_runtime_error(const std::string& error_msg) {
+	throw std::runtime_error("PicometerController: " + error_msg + "\nExiting...");
+}
+
+void PicometerController::static_use() {
 	char* version = GetDLLVersion(NULL);
 	if (version == NULL) {
-		std::cerr << "PicometerController: .dll version is NULL!!!" << std::endl;
-	} else {
-		printf("PicometerController: .dll version is: %s \n", version);
+		throw_runtime_error(".dll version is NULL!!!");
 	}
+	printf("PicometerController: .dll version is: %s \n", version);
 }
 
 void PicometerController::connect_device() {
 	printf("Connecting...\n");
 
-	char* ErrorStrPtr = PicometerControl(DEVICE_CONNECT, 0, &Idx, TxtBfr);
-	if (ErrorStrPtr != NULL) {
-		std::cerr << "PicometerController: Device connection failed!" << std::endl;
+	char* error_str_ptr = PicometerControl(DEVICE_CONNECT, 0, &Idx, TxtBfr);
+	if (error_str_ptr != NULL) {
+		throw_runtime_error("Device connection failed!");
 		picometer_status = PicometerStatus::ERROR_FOUND;
-	} else {
-		std::cout << Idx << "\n" << TxtBfr << "\nPicometerController: Device connection successfully established." << std::endl;
-		picometer_status = PicometerStatus::CONNECTED;
 	}
+	std::cout << Idx << "\n" << TxtBfr << "\nPicometerController: Device connection successfully established." << std::endl;
+	picometer_status = PicometerStatus::CONNECTED;
 }
 
 void PicometerController::disconnect_device() {
-	char* ErrorStrPtr = PicometerControl(DEVICE_DISCONNECT, 0, NULL, NULL);
-	if (ErrorStrPtr != NULL) {
-		std::cerr << "PicometerController: Device disconnect failed!" << std::endl;
+	char* error_str_ptr = PicometerControl(DEVICE_DISCONNECT, 0, NULL, NULL);
+	if (error_str_ptr != NULL) {
+		throw_runtime_error("Device disconnect failed!");
 		picometer_status = PicometerStatus::ERROR_FOUND;
-	} else {
-		std::cout << "PicometerController: Device successfully disconnected." << std::endl;
-		picometer_status = PicometerStatus::DISCONNECTED;
 	}
+	std::cout << "PicometerController: Device successfully disconnected." << std::endl;
+	picometer_status = PicometerStatus::DISCONNECTED;
 }
 
 void PicometerController::device_start() {
-	char* ErrorStrPtr = PicometerControl(START, 0, NULL, NULL);
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Device startup failed!" << std::endl;
+	char* error_str_ptr = PicometerControl(START, 0, NULL, NULL);
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
+		throw_runtime_error("Device startup failed!");
 		picometer_status = PicometerStatus::ERROR_FOUND;
-	} else {
-		std::cout << "PicometerController: Device startup successful." << std::endl;
 	}
+	std::cout << "PicometerController: Device startup successful." << std::endl;
 }
 
 void PicometerController::device_stop() {
-	char* ErrorStrPtr = PicometerControl(STOP, 0, NULL, NULL);
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Device stop failed!" << std::endl;
+	char* error_str_ptr = PicometerControl(STOP, 0, NULL, NULL);
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
+		throw_runtime_error("Device stop failed!");
 		picometer_status = PicometerStatus::ERROR_FOUND;
-	} else {
-		std::cout << "PicometerController: Device succesfully stopped." << std::endl;
 	}
+	std::cout << "PicometerController: Device successfully stopped." << std::endl;
 }
 
 void PicometerController::get_error() {
 	PicometerControl(GET_ERROR, 0, &ErrEvent, NULL);
 	if (ErrEvent != NULL) {
-		char* ErrorStrPtr = PicometerControl(GET_ERROR, 0, &ErrEvent, NULL);
-		std::cerr << ErrorStrPtr << std::endl;
-	} else {
-		std::cerr << ErrEvent << std::endl;
+		char* error_str_ptr = PicometerControl(GET_ERROR, 0, &ErrEvent, NULL);
+		std::cerr << error_str_ptr << std::endl;
 	}
+	std::cerr << ErrEvent << std::endl;
 }
 
 void PicometerController::get_configuration() {
-	char* ErrorStrPtr = PicometerControl(GET_CONFIGURATION, 0, NULL, (PBYTE)&ConfData);
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Configuration data getter failed!" << std::endl;
+	char* error_str_ptr = PicometerControl(GET_CONFIGURATION, 0, NULL, (PBYTE)&ConfData);
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
+		throw_runtime_error("Configuration data getter failed!");
 		picometer_status = PicometerStatus::ERROR_FOUND;
-	} else {
-		std::cout << "PicometerController: Configuration data gotten successfully."
-				  << "\nPicometerController: Configuration data -- InputCompenValReal:" << ConfData.InputCompenValReal
-		          << "\nPicometerController: Configuration data -- ShuntImpedanceImaginary:" << ConfData.ShuntImpedanceImaginary
-				  << "\nPicometerController: Configuration data -- ShuntImpedanceReal:" << ConfData.ShuntImpedanceReal << std::endl;
 	}
+	std::cout << "PicometerController: Configuration data gotten successfully."
+	<< "\nPicometerController: Configuration data -- InputCompenValReal:" << ConfData.InputCompenValReal
+	<< "\nPicometerController: Configuration data -- ShuntImpedanceImaginary:" << ConfData.ShuntImpedanceImaginary
+	<< "\nPicometerController: Configuration data -- ShuntImpedanceReal:" << ConfData.ShuntImpedanceReal << std::endl;
 }
 
 void PicometerController::print_data(std::vector<std::vector<float>> data) {
 	bool is_empty = true;
 	for (const auto& element : data) {
-		for(const auto& value : element) {
+		for (const auto& value : element) {
 			if (value != 0) {
 				is_empty = false;
 				break;
 			}
 		}
 	}
-	
-	if(is_empty) {
-		std::cerr << "PicometerController: No data to print!" << std::endl;
+
+	if (is_empty) {
+		throw_runtime_error("No data to print!");
 		return;
 	}
 
@@ -119,55 +117,55 @@ void PicometerController::print_data(std::vector<std::vector<float>> data) {
 }
 
 std::pair<std::vector<float>, std::vector<float>> PicometerController::get_data() {
-	char* ErrorStrPtr = PicometerControl(GET_DATA, NrOfDataFrames, &NrOfDataFramesCopied, (unsigned char*)Data);
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Failed to get the data, aborting! Error: " << ErrorStrPtr << std::endl;
+	char* error_str_ptr = PicometerControl(GET_DATA, NrOfDataFrames, &NrOfDataFramesCopied, (unsigned char*)Data);
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
 		picometer_status = PicometerStatus::ERROR_FOUND;
-		return { {}, {} };
-	} else {
-		std::vector<float> impedanceModule(Data->ImpedanceModule, Data->ImpedanceModule + 15);
-		std::vector<float> impedancePhase(Data->ImpedancePhase, Data->ImpedancePhase + 15);
-
-		return { impedanceModule, impedancePhase };
+		throw std::runtime_error("PicometerController: Failed to get the data! Error: " + std::string(error_str_ptr));
 	}
+
+	std::vector<float> impedance_module(Data->ImpedanceModule, Data->ImpedanceModule + 15);
+	std::vector<float> impedance_phase(Data->ImpedancePhase, Data->ImpedancePhase + 15);
+
+	return { impedance_module, impedance_phase };
 }
 
-void PicometerController::set_samplingrate_divider() {
-	char* ErrorStrPtr = PicometerControl(SET_SAMPLINGRATE_DIVIDER, SamplingRateDivider, NULL, NULL);
 
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Sampling rate divider could not be set!" << ErrorStrPtr << std::endl;
-	} else {
-		std::cout << "PicometerController: Sampling rate divider succesfully set." << std::endl;
+void PicometerController::set_samplingrate_divider() {
+	char* error_str_ptr = PicometerControl(SET_SAMPLINGRATE_DIVIDER, SamplingRateDivider, NULL, NULL);
+
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
+		throw std::runtime_error("PicometerController: Sampling rate divider could not be set! Error: " + std::string(error_str_ptr));
 	}
+	std::cout << "PicometerController: Sampling rate divider successfully set." << std::endl;
 }
 
 void PicometerController::set_compensation() {
-	char* ErrorStrPtr = PicometerControl(SET_COMPENSATION, CompensationConf, NULL, NULL);
+	char* error_str_ptr = PicometerControl(SET_COMPENSATION, CompensationConf, NULL, NULL);
 
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Compensation could not be set!" << std::endl;
-	} else {
-		std::cout << "PicometerController: Compensation successfully set." << std::endl;
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
+		throw std::runtime_error("PicometerController: Compensation could not be set! Error: " + std::string(error_str_ptr));
 	}
+	std::cout << "PicometerController: Compensation successfully set." << std::endl;
 }
 
 void PicometerController::set_excitation_level(unsigned long excitation_level) {
-	char* ErrorStrPtr = PicometerControl(SET_EXCITATION_LEVEL, excitation_level, NULL, NULL);
+	char* error_str_ptr = PicometerControl(SET_EXCITATION_LEVEL, excitation_level, NULL, NULL);
 
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Excitation level could not be set!" << std::endl;
-	} else {
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
+		throw std::runtime_error("PicometerController: Excitation level could not be set! Error: " + std::string(error_str_ptr));
+	}
+	else {
 		std::cout << "PicometerController: Excitation level successfully set." << std::endl;
 	}
 }
 
 void PicometerController::set_input_gains(unsigned long gianvalues) {
-	char* ErrorStrPtr = PicometerControl(SET_INPUT_GAINS, gianvalues, NULL, NULL);
+	char* error_str_ptr = PicometerControl(SET_INPUT_GAINS, gianvalues, NULL, NULL);
 
-	if (ErrorStrPtr != NULL && picometer_status != PicometerStatus::CONNECTED) {
-		std::cerr << "PicometerController: Input gains could not be set!" << std::endl;
-	} else {
+	if (error_str_ptr != NULL && picometer_status != PicometerStatus::CONNECTED) {
+		throw std::runtime_error("PicometerController: Input gains could not be set! Error: " + std::string(error_str_ptr));
+	}
+	else {
 		std::cout << "PicometerController: Input gains successfully set." << std::endl;
 	}
 }
@@ -180,43 +178,4 @@ std::vector<float> PicometerController::get_frequency_column(const std::vector<s
 	}
 
 	return output;
-}
-
-bool PicometerController::file_exists(const std::string& path) {
-	std::ifstream file(path);
-	return file.good();
-}
-
-void PicometerController::write_data_to_csv(const std::vector<std::vector<float>>& data, const std::string& path) {
-	// Check if the file exists before attempting to delete it
-	if (file_exists(path)) {
-		if (std::remove(path.c_str()) != 0) {
-			std::perror("Error deleting the existing file");
-			return;
-		}
-	}
-
-	std::ofstream file(path);
-
-	if (!file.is_open()) {
-		std::cerr << "Failed to open the file: " << path << std::endl;
-		return;
-	}
-
-	// Write header row
-	file << "\"freq_1\", \"freq_2\", \"freq_3\", \"freq_4\", \"freq_5\", \"freq_6\", \"freq_7\", \"freq_8\", \"freq_9\", \"freq_10\", \"freq_11\", \"freq_12\", \"freq_13\", \"freq_14\", \"freq_15\"\n";
-
-	// Write data rows
-	for (const std::vector<float>& row : data) {
-		for (size_t i = 0; i < row.size(); ++i) {
-			file << row[i];
-			if (i < row.size() - 1) {
-				file << ",";
-			}
-		}
-		file << "\n";
-	}
-
-	file.close();
-	std::cout << "Data has been written to " << path << std::endl;
 }

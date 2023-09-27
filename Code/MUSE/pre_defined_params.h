@@ -1,4 +1,3 @@
-#pragma once
 #ifndef PRE_DEFINED_PARAMS_H
 #define PRE_DEFINED_PARAMS_H
 
