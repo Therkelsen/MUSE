@@ -17,6 +17,6 @@ typedef struct {
 
 void filter_init(FIRFilter* fir, const std::vector<float>& filter_coefficients);
 float filter_update(FIRFilter* fir, float inp);
-std::vector<float> apply_filter(FIRFilter* fir, std::vector<float> input_signal);
+std::vector<float> apply_filter(FIRFilter* fir, const std::vector<float>& input_signal);
 
 #endif

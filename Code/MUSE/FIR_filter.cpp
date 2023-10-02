@@ -56,7 +56,7 @@ float filter_update(FIRFilter* fir, float inp) {
 	return fir->out;
 }
 
-std::vector<float> apply_filter(FIRFilter* fir, std::vector<float> input_signal) {
+std::vector<float> apply_filter(FIRFilter* fir, const std::vector<float>& input_signal) {
 	std::vector<float> output_signal;
 	output_signal.reserve(input_signal.size());
 	for (unsigned int i = 0; i < input_signal.size(); i++) {

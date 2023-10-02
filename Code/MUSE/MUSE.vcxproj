@@ -154,7 +154,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DataProcessing.cpp" />
     <ClCompile Include="FIR_filter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PicometerController.cpp" />

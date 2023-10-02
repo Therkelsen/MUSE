@@ -27,9 +27,6 @@
     <ClCompile Include="PicometerController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataProcessing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="PicometerCtrl.dll">

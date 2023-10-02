@@ -1,6 +1,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <utility>
+
 namespace utils {
 	enum class MainStatus {
 		IDLE,
@@ -91,13 +93,24 @@ namespace utils {
 		return filter_coefficients;  // Return the single-dimensional vector of coefficients
 	}
 
-	void collect_data(PicometerController PC, FIRFilter filter, std::vector<std::vector<float>>& raw, std::vector<std::vector<float>>& filtered) {
+	std::pair<std::vector<std::vector<float>>, std::vector<std::vector<float>>> collect_data(PicometerController& PC, FIRFilter filter, std::vector<std::vector<float>>& input_signal, std::vector<std::vector<float>>& output_signal) {
 		if (PC.picometer_status == PicometerController::PicometerStatus::CONNECTED) {
-			raw.emplace_back(PC.get_data().first);
-			for (unsigned int i = 0; i < raw.back().size(); i++) {
-				filtered.emplace_back(apply_filter(&filter, raw.back()));
-			}
+			std::vector<float> input_row;
+			std::vector<float> output_row;
+
+			// Collect data from the picometer
+			input_row = PC.get_data().first;
+
+			// Apply the filter to the input data
+			output_row = apply_filter(&filter, input_row);
+
+			// Append the collected data to input_signal and output_signal
+			input_signal.emplace_back(input_row);
+			output_signal.emplace_back(output_row);
+
+			return { input_signal, output_signal };
 		}
+		return { input_signal, output_signal };  // Return the unchanged signals if not connected
 	}
 
 	void collect_data_from_file(FIRFilter& filter, const std::string& input_file, std::vector<std::vector<float>>& raw, std::vector<std::vector<float>>& filtered) {
