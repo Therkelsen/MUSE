@@ -42,7 +42,6 @@ def update_data(i):
     ax1.spines['top'].set_color((.8, .8, .8))
 
     # Create the 2D plot for filtered_sensor_data
-    
     # Get the dimensions of your data
     num_rows, num_cols = filtered_sensor_data.shape
 
@@ -99,19 +98,19 @@ def update_data(i):
     
     # FFT of raw data
     # Compute the FFT of the selected frequency column
-    fft_result = np.fft.fft(selected_frequency)
+    raw_fft_result = np.fft.fft(selected_frequency)
     # Compute the magnitude of the FFT result (absolute values)
-    magnitude = np.abs(fft_result)[5:]
+    raw_magnitude = np.abs(raw_fft_result)[5:]
 
     # Compute the corresponding frequencies for the FFT result
     # Frequency values range from 0 to the Nyquist frequency (half of the sampling rate)
     # Assuming your data was sampled at 1 Hz, the Nyquist frequency would be 0.5 Hz
     nyquist_frequency = 500
-    frequency_values = np.linspace(0, nyquist_frequency, len(magnitude) // 2)
+    raw_frequency_values = np.linspace(0, nyquist_frequency, len(raw_magnitude) // 2)
 
     # Plot the FFT
     ax4 = plt.subplot(gs[0, 1])
-    ax4 = plt.plot(frequency_values, magnitude[:len(magnitude) // 2])
+    ax4 = plt.plot(raw_frequency_values, raw_magnitude[:len(raw_magnitude) // 2])
     ax4 = plt.xlabel('Frequency (Hz)')
     ax4 = plt.ylabel('Amplitude')
     ax4 = plt.title('Magnitude Spectrum of FFT (Raw data)')
@@ -119,19 +118,15 @@ def update_data(i):
     
     # FFT of filtered data
     # Compute the FFT of the selected frequency column
-    fft_result = np.fft.fft(filtered_data_column)
+    filtered_fft_result = np.fft.fft(filtered_data_column)
     # Compute the magnitude of the FFT result (absolute values)
-    magnitude = np.abs(fft_result)[5:]
+    filtered_magnitude = np.abs(filtered_fft_result)[5:]
 
-    # Compute the corresponding frequencies for the FFT result
-    # Frequency values range from 0 to the Nyquist frequency (half of the sampling rate)
-    # Assuming your data was sampled at 1 Hz, the Nyquist frequency would be 0.5 Hz
-    nyquist_frequency = 500
-    frequency_values = np.linspace(0, nyquist_frequency, len(magnitude) // 2)
+    filtered_frequency_values = np.linspace(0, nyquist_frequency, len(filtered_magnitude) // 2)
 
     # Plot the FFT
     ax5 = plt.subplot(gs[1, 1])
-    ax5 = plt.plot(frequency_values, magnitude[:len(magnitude) // 2])
+    ax5 = plt.plot(filtered_frequency_values, filtered_magnitude[:len(filtered_magnitude) // 2])
     ax5 = plt.xlabel('Frequency (Hz)')
     ax5 = plt.ylabel('Amplitude')
     ax5 = plt.title('Magnitude Spectrum of FFT (Filtered data)')
@@ -139,23 +134,33 @@ def update_data(i):
 
     # FFT of processed data
     # Compute the FFT of the selected frequency column
-    fft_result = np.fft.fft(processed_data_column)
+    processed_fft_result = np.fft.fft(processed_data_column)
     # Compute the magnitude of the FFT result (absolute values)
-    magnitude = np.abs(fft_result)[5:]
-
-    # Compute the corresponding frequencies for the FFT result
-    # Frequency values range from 0 to the Nyquist frequency (half of the sampling rate)
-    # Assuming your data was sampled at 1 Hz, the Nyquist frequency would be 0.5 Hz
-    nyquist_frequency = 500
-    frequency_values = np.linspace(0, nyquist_frequency, len(magnitude) // 2)
+    processed_magnitude = np.abs(processed_fft_result)[5:]
+    
+    processed_frequency_values = np.linspace(0, nyquist_frequency, len(processed_magnitude) // 2)
 
     # Plot the FFT
     ax6 = plt.subplot(gs[2, 1])
-    ax6 = plt.plot(frequency_values, magnitude[:len(magnitude) // 2])
+    ax6 = plt.plot(processed_frequency_values, processed_magnitude[:len(processed_magnitude) // 2])
     ax6 = plt.xlabel('Frequency (Hz)')
     ax6 = plt.ylabel('Amplitude')
     ax6 = plt.title('Magnitude Spectrum of FFT (Processed data)')
     ax6 = plt.grid(True)
+    
+    # Lower frequencies of IFFT of raw data
+    # Compute the FFT of the selected frequency column
+    raw_ifft_result = np.fft.ifft(raw_fft_result[:len(raw_fft_result) // 2])
+
+    frequency_values = np.linspace(0, nyquist_frequency, len(raw_ifft_result) // 2)
+
+    # Plot the FFT
+    ax7 = plt.subplot(gs[0, 2])
+    ax7 = plt.plot(frequency_values, raw_ifft_result[:len(raw_ifft_result) // 2])
+    ax7 = plt.xlabel('Frequency (Hz)')
+    ax7 = plt.ylabel('Amplitude')
+    ax7 = plt.title('IFFT (Raw data)')
+    ax7 = plt.grid(True)
 
     # Adjust layout and show the plots
     plt.tight_layout()
@@ -164,7 +169,7 @@ def update_data(i):
 if __name__ == "__main__":
     # Create a figure and subplots with a grid layout
     fig = plt.figure(figsize=(18, 15))
-    gs = gridspec.GridSpec(3, 2, height_ratios=[1, 1, 1])  # 3 rows, 2 columns
+    gs = gridspec.GridSpec(3, 3, height_ratios=[1, 1, 1])  # 3 rows, 2 columns
 
     # Use FuncAnimation to update the plots every second without caching frame data
     ani = FuncAnimation(fig, update_data, interval=1000, cache_frame_data=False)
