@@ -36,9 +36,9 @@ def update_data(i):
     Returns:
         None
     """
-    raw_sensor_data = load_data("Code/Data/raw_sensor_data.csv", 0)
-    filtered_sensor_data = load_data("Code/Data/filtered_data.csv", 3)
-    processed_data = load_data("Code/Data/processed_data.csv", 0)
+    raw_sensor_data = load_data("../Data/raw_sensor_data2.csv", 0)
+    filtered_sensor_data = load_data("../Data/filtered_data2.csv", 3)
+    processed_data = load_data("../Data/processed_data2.csv", 0)
 
     plt.clf()
 

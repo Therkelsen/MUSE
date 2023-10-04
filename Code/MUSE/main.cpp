@@ -33,6 +33,7 @@ int main() {
 	// Paths to the input data and filter coefficients
 	const std::string input_file = "../Data/input_data.csv";
 	const std::string filter_coefficients_file = "../Data/filter_coefficients.csv";
+	std::string user_input;
 
 	filter_init(&filter, utils::get_filter_coefficients(filter_coefficients_file));
 	bool print_start_info = true;
@@ -105,9 +106,11 @@ int main() {
 		* @brief Saving state, writes the collected data to csv files, and goes to stopping state after saving.
 		*/
 		case utils::MainStatus::SAVING:
-			utils::write_data_to_csv(input_signal, "../Data/raw_sensor_data.csv");
-			utils::write_data_to_csv(output_signal, "../Data/filtered_data.csv");
-			utils::write_data_to_csv(processed_signal, "../Data/processed_data.csv");
+			std::cout << "Please provide the current itteration of the logged data: ";
+			std::cin >> user_input;
+			utils::write_data_to_csv(input_signal, "../Data/raw_sensor_data" + user_input + ".csv");
+			utils::write_data_to_csv(output_signal, "../Data/filtered_data" + user_input + ".csv");
+			utils::write_data_to_csv(processed_signal, "../Data/processed_data" + user_input + ".csv");
 			status = utils::MainStatus::STOPPING;
 			break;
 

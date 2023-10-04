@@ -128,6 +128,7 @@ namespace utils {
 
 			return { input_signal, output_signal };
 		}
+		std::cout << "Error: Picometer not connected" << std::endl;
 		return { input_signal, output_signal };  // Return the unchanged signals if not connected
 	}
 
