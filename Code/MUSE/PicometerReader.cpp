@@ -22,12 +22,12 @@ unsigned long	NrOfDataFramesCopied;
 unsigned long	SamplingRateDivider = 1;		//	Sampling rate divider value, valid values are: 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 196, 224, 256, 320, 384, 448, 512, 640, 768, 896, 1024, 1280, 1536, 1792
 unsigned long 	CompensationConf = 0;			//	Local variable that can have valid values of: 0 - compensation calculations, 1 - compensation calculations enabled and 2 - measure compensation values
 												//	All other values are invalid
-unsigned long	ExcitationLevel = 255;		    //	Valid range is 0...255
-unsigned long 	GainVals = 10;// 0 0 0 0		//	Binary access, Bit field of 4-LSB argument bits of the LSB byte are: |    X    |    X    |    X    |    X    | ADCB-G1 | ADCB-G0 | ADCA-G1 | ADCA-G0 | 
-												//	| ADCB-G1 | ADCB-G0 | GAIN |
-												//	|    0    |    0    |   1  |
-												//	|    0    |    1    |   2  |
-												//	|    1    |    0    |   5  |
+unsigned long	ExcitationLevel = 146;		    //	Valid range is 0...255 NB! Linear interpolation needed from GUI values: ExcitationLevel == signal		ExcLvlMax/signalMax = wantedExLevel/wantedSignalLevel <=> 255/3.5 = ?/2 <=> (255*2)/3.5 = 146
+unsigned long 	GainVals = 0x0011; // 0 0 1 1	//	Binary access, Bit field of 4-LSB argument bits of the LSB byte are: |    X    |    X    |    X    |    X    | ADCB-G1 | ADCB-G0 | ADCA-G1 | ADCA-G0 | 
+			//	Gainvals is a hexadecimal		//	| ADCB-G1 | ADCB-G0 | GAIN |
+			//	notation of binaries			//	|    0    |    0    |   1  |	
+			//	where 0011 corrosponds			//	|    0    |    1    |   2  |
+			// 	to a voltage of 10				//	|    1    |    0    |   5  |
 												//	|    1    |    1    |   10 |
 												//	
 												//	| ADCA-G1 | ADCA-G0 | GAIN |
