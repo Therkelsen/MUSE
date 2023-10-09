@@ -36,9 +36,9 @@ def update_data(i):
     Returns:
         None
     """
-    raw_sensor_data = load_data("../Data/raw_sensor_data2.csv", 0)
-    filtered_sensor_data = load_data("../Data/filtered_data2.csv", 3)
-    processed_data = load_data("../Data/processed_data2.csv", 0)
+    raw_sensor_data = load_data("Code/Data/raw_sensor_data3.csv", 0)
+    filtered_sensor_data = load_data("Code/Data/filtered_data3.csv", 3)
+    processed_data = load_data("Code/Data/processed_data3.csv", 0)
 
     plt.clf()
 
@@ -66,8 +66,6 @@ def update_data(i):
     ax1.spines['top'].set_color((.8, .8, .8))
 
     # Create the 2D plot for filtered_sensor_data
-    
-    # Get the dimensions of your data
     num_rows, num_cols = filtered_sensor_data.shape
 
     x = np.arange(1, num_cols + 1)
@@ -114,10 +112,8 @@ def update_data(i):
     ax3.spines['top'].set_color((.8, .8, .8))
     
     # FFT of raw data
-    # Compute the FFT of the selected frequency column
-    fft_result = np.fft.fft(selected_frequency)
-    # Compute the magnitude of the FFT result (absolute values)
-    magnitude = np.abs(fft_result)[5:]
+    raw_fft_result = np.fft.fft(raw_data_column)
+    raw_magnitude = np.abs(raw_fft_result)[5:]
 
     nyquist_frequency = 500
     raw_frequency_values = np.linspace(0, nyquist_frequency, len(raw_magnitude) // 2)
@@ -130,10 +126,8 @@ def update_data(i):
     ax4 = plt.grid(True)
     
     # FFT of filtered data
-    # Compute the FFT of the selected frequency column
-    fft_result = np.fft.fft(filtered_data_column)
-    # Compute the magnitude of the FFT result (absolute values)
-    magnitude = np.abs(fft_result)[5:]
+    filtered_fft_result = np.fft.fft(filtered_data_column)
+    filtered_magnitude = np.abs(filtered_fft_result)[5:]
 
     filtered_frequency_values = np.linspace(0, nyquist_frequency, len(filtered_magnitude) // 2)
 
@@ -145,16 +139,10 @@ def update_data(i):
     ax5 = plt.grid(True)
 
     # FFT of processed data
-    # Compute the FFT of the selected frequency column
-    fft_result = np.fft.fft(processed_data_column)
-    # Compute the magnitude of the FFT result (absolute values)
-    magnitude = np.abs(fft_result)[5:]
-
-    # Compute the corresponding frequencies for the FFT result
-    # Frequency values range from 0 to the Nyquist frequency (half of the sampling rate)
-    # Assuming your data was sampled at 1 Hz, the Nyquist frequency would be 0.5 Hz
-    nyquist_frequency = 500
-    frequency_values = np.linspace(0, nyquist_frequency, len(magnitude) // 2)
+    processed_fft_result = np.fft.fft(processed_data_column)
+    processed_magnitude = np.abs(processed_fft_result)[5:]
+    
+    processed_frequency_values = np.linspace(0, nyquist_frequency, len(processed_magnitude) // 2)
 
     ax6 = plt.subplot(gs[2, 1])
     ax6 = plt.plot(processed_frequency_values, processed_magnitude[:len(processed_magnitude) // 2])
@@ -162,8 +150,115 @@ def update_data(i):
     ax6 = plt.ylabel('Amplitude')
     ax6 = plt.title('Magnitude Spectrum of FFT (Processed data)')
     ax6 = plt.grid(True)
+    
+    # Lower frequencies of IFFT of raw data
+    # Lower frequency slice in % decimal form
+    lower_freq_slice = 0.15
+    
+    num_points = len(raw_fft_result)
 
-    # Adjust layout and show the plots
+    lower_half_indices = np.arange(0, round(num_points * lower_freq_slice))
+
+    lower_half_fft_result = raw_fft_result[lower_half_indices]
+
+    reconstructed_signal = np.fft.ifft(lower_half_fft_result)
+    
+    ax7 = plt.subplot(gs[0, 2])
+    ax7 = plt.plot(np.arange(len(reconstructed_signal)), reconstructed_signal.real)
+    ax7 = plt.xlabel('Time')
+    ax7 = plt.ylabel('Amplitude')
+    title = 'IFFT (Lower ' + str(round(lower_freq_slice * 100)) + '% frequencies of raw data)'
+    ax7 = plt.title(title)
+    ax7 = plt.grid(True)
+
+    # Lower frequencies of IFFT of filtered data
+    num_points = len(filtered_fft_result)
+
+    lower_half_indices = np.arange(0, round(num_points * lower_freq_slice))
+
+    lower_half_fft_result = filtered_fft_result[lower_half_indices]
+
+    reconstructed_signal = np.fft.ifft(lower_half_fft_result)
+
+    ax8 = plt.subplot(gs[1, 2])
+    ax8 = plt.plot(np.arange(len(reconstructed_signal)), reconstructed_signal.real)
+    ax8 = plt.xlabel('Time')
+    ax8 = plt.ylabel('Amplitude')
+    title = 'IFFT (Lower ' + str(round(lower_freq_slice * 100)) + '% frequencies of filtered data)'
+    ax8 = plt.title(title)
+    ax8 = plt.grid(True)
+    
+    # Lower frequencies of IFFT of processed data
+    num_points = len(processed_fft_result)
+
+    lower_half_indices = np.arange(0, round(num_points * lower_freq_slice))
+
+    lower_half_fft_result = processed_fft_result[lower_half_indices]
+
+    reconstructed_signal = np.fft.ifft(lower_half_fft_result)
+
+    ax9 = plt.subplot(gs[2, 2])
+    ax9 = plt.plot(np.arange(len(reconstructed_signal)), reconstructed_signal.real)
+    ax9 = plt.xlabel('Time')
+    ax9 = plt.ylabel('Amplitude')
+    title = 'IFFT (Lower ' + str(round(lower_freq_slice * 100)) + '% frequencies of raw data)'
+    ax9 = plt.title(title)
+    ax9 = plt.grid(True)
+    
+    # Upper frequencies of IFFT of raw data
+    # Upper frequency slice in % decimal form
+    upper_freq_slice = 0.5
+    num_points = len(raw_fft_result)
+
+    upper_half_indices = np.arange(round(num_points * upper_freq_slice), num_points)
+
+    upper_half_fft_result = raw_fft_result[upper_half_indices]
+
+    reconstructed_signal = np.fft.ifft(upper_half_fft_result)
+
+    ax10 = plt.subplot(gs[0, 3])
+    ax10 = plt.plot(np.arange(len(reconstructed_signal)), reconstructed_signal.real)
+    ax10 = plt.xlabel('Time')
+    ax10 = plt.ylabel('Amplitude')
+    title = 'IFFT (Upper ' + str(100 - round(upper_freq_slice * 100)) + '% frequencies of raw data)'
+    ax10 = plt.title(title)
+    ax10 = plt.grid(True)
+
+    # Upper frequencies of IFFT of filtered data
+    num_points = len(filtered_fft_result)
+
+    upper_half_indices = np.arange(round(num_points * upper_freq_slice), num_points)
+
+    upper_half_fft_result = filtered_fft_result[upper_half_indices]
+
+    reconstructed_signal = np.fft.ifft(upper_half_fft_result)
+
+    # Plot the IFFT
+    ax11 = plt.subplot(gs[1, 3])
+    ax11 = plt.plot(np.arange(len(reconstructed_signal)), reconstructed_signal.real)
+    ax11 = plt.xlabel('Time')
+    ax11 = plt.ylabel('Amplitude')
+    title = 'IFFT (Upper ' + str(100 - round(upper_freq_slice * 100)) + '% frequencies of filtered data)'
+    ax11 = plt.title(title)
+    ax11 = plt.grid(True)
+    
+    # Upper frequencies of IFFT of processed data
+    num_points = len(processed_fft_result)
+
+    upper_half_indices = np.arange(round(num_points * upper_freq_slice), num_points)
+
+    upper_half_fft_result = processed_fft_result[upper_half_indices]
+
+    reconstructed_signal = np.fft.ifft(upper_half_fft_result)
+
+    ax12 = plt.subplot(gs[2, 3])
+    ax12 = plt.plot(np.arange(len(reconstructed_signal)), reconstructed_signal.real)
+    ax12 = plt.xlabel('Time')
+    ax12 = plt.ylabel('Amplitude')
+    title = 'IFFT (Upper ' + str(100 - round(upper_freq_slice * 100)) + '% frequencies of processed data)'
+    ax12 = plt.title(title)
+    ax12 = plt.grid(True)
+
     plt.tight_layout()
 
 
@@ -175,7 +270,7 @@ if __name__ == "__main__":
     Uses FuncAnimation to update the plots every second.
     """
     fig = plt.figure(figsize=(18, 15))
-    gs = gridspec.GridSpec(3, 2, height_ratios=[1, 1, 1])  # 3 rows, 2 columns
+    gs = gridspec.GridSpec(3, 4, height_ratios=[1, 1, 1])
 
     ani = FuncAnimation(fig, update_data, interval=1000, cache_frame_data=False)
 
