@@ -111,8 +111,6 @@ public:
 
 	bool file_exists(const std::string& path);
 
-	std::vector<float> get_frequency_column(const std::vector<std::vector<float>> data_matrix, int column_indx);
-
 	unsigned long Idx = 0;
 	unsigned char TxtBfr[16];
 	unsigned long NrOfDataFrames = BUFFER_SIZE;

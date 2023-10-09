@@ -12,6 +12,7 @@
 #include "PicometerController.h"
 #include "Utils.h"
 
+// declare uninitialized pointer to the picometercontroller, since running the constructor will crash if the device is not connected
 PicometerController* PC;
 
 int main() {
@@ -19,27 +20,30 @@ int main() {
 
 	utils::MainStatus status = utils::MainStatus::IDLE;
 
+	// Standard deviation for the extremity cutting
 	unsigned int std_dev = 2;
-	unsigned int cutoff = 3;
-	int column_index = 4;
 
+	// Datatypes for sensor data and filter coefficients
 	std::pair<std::vector<std::vector<float>>, std::vector<std::vector<float>>> data;
-	std::vector<std::vector<float>> result;
 	std::vector<std::vector<float>> input_signal;
 	std::vector<std::vector<float>> output_signal;
 	std::vector<std::vector<float>> processed_signal;
 	std::vector<float> filter_coefficients;
 
+	// Paths to the input data and filter coefficients
 	const std::string input_file = "../Data/input_data.csv";
 	const std::string filter_coefficients_file = "../Data/filter_coefficients.csv";
+	std::string user_input;
 
 	filter_init(&filter, utils::get_filter_coefficients(filter_coefficients_file));
 	bool print_start_info = true;
 
 	while (true) {
 		switch (status) {
+		/**
+		* @brief Idle state, waiting for user input
+		*/
 		case utils::MainStatus::IDLE:
-			// Check if a key has been pressed
 			if (print_start_info) {
 				print_start_info = false;
 				std::cout << "\n\nPress s to start the program" << std::endl;
@@ -65,12 +69,18 @@ int main() {
 			}
 			break;
 
+		/**
+		* @brief Offline mode state, reads and processes data from a file, in case the Eliko device is not connected. Goes to saving state after processing.
+		*/
 		case utils::MainStatus::OFFLINE_MODE:
 			utils::collect_data_from_file(filter, input_file, input_signal, output_signal);
 			processed_signal = data_processing::rolling_mean(output_signal);
 			status = utils::MainStatus::SAVING;
 			break;
 
+		/**
+		* @brief Collecting state, collects data until user inputs the stop command (k). Goes to saving state after stop command.
+		*/
 		case utils::MainStatus::COLLECTING:
 			if (PC == nullptr) {
 				PC = new PicometerController();
@@ -80,7 +90,6 @@ int main() {
 			output_signal = data.second;
 			processed_signal = data_processing::cut_extremities(output_signal, std_dev);
 			processed_signal = data_processing::rolling_mean(processed_signal);
-			// Check if a key has been pressed
 			if (_kbhit()) {
 				char key = _getch();
 				if (key == 'k') {
@@ -93,13 +102,21 @@ int main() {
 			}
 			break;
 
+		/**
+		* @brief Saving state, writes the collected data to csv files, and goes to stopping state after saving.
+		*/
 		case utils::MainStatus::SAVING:
-			utils::write_data_to_csv(input_signal, "../Data/raw_sensor_data.csv");
-			utils::write_data_to_csv(output_signal, "../Data/filtered_data.csv");
-			utils::write_data_to_csv(processed_signal, "../Data/processed_data.csv");
+			std::cout << "Please provide the current itteration of the logged data: ";
+			std::cin >> user_input;
+			utils::write_data_to_csv(input_signal, "../Data/raw_sensor_data" + user_input + ".csv");
+			utils::write_data_to_csv(output_signal, "../Data/filtered_data" + user_input + ".csv");
+			utils::write_data_to_csv(processed_signal, "../Data/processed_data" + user_input + ".csv");
 			status = utils::MainStatus::STOPPING;
 			break;
 
+		/**
+		* @brief W.I.P. Idea: Continuous state, continuously collects data, and writes it to csv files using a sort of circular queue.
+		*/
 		case utils::MainStatus::CONTINUOUS:
 			utils::write_data_to_csv(input_signal, "../Data/raw_sensor_data.csv");
 			utils::write_data_to_csv(output_signal, "../Data/filtered_data.csv");
@@ -107,6 +124,9 @@ int main() {
 			status = utils::MainStatus::SAVING;
 			break;
 
+		/**
+		* @brief Stopping state, Resets program variables, and goes back to idle state.
+		*/
 		case utils::MainStatus::STOPPING:
 			std::cout << "Data gathered and saved, stopping..." << std::endl;
 			print_start_info = true;
@@ -116,10 +136,15 @@ int main() {
 			status = utils::MainStatus::IDLE;
 			break;
 
+		/**
+		*	@brief Default case, should never be reached.
+		*/
 		default:
+			std::cout << "Error: Invalid state reached, returning to Idle state" << std::endl;
 			status = utils::MainStatus::IDLE;
 			break;
 		}
 	}
+	// Delete the picometercontroller object to prevent memory leaks
 	delete PC;
 }

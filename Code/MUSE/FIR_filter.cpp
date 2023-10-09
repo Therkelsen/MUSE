@@ -1,61 +1,64 @@
 #include "FIR_filter.h"
 
+/**
+* @brief Initializes the FIR filter structure
+* 
+* @param fir Pointer to the FIR filter structure
+* @param filter_coefficients Pointer to the filter coefficients
+*/
 void filter_init(FIRFilter* fir, const std::vector<float>& filter_coefficients) {
-	/* Initialize buf with zeros */
 	fir->buf.assign(filter_coefficients.size(), 0.0f);
-
-	/* Initialize impulse_response with filter_coefficients */
 	fir->impulse_response = filter_coefficients;
-
-	/* Reset buffer index */
 	fir->buf_index = 0;
-
-	/* Clear filter output */
 	fir->out = 0.0f;
 }
 
-/* Follows the math of the convolution operation:
-		y[n] = sum(j=0 to n-1)(h[j]*x[n-j])
-
-		Where y is the output, h is the impulse response, n is the length of the impulse response
-		x[n-j] is the shifted samples of our input buffer of our circular buffer
+/* 
 */
-
+/**
+* @brief Updates the FIR filter output with the latest input sample and returns the output sample.
+* 
+* Follows the math of the convolution operation:
+* y[n] = sum(j=0 to n-1)(h[j]*x[n-j])
+* Where y is the output, h is the impulse response, n is the length of the impulse response
+* x[n-j] is the shifted samples of our input buffer of our circular buffer
+* 
+* @param fir Pointer to the FIR filter structure
+* @param inp The latest input sample
+* @return The latest output sample
+*/
 float filter_update(FIRFilter* fir, float inp) {
-
-	/* Stores latest sample buffer */
 	fir->buf[fir->buf_index] = inp;
-
-	/* Increments buffer index and wraps around if necessary */
 	fir->buf_index++;
 
 	if (fir->buf_index == fir->impulse_response.size()) {
 		fir->buf_index = 0;
 	}
 
-	/* Compute new output sample (via convolution) */
 	fir->out = 0.0f;
 
 	uint8_t sumIndex = fir->buf_index;
 
 	for (uint8_t n = 0; n < fir->impulse_response.size(); n++) {
-
-		/* Decrements buffer index and wraps around if necessary */
 		if (sumIndex > 0) {
 			sumIndex--;
-		}
-		else {
+		} else {
 			sumIndex = fir->impulse_response.size() - 1;
 		}
 
-		/* Multiply impulse response with shifted input sample and add to output */
 		fir->out += fir->impulse_response[n] * fir->buf[sumIndex];
 	}
 
-	/* Return filter output */
 	return fir->out;
 }
 
+/**
+* @brief Applies the FIR filter to the input signal and returns the output signal.
+* 
+* @param fir Pointer to the FIR filter structure
+* @param input_signal The input signal
+* @return The output signal
+*/
 std::vector<float> apply_filter(FIRFilter* fir, const std::vector<float>& input_signal) {
 	std::vector<float> output_signal;
 	output_signal.reserve(input_signal.size());

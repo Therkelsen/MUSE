@@ -35,7 +35,7 @@ The intended recipients are people with disruptive or weak motor control of thei
 
 
 
-# Setup Development environment on Windows (The sensor doesn't work on Ubuntu)
+# Setup MUSE project on Windows (The sensor doesn't work on Ubuntu)
 
 1. Install [Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2414&workload=dotnetwebcloud&flight=FlipMacCodeCF;35d&installerFlight=FlipMacCodeCF;35d&passive=false#dotnet).
 2. Clone the repo by running the following in your shell: `git clone git@github.com:Therkelsen/MUSE.git`
@@ -44,3 +44,12 @@ The intended recipients are people with disruptive or weak motor control of thei
 5. Great success!
 
    ![](https://th.bing.com/th/id/R.96690b2065c29c6e848b69e15c94d0a0?rik=PbCJ86cV%2bS4Gow&riu=http%3a%2f%2fdailyurbanista.com%2fwp-content%2fuploads%2f2016%2f02%2fgreat-success-gif.gif&ehk=QL3L4jXfujCmot5FczjvzdLFwJmBX%2bFG5v2lYJJPkLE%3d&risl=&pid=ImgRaw&r=0)
+
+# Setup Visualizer on Windows
+(Assumes you have the repo cloned from the previous step)
+1. Install [Python](https://www.python.org/downloads/)
+2. Install requirements
+   1. From `MUSE` run `$ pip install -r Code/Visualizer/requirements.txt`
+3. Run the visualizer
+   1. From `MUSE` run `$ py Code/Visualizer/visualizer.py`
+   2. It updates the figure once every second, so if you run the MUSE program and gather new data, it will update the figure accordingly.
