@@ -1,3 +1,14 @@
 *.rtf linguist-vendored
 *.lvlib linguist-vendored
 *.lvproj linguist-vendored
+*.dll linguist-vendored
+*.cat linguist-vendored
+*.inf linguist-vendored
+*.cab linguist-vendored
+*.xml linguist-vendored
+*.msi linguist-vendored
+*.exe linguist-vendored
+*.bin linguist-vendored
+*.mst linguist-vendored
+*.ini linguist-vendored
+*.id linguist-vendored
