@@ -89,11 +89,16 @@ int main() {
 		* @brief Offline mode state, reads and processes data from a file, in case the Eliko device is not connected. Goes to saving state after processing.
 		*/
 		case utils::MainStatus::OFFLINE_MODE:
-			std::cout << "modulus data:" << std::endl;
+			std::cout << "Reading modulus data from file..." << std::endl;
 			utils::collect_data_from_file(filter, modulus_input_file, modulus_input_signal, modulus_output_signal);
+			std::cout << "Processing modulus data..." << std::endl;
+			modulus_output_signal = data_processing::cut_extremities(apply_filter(&filter, modulus_input_signal), std_dev);
 			modulus_processed_signal = data_processing::rolling_mean(modulus_output_signal);
-			std::cout << "phase data:" << std::endl;
+
+			std::cout << "Reading phase data from file..." << std::endl;
 			utils::collect_data_from_file(filter, phase_input_file, phase_input_signal, phase_output_signal);
+			std::cout << "Processing phase data..." << std::endl;
+			phase_output_signal = data_processing::cut_extremities(apply_filter(&filter, phase_input_signal), std_dev);
 			phase_processed_signal = data_processing::rolling_mean(phase_output_signal);
 			status = utils::MainStatus::SAVING;
 			break;
