@@ -2,7 +2,7 @@
 
 /**
 * @brief Initializes the FIR filter structure
-* 
+*
 * @param fir Pointer to the FIR filter structure
 * @param filter_coefficients Pointer to the filter coefficients
 */
@@ -13,16 +13,16 @@ void filter_init(FIRFilter* fir, const std::vector<float>& filter_coefficients) 
 	fir->out = 0.0f;
 }
 
-/* 
+/*
 */
 /**
 * @brief Updates the FIR filter output with the latest input sample and returns the output sample.
-* 
+*
 * Follows the math of the convolution operation:
 * y[n] = sum(j=0 to n-1)(h[j]*x[n-j])
 * Where y is the output, h is the impulse response, n is the length of the impulse response
 * x[n-j] is the shifted samples of our input buffer of our circular buffer
-* 
+*
 * @param fir Pointer to the FIR filter structure
 * @param inp The latest input sample
 * @return The latest output sample
@@ -43,7 +43,7 @@ float filter_update(FIRFilter* fir, float inp) {
 		if (sumIndex > 0) {
 			sumIndex--;
 		} else {
-			sumIndex = fir->impulse_response.size() - 1;
+			sumIndex = static_cast<uint8_t>(fir->impulse_response.size() - 1);
 		}
 
 		fir->out += fir->impulse_response[n] * fir->buf[sumIndex];
@@ -54,7 +54,7 @@ float filter_update(FIRFilter* fir, float inp) {
 
 /**
 * @brief Applies the FIR filter to the input signal and returns the output signal.
-* 
+*
 * @param fir Pointer to the FIR filter structure
 * @param input_signal The input signal
 * @return The output signal

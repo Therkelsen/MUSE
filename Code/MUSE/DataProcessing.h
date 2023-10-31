@@ -51,7 +51,7 @@ namespace data_processing {
 
         // Calculate standard deviation
         for (float value : input_signal) {
-            stddev += std::pow(value - mean, 2);
+            stddev += static_cast<float>(std::pow(value - mean, 2));
         }
         stddev = std::sqrt(stddev / static_cast<float>(input_signal.size()));
 

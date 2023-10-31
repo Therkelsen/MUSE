@@ -123,7 +123,7 @@ void PicometerController::print_data(std::vector<std::vector<float>> data) {
 	std::cout << std::setprecision(2) << std::scientific << std::setw(16) << std::left << "Time step";
 
 	// Print frequency headers
-	for (int i = 0; i < data[0].size(); i++) {
+	for (unsigned int i = 0; i < data[0].size(); i++) {
 		std::cout << std::left << "Freq " << (i + 1);
 		if (i != data[0].size() - 1) {
 			std::cout << "\t\t";
@@ -132,9 +132,9 @@ void PicometerController::print_data(std::vector<std::vector<float>> data) {
 	std::cout << std::endl;
 
 	// Print data
-	for (int i = 0; i < data.size(); i++) {
+	for (unsigned int i = 0; i < data.size(); i++) {
 		std::cout << i + 1 << "\t\t";
-		for (int j = 0; j < data[0].size(); j++) {
+		for (unsigned int j = 0; j < data[0].size(); j++) {
 			std::cout << "(" << data[i][j] << ")\t";
 		}
 		std::cout << std::endl;
