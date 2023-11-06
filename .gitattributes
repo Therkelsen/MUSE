@@ -12,3 +12,7 @@
 *.mst linguist-vendored
 *.ini linguist-vendored
 *.id linguist-vendored
+*.osim linguist-vendored
+*.trc linguist-vendored
+*.log linguist-vendored
+*.sto linguist-vendored
