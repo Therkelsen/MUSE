@@ -2,6 +2,10 @@
 #define UTILS_H
 
 #include <cmath>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 #include <utility>
 
 namespace utils {
@@ -36,28 +40,68 @@ namespace utils {
 	* @param add_index Whether to add an index column to the CSV file
 	* @param delete_existing Whether to delete the existing file before writing
 	*/
-	void write_data_to_csv(const std::vector<float>& data, const std::string& path, size_t column_index, bool delete_existing) {
+	void write_data_to_csv(const std::vector<float>& mag, const std::vector<float>& phase, const std::string& path, bool delete_existing) {
+		std::string header = "Sample,EIMMagnitude,EIMPhase,JointAngle,Mass";
+		int curr_sample_index = 1;
+		int last_sample_index = 1;
 		if (delete_existing && utils::file_exists(path)) {
 			if (std::remove(path.c_str()) != 0) {
 				std::perror("Error deleting the existing file");
 				return;
+			} else {
+				std::cout << "Existing file deleted" << std::endl;
+			}
+		} else {
+			header = "";
+			std::ifstream i_file(path);
+			if (!i_file.is_open()) {
+				std::cerr << "Failed to open the i_file: " << path << std::endl;
+				return;
+			}
+			std::string skip_header;
+			std::string line;
+			if (std::getline(i_file, skip_header)) {
+				while (std::getline(i_file, line)) {
+					std::istringstream ss(line);
+					std::string cell;
+
+					if (std::getline(ss, cell, ',')) {
+						curr_sample_index = std::stoi(cell) + 1;
+						last_sample_index = curr_sample_index;
+					}
+				}
+			} else {
+				std::cerr << "Error reading the header line." << std::endl;
 			}
 		}
 
-		std::ofstream file(path);
-		if (!file.is_open()) {
-			std::cerr << "Failed to open the file: " << path << std::endl;
+		std::cout << "Sample: " << (curr_sample_index + 1) << std::endl;
+
+		std::ofstream o_file(path, std::ios::app);
+		if (!o_file.is_open()) {
+			std::cerr << "Failed to open the o_file: " << path << std::endl;
 			return;
 		}
 
-		file << "\"data\"\n";
-
-		size_t dataSize = data.size();
-		for (size_t i = 0; i < dataSize; ++i) {
-			file << data[i] << "\n";
+		if (header != "") {
+			o_file << header;
 		}
 
-		file.close();
+		size_t data_size = 0;
+		if (mag.size() >= phase.size()) {
+			data_size = phase.size();
+		} else if (mag.size() < phase.size()) {
+			data_size = mag.size();
+		} else {
+			std::cerr << "Error: Data size is 0" << std::endl;
+			o_file.close();
+			return;
+		}
+		for (size_t i = 0; i < data_size; ++i) {
+			o_file << "\n" << last_sample_index << "," << mag[i] << "," << phase[i];
+		}
+
+		o_file.close();
 		std::cout << "Data has been written to " << path << std::endl;
 	}
 

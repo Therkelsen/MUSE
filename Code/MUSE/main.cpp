@@ -38,13 +38,9 @@ int main() {
 	const std::string phase_input_file = "../Data/phase_input_data.csv";
 	const std::string filter_coefficients_file = "../Data/filter_coefficients.csv";
 
-	const std::string modulus_raw_output_file = "../Data/modulus_raw_output_data.csv";
-	const std::string modulus_filtered_output_file = "../Data/modulus_filtered_output_data.csv";
-	const std::string modulus_processed_output_file = "../Data/modulus_processed_output_data.csv";
-
-	const std::string phase_raw_output_file = "../Data/phase_raw_output_data.csv";
-	const std::string phase_filtered_output_file = "../Data/phase_filtered_output_data.csv";
-	const std::string phase_processed_output_file = "../Data/phase_processed_output_data.csv";
+	const std::string raw_output_file = "../Data/raw_output_data.csv";
+	const std::string filtered_output_file = "../Data/filtered_output_data.csv";
+	const std::string processed_output_file = "../Data/processed_output_data.csv";
 
 	// User input variables
 	std::string user_input_fresh_sample;
@@ -139,21 +135,15 @@ int main() {
 		case utils::MainStatus::SAVING:
 			std::cout << "Is this a fresh sample? Press y or n: ";
 			std::cin >> user_input_fresh_sample;
+			delete_existing = false;
 			if (user_input_fresh_sample == "y") {
-				user_input_data_index = 0;
 				delete_existing = true;
-			} else {
-				std::cout << "Enter the data index to continue from: ";
-				std::cin >> user_input_data_index;
 			}
 
-			utils::write_data_to_csv(modulus_input_signal, modulus_raw_output_file, user_input_data_index, delete_existing);
-			utils::write_data_to_csv(modulus_output_signal, modulus_filtered_output_file, user_input_data_index, delete_existing);
-			utils::write_data_to_csv(modulus_processed_signal, modulus_processed_output_file, user_input_data_index, delete_existing);
+			utils::write_data_to_csv(modulus_input_signal, phase_input_signal, raw_output_file, delete_existing);
+			utils::write_data_to_csv(modulus_output_signal, phase_output_signal, processed_output_file, delete_existing);
+			utils::write_data_to_csv(modulus_processed_signal, phase_processed_signal, filtered_output_file, delete_existing);
 
-			utils::write_data_to_csv(phase_input_signal, phase_raw_output_file, user_input_data_index, delete_existing);
-			utils::write_data_to_csv(phase_output_signal, phase_filtered_output_file, user_input_data_index, delete_existing);
-			utils::write_data_to_csv(phase_processed_signal, phase_processed_output_file, user_input_data_index, delete_existing);
 			status = utils::MainStatus::STOPPING;
 			break;
 
