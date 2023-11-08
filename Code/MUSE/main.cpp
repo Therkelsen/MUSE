@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <chrono>
 #include <conio.h>
 #include <fstream>
@@ -34,8 +36,9 @@ int main() {
 	std::vector<float> filter_coefficients;
 
 	// Paths to the input data and filter coefficients
-	const std::string modulus_input_file = "../Data/modulus_input_data.csv";
-	const std::string phase_input_file = "../Data/phase_input_data.csv";
+	/*const std::string modulus_input_file = "../Data/modulus_input_data.csv";
+	const std::string phase_input_file = "../Data/phase_input_data.csv";*/
+	const std::string raw_input_file = "../Data/raw_input_data.csv";
 	const std::string filter_coefficients_file = "../Data/filter_coefficients.csv";
 
 	const std::string raw_output_file = "../Data/raw_output_data.csv";
@@ -85,7 +88,7 @@ int main() {
 		* @brief Offline mode state, reads and processes data from a file, in case the Eliko device is not connected. Goes to saving state after processing.
 		*/
 		case utils::MainStatus::OFFLINE_MODE:
-			std::cout << "Reading modulus data from file..." << std::endl;
+			/*std::cout << "Reading modulus data from file..." << std::endl;
 			utils::collect_data_from_file(filter, modulus_input_file, modulus_input_signal, modulus_output_signal);
 			std::cout << "Processing modulus data..." << std::endl;
 			modulus_output_signal = data_processing::cut_extremities(apply_filter(&filter, modulus_input_signal), std_dev);
@@ -95,11 +98,20 @@ int main() {
 			utils::collect_data_from_file(filter, phase_input_file, phase_input_signal, phase_output_signal);
 			std::cout << "Processing phase data..." << std::endl;
 			phase_output_signal = data_processing::cut_extremities(apply_filter(&filter, phase_input_signal), std_dev);
+			phase_processed_signal = data_processing::rolling_mean(phase_output_signal);*/
+			std::cout << "Reading data from file..." << std::endl;
+			utils::collect_data_from_file(filter, raw_input_file, modulus_input_signal, phase_input_signal, modulus_output_signal, phase_output_signal);
+			std::cout << "Processing modulus data..." << std::endl;
+			modulus_output_signal = data_processing::cut_extremities(apply_filter(&filter, modulus_input_signal), std_dev);
+			modulus_processed_signal = data_processing::rolling_mean(modulus_output_signal);
+			std::cout << "Processing phase data..." << std::endl;
+			phase_output_signal = data_processing::cut_extremities(apply_filter(&filter, phase_input_signal), std_dev);
 			phase_processed_signal = data_processing::rolling_mean(phase_output_signal);
+
 			status = utils::MainStatus::SAVING;
 			break;
 
-		/**
+		/**x
 		* @brief Collecting state, collects data until user inputs the stop command (k). Goes to saving state after stop command.
 		*/
 		case utils::MainStatus::COLLECTING:

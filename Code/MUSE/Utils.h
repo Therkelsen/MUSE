@@ -1,9 +1,11 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <chrono>
 #include <cmath>
-#include <iostream>
+#include <ctime>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
 #include <utility>
@@ -41,7 +43,7 @@ namespace utils {
 	* @param delete_existing Whether to delete the existing file before writing
 	*/
 	void write_data_to_csv(const std::vector<float>& mag, const std::vector<float>& phase, const std::string& path, bool delete_existing) {
-		std::string header = "Sample,EIMMagnitude,EIMPhase,JointAngle,Mass";
+		std::string header = "Sample,EIMMagnitude,EIMPhase,JointAngle,Mass,Time";
 		int curr_sample_index = 1;
 		int last_sample_index = 1;
 		if (delete_existing && utils::file_exists(path)) {
@@ -97,8 +99,10 @@ namespace utils {
 			o_file.close();
 			return;
 		}
+		auto time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		for (size_t i = 0; i < data_size; ++i) {
-			o_file << "\n" << last_sample_index << "," << mag[i] << "," << phase[i];
+			time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+			o_file << "\n" << last_sample_index << "," << mag[i] << "," << phase[i] << ",0,0," << time;
 		}
 
 		o_file.close();
@@ -107,7 +111,7 @@ namespace utils {
 
 	/**
 	* @brief Load filter coefficients from a CSV file
-	* 
+	*
 	* @param coefficients_file The path to the file
 	* @return A vector of vectors containing the filter coefficients
 	*/
@@ -176,7 +180,7 @@ namespace utils {
 	* @param raw The raw data
 	* @param filtered The filtered data
 	*/
-	void collect_data_from_file(FIRFilter& filter, const std::string& input_file, std::vector<float>& raw, std::vector<float>& filtered) {
+	void collect_data_from_file(FIRFilter& filter, const std::string& input_file, std::vector<float>& mod, std::vector<float>& phase, std::vector<float>& filt_mod, std::vector<float>& filt_phase) {
 		if (!utils::file_exists(input_file)) {
 			throw std::runtime_error("Error loading file: " + input_file + "\nExiting...");
 		}
@@ -187,11 +191,14 @@ namespace utils {
 		}
 
 		std::string line;
-		raw.clear();
-		filtered.clear();
+		mod.clear();
+		phase.clear();
+		filt_mod.clear();
+		filt_phase.clear();
 
 		bool isHeader = true;
 		while (std::getline(file, line)) {
+			size_t col_idx = 0;
 			if (isHeader) {
 				isHeader = false;
 				continue;
@@ -201,16 +208,22 @@ namespace utils {
 			std::string cell;
 
 			while (std::getline(ss, cell, ',')) {
-				try {
-					float value = std::stof(cell);
-					raw.push_back(abs(value));
-				} catch (const std::invalid_argument& e) {
-					std::cerr << "Error converting data: " << e.what() << std::endl;
-					continue;
-				}
+					try {
+						float value = std::stof(cell);
+						if(col_idx == 1) {
+							mod.push_back(abs(value));
+						} else if (col_idx == 2) {
+							phase.push_back(abs(value));
+						}
+					} catch (const std::invalid_argument& e) {
+						std::cerr << "Error converting data: " << e.what() << std::endl;
+						continue;
+					}
+					++col_idx;
 			}
-				
-			filtered = apply_filter(&filter, raw); // Apply filter and store filtered value
+
+			filt_mod = apply_filter(&filter, mod);
+			filt_phase = apply_filter(&filter, phase);
 		}
 
 		file.close();
