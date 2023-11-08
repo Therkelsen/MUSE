@@ -33,6 +33,7 @@ int main() {
 	std::vector<float> phase_input_signal;
 	std::vector<float> phase_output_signal;
 	std::vector<float> phase_processed_signal;
+	std::vector<std::time_t> time_steps;
 	std::vector<float> filter_coefficients;
 
 	// Paths to the input data and filter coefficients
@@ -88,19 +89,8 @@ int main() {
 		* @brief Offline mode state, reads and processes data from a file, in case the Eliko device is not connected. Goes to saving state after processing.
 		*/
 		case utils::MainStatus::OFFLINE_MODE:
-			/*std::cout << "Reading modulus data from file..." << std::endl;
-			utils::collect_data_from_file(filter, modulus_input_file, modulus_input_signal, modulus_output_signal);
-			std::cout << "Processing modulus data..." << std::endl;
-			modulus_output_signal = data_processing::cut_extremities(apply_filter(&filter, modulus_input_signal), std_dev);
-			modulus_processed_signal = data_processing::rolling_mean(modulus_output_signal);
-
-			std::cout << "Reading phase data from file..." << std::endl;
-			utils::collect_data_from_file(filter, phase_input_file, phase_input_signal, phase_output_signal);
-			std::cout << "Processing phase data..." << std::endl;
-			phase_output_signal = data_processing::cut_extremities(apply_filter(&filter, phase_input_signal), std_dev);
-			phase_processed_signal = data_processing::rolling_mean(phase_output_signal);*/
 			std::cout << "Reading data from file..." << std::endl;
-			utils::collect_data_from_file(filter, raw_input_file, modulus_input_signal, phase_input_signal, modulus_output_signal, phase_output_signal);
+			utils::collect_data_from_file(filter, raw_input_file, modulus_input_signal, phase_input_signal, time_steps, modulus_output_signal, phase_output_signal);
 			std::cout << "Processing modulus data..." << std::endl;
 			modulus_output_signal = data_processing::cut_extremities(apply_filter(&filter, modulus_input_signal), std_dev);
 			modulus_processed_signal = data_processing::rolling_mean(modulus_output_signal);
@@ -118,10 +108,11 @@ int main() {
 			if (PC == nullptr) {
 				PC = new PicometerController();
 			}
-			data = utils::collect_data(*PC, filter, modulus_input_signal, phase_input_signal);
+			utils::collect_data(*PC, filter, modulus_input_signal, phase_input_signal, time_steps);
+			//data = { modulus_input_signal, phase_input_signal };
 
-			modulus_input_signal = data.first;
-			phase_input_signal = data.second;
+			/*modulus_input_signal = data.first;
+			phase_input_signal = data.second;*/
 
 			if (_kbhit()) {
 				char key = _getch();
@@ -152,9 +143,9 @@ int main() {
 				delete_existing = true;
 			}
 
-			utils::write_data_to_csv(modulus_input_signal, phase_input_signal, raw_output_file, delete_existing);
-			utils::write_data_to_csv(modulus_output_signal, phase_output_signal, processed_output_file, delete_existing);
-			utils::write_data_to_csv(modulus_processed_signal, phase_processed_signal, filtered_output_file, delete_existing);
+			utils::write_data_to_csv(modulus_input_signal, phase_input_signal, time_steps, raw_output_file, delete_existing);
+			utils::write_data_to_csv(modulus_output_signal, phase_output_signal, time_steps, processed_output_file, delete_existing);
+			utils::write_data_to_csv(modulus_processed_signal, phase_processed_signal, time_steps, filtered_output_file, delete_existing);
 
 			status = utils::MainStatus::STOPPING;
 			break;

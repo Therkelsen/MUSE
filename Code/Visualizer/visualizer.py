@@ -5,20 +5,20 @@ from matplotlib import gridspec
 from matplotlib.animation import FuncAnimation
 
 
-def load_data(file_path, slice):
+def load_data(file_path, col_idx):
     """
     Load data from the given file path.
 
     Parameters:
         file_path (str): Path to the data file.
-        slice (int): Index from which to slice the data.
+        col_idx (int): Index to extract.
 
     Returns:
         pandas.DataFrame: Loaded data as a DataFrame.
     """
     try:
-        if (slice > 0):
-            return pd.read_csv(file_path).iloc[slice:]
+        if (col_idx is not None):
+            return pd.read_csv(file_path, usecols=[col_idx])
         return pd.read_csv(file_path)
     except FileNotFoundError:
         print(f"Error: File '{file_path}' not found.")
@@ -38,13 +38,13 @@ def update_data(i):
     Returns:
         None
     """
-    modulus_raw_data = load_data("Code/Data/modulus_raw_output_data.csv", 0)
-    modulus_filtered_data = load_data("Code/Data/modulus_filtered_output_data.csv", 3)
-    modulus_processed_data = load_data("Code/Data/modulus_processed_output_data.csv", 0)
+    modulus_raw_data = load_data("Code/Data/raw_output_data.csv", 1)
+    modulus_processed_data = load_data("Code/Data/filtered_output_data.csv", 1)
+    modulus_filtered_data = load_data("Code/Data/processed_output_data.csv", 1)
     
-    phase_raw_data = load_data("Code/Data/phase_raw_output_data.csv", 0)
-    phase_filtered_data = load_data("Code/Data/phase_filtered_output_data.csv", 3)
-    phase_processed_data = load_data("Code/Data/phase_processed_output_data.csv", 0)
+    phase_raw_data = load_data("Code/Data/raw_output_data.csv", 2)
+    phase_processed_data = load_data("Code/Data/filtered_output_data.csv", 2)
+    phase_filtered_data = load_data("Code/Data/processed_output_data.csv", 2)
 
     plt.clf()
     

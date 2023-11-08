@@ -42,7 +42,7 @@ namespace utils {
 	* @param add_index Whether to add an index column to the CSV file
 	* @param delete_existing Whether to delete the existing file before writing
 	*/
-	void write_data_to_csv(const std::vector<float>& mag, const std::vector<float>& phase, const std::string& path, bool delete_existing) {
+	void write_data_to_csv(const std::vector<float>& mag, const std::vector<float>& phase, const std::vector<std::time_t>& time, const std::string& path, bool delete_existing) {
 		std::string header = "Sample,EIMMagnitude,EIMPhase,JointAngle,Mass,Time";
 		int curr_sample_index = 1;
 		int last_sample_index = 1;
@@ -99,10 +99,10 @@ namespace utils {
 			o_file.close();
 			return;
 		}
-		auto time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+		//auto time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		for (size_t i = 0; i < data_size; ++i) {
-			time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-			o_file << "\n" << last_sample_index << "," << mag[i] << "," << phase[i] << ",0,0," << time;
+			//time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+			o_file << "\n" << last_sample_index << "," << mag[i] << "," << phase[i] << ",0,0," << time[i];
 		}
 
 		o_file.close();
@@ -158,18 +158,17 @@ namespace utils {
 	* @param output_signal The output signal
 	* @return A pair containing the raw and filtered data
 	*/
-	std::pair<std::vector<float>, std::vector<float>> collect_data(PicometerController& PC, FIRFilter filter, std::vector<float>& modulus_input_signal, std::vector<float>& phase_input_signal) {
+	void collect_data(PicometerController& PC, FIRFilter filter, std::vector<float>& modulus_input_signal, std::vector<float>& phase_input_signal, std::vector<std::time_t>& time) {
 		if (PC.picometer_status == PicometerController::PicometerStatus::CONNECTED) {
 			std::vector<float> modulus_input_row = PC.get_data().first;
 			std::vector<float> phase_input_row = PC.get_data().second;
 
 			modulus_input_signal.emplace_back(modulus_input_row[9]);
 			phase_input_signal.emplace_back(abs(phase_input_row[9]));
-
-			return { modulus_input_signal, phase_input_signal };
+			time.emplace_back(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
+			return;
 		}
 		std::cout << "Error: Picometer not connected" << std::endl;
-		return { modulus_input_signal, phase_input_signal };  // Return the unchanged signals if not connected
 	}
 
 	/**
@@ -180,7 +179,7 @@ namespace utils {
 	* @param raw The raw data
 	* @param filtered The filtered data
 	*/
-	void collect_data_from_file(FIRFilter& filter, const std::string& input_file, std::vector<float>& mod, std::vector<float>& phase, std::vector<float>& filt_mod, std::vector<float>& filt_phase) {
+	void collect_data_from_file(FIRFilter& filter, const std::string& input_file, std::vector<float>& mod, std::vector<float>& phase, std::vector<std::time_t>& time,std::vector<float>& filt_mod, std::vector<float>& filt_phase) {
 		if (!utils::file_exists(input_file)) {
 			throw std::runtime_error("Error loading file: " + input_file + "\nExiting...");
 		}
@@ -191,14 +190,8 @@ namespace utils {
 		}
 
 		std::string line;
-		mod.clear();
-		phase.clear();
-		filt_mod.clear();
-		filt_phase.clear();
-
 		bool isHeader = true;
 		while (std::getline(file, line)) {
-			size_t col_idx = 0;
 			if (isHeader) {
 				isHeader = false;
 				continue;
@@ -206,27 +199,39 @@ namespace utils {
 
 			std::istringstream ss(line);
 			std::string cell;
+			size_t col_idx = 0;
+			float mod_value = 0.0f;
+			float phase_value = 0.0f;
+			time_t time_value = 0;
 
 			while (std::getline(ss, cell, ',')) {
-					try {
-						float value = std::stof(cell);
-						if(col_idx == 1) {
-							mod.push_back(abs(value));
-						} else if (col_idx == 2) {
-							phase.push_back(abs(value));
-						}
-					} catch (const std::invalid_argument& e) {
-						std::cerr << "Error converting data: " << e.what() << std::endl;
-						continue;
+				try {
+					float value = std::stof(cell);
+					if (col_idx == 1) {
+						mod_value = abs(value);
+					} else if (col_idx == 2) {
+						phase_value = abs(value);
+					} else if (col_idx == 5) {
+						time_value = value;
 					}
-					++col_idx;
+				}
+				catch (const std::invalid_argument& e) {
+					std::cerr << "Error converting data: " << e.what() << std::endl;
+					continue;
+				}
+				++col_idx;
 			}
 
-			filt_mod = apply_filter(&filter, mod);
-			filt_phase = apply_filter(&filter, phase);
+			mod.push_back(mod_value);
+			phase.push_back(phase_value);
+			time.push_back(time_value);
 		}
 
 		file.close();
+
+		// Apply filter to mod and phase vectors once after collecting all data
+		filt_mod = apply_filter(&filter, mod);
+		filt_phase = apply_filter(&filter, phase);
 	}
 }
 #endif // UTILS_H
