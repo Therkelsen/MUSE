@@ -57,10 +57,7 @@ public:
 		}
 		NrOfDataFrames = BUFFER_SIZE;
 		NrOfDataFramesCopied = 0;
-		SamplingRateDivider = 1;
 		CompensationConf = 0;
-		ExcitationLevel = 0;
-		GainVals = 0x00;
 		Idx = 0;
 		for (int i = 0; i < (sizeof(TxtBfr) / sizeof(*TxtBfr)); i++) {
 			TxtBfr[i] = 0;
@@ -115,10 +112,10 @@ public:
 	unsigned char TxtBfr[16];
 	unsigned long NrOfDataFrames = BUFFER_SIZE;
 	unsigned long NrOfDataFramesCopied = 0;
-	unsigned long SamplingRateDivider = 1;
+	unsigned long SamplingRateDivider = 1;// 56;
 	unsigned long CompensationConf = 0;
-	unsigned long ExcitationLevel = 146;
-	unsigned long GainVals = 0x0011;
+	unsigned long ExcitationLevel = 146;// 146;
+	unsigned long GainVals = 0x0011; // 0x0011;
 
 	unsigned long buffer_size = 0;
 
