@@ -340,3 +340,87 @@
 [2023-11-06 15:50:06.869] [info] Loaded model arm26 from file C:\Users\Therkelsen\Documents\OpenSim\4.4\Models\Arm26\exo_skeleton.osim
 [2023-11-06 15:50:06.872] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
 [2023-11-06 15:50:06.872] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 08:48:13.555] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 08:48:13.603] [info] Loaded model arm26 from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\exo_skeleton.osim
+[2023-11-08 08:48:13.867] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 08:48:13.868] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 08:54:06.272] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 08:54:06.279] [info] Loaded model arm26 from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\exo_skeleton.osim
+[2023-11-08 08:54:06.457] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 08:54:06.458] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:00:12.371] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:00:12.377] [info] Loaded model arm26 from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\exo_skeleton.osim
+[2023-11-08 10:00:12.378] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:00:12.379] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:01:19.332] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:01:19.337] [info] Loaded model arm26 from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\exo_skeleton.osim
+[2023-11-08 10:01:19.339] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:01:19.339] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:01:52.448] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:01:52.454] [info] Loaded model arm26 from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\exo_skeleton.osim
+[2023-11-08 10:01:52.457] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:01:52.457] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:03:53.269] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:03:53.274] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:03:53.276] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:03:53.276] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:04:41.995] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:04:42.000] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:04:42.002] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:04:42.002] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:06:50.439] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:06:50.445] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:06:50.447] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:06:50.447] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:07:19.991] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:07:19.996] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:07:19.997] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:07:19.998] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:09:14.258] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:09:14.263] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:09:14.265] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:09:14.265] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:09:46.159] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:09:46.165] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:09:46.167] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:09:46.167] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:10:19.068] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:10:19.074] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:10:19.075] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:10:19.076] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:10:48.428] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:10:48.433] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:10:48.435] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:10:48.435] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:11:07.834] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:11:07.841] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:11:07.843] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:11:07.843] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:11:23.238] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:11:23.243] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:11:23.245] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:11:23.245] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:11:52.832] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:11:52.837] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:11:52.839] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:11:52.839] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:12:04.113] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:12:04.118] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:12:04.120] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:12:04.120] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:12:23.441] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:12:23.447] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:12:23.448] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:12:23.449] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:12:34.913] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:12:34.918] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:12:34.920] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:12:34.920] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:12:46.831] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:12:46.836] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:12:46.838] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:12:46.838] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-11-08 10:13:15.668] [info] Updating Model file from 20303 to latest format...
+[2023-11-08 10:13:15.673] [info] Loaded model arm26_with_exoskeleton from file C:\Users\Therkelsen\Documents\GitHub\MUSE\3D\Arm26\arm26_with_exoskeleton.osim
+[2023-11-08 10:13:15.675] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-11-08 10:13:15.675] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
