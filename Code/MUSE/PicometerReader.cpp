@@ -310,5 +310,5 @@ void get_configuration()
 //	//	printf("fail to load the .dll file");
 //	//	return 0;
 //	//}
-//	disconnect_device();
+//	//disconnect_device();
 //}

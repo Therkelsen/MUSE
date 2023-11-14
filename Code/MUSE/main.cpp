@@ -169,6 +169,7 @@ int main() {
 			phase_input_signal.clear();
 			phase_output_signal.clear();
 			phase_processed_signal.clear();
+			time_steps.clear();
 			status = utils::MainStatus::IDLE;
 			break;
 

@@ -58,6 +58,8 @@ with mp_pose.Pose(min_detection_confidence=0.5,
         cv2.imshow('Mediapip Feed', frame)
 
         if current_state == State.IDLE:
+            angles = np.zeros(shape)
+            times = np.zeros(shape)
             key = cv2.waitKey(1) & 0xFF
             if key == ord('s'):
                 current_state = State.RECORDING
@@ -66,8 +68,8 @@ with mp_pose.Pose(min_detection_confidence=0.5,
             current_time = time.time()
 
             # # Calculate the elapsed time in seconds
-            elapsed_time = current_time - start_time
-            #     # Check if 1 second has passed
+            # elapsed_time = current_time - start_time
+            # #     # Check if 1 second has passed
             # if elapsed_time >= 10.0:
             #     print("Broke loop after ", elapsed_time, " seconds")
             #     current_state = State.SAVING
@@ -114,7 +116,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
             cv2.imshow('Mediapip Feed', image)
 
             key = cv2.waitKey(1) & 0xFF
-            if key == ord('g'):
+            if key == ord('k'):
                 current_state = State.SAVING
             if current_state == State.SAVING:
                 with open(csv_file_path, mode='w', newline='') as file:
@@ -125,7 +127,6 @@ with mp_pose.Pose(min_detection_confidence=0.5,
 
                     # Save to CSV with the custom format
                     csv_writer.writerows(data)
-
                     current_state = State.IDLE
 
         if key == ord('q'):  # Checks if we try to close the feed by pressing 'q'
