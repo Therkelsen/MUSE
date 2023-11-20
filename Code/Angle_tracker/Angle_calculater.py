@@ -21,6 +21,8 @@ def calculate_angle(a, b, c):
     if angle > 180.0:
         angle = 360-angle
 
+    angle = round(angle, 2)
+
     return angle
 
 
@@ -43,6 +45,10 @@ shape = (0, 1)
 angles = np.zeros(shape)
 times = np.zeros(shape)
 
+# Image width and height
+imgwidth = 980
+imgheight = 1000
+
 # Initialize a variable to keep track of the start time
 start_time = time.time()
 
@@ -55,11 +61,54 @@ with mp_pose.Pose(min_detection_confidence=0.5,
     while current_state != State.EXIT:
         cap.isOpened()
         ret, frame = cap.read()     # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
-        cv2.imshow('Mediapip Feed', frame)
 
         if current_state == State.IDLE:
             angles = np.zeros(shape)
             times = np.zeros(shape)
+
+            ret, frame = cap.read()     # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
+
+            # Recolor image. frame comes in BGR, but we need it in RGB to predict the pose
+            image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+            # Make detection. Makes the predictions from the pose object to the image object, and stores it in results array
+            results = pose.process(image)
+
+            # Changes back to BGR, since openCV wants it in that format
+            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
+            image = cv2.resize(image, (imgwidth, imgheight))
+
+            # Extract landmarks
+            try:
+                landmarks = results.pose_landmarks.landmark
+
+                # Get coordinates
+                shoulder = landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y
+                elbow = landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x, landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y
+                wrist = landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y
+
+                # Calculate angle
+                angle = calculate_angle(shoulder, elbow, wrist)
+
+                # Visualize. Coordinates of the elbow is being multiplied by the webcam image resolution (640,480), to put the coordinate at the tip of the elbow
+                cv2.putText(image, str(angle),
+                            tuple(np.multiply(elbow, [imgwidth, imgheight]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA
+                            )
+                
+                text = 'STATE: IDLE'
+                org = (10, 50)
+                cv2.putText(image, text, org, cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2, cv2.LINE_AA)
+            except:
+                pass
+
+            # Render detections. Draws detections unto image. pose_landmarks gives all the predicted points and POSE_CONNECTIONS gives poit connections
+            # draw_landmarks param: image as np array, list of landmarks, connections between landmarks, dots, lines
+            mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS)
+
+            cv2.imshow('Mediapip Feed', image)
+
             key = cv2.waitKey(1) & 0xFF
             if key == ord('s'):
                 current_state = State.RECORDING
@@ -85,6 +134,8 @@ with mp_pose.Pose(min_detection_confidence=0.5,
             # Changes back to BGR, since openCV wants it in that format
             image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
+            image = cv2.resize(image, (imgwidth, imgheight))
+
             # Extract landmarks
             try:
                 landmarks = results.pose_landmarks.landmark
@@ -103,9 +154,13 @@ with mp_pose.Pose(min_detection_confidence=0.5,
 
                 # Visualize. Coordinates of the elbow is being multiplied by the webcam image resolution (640,480), to put the coordinate at the tip of the elbow
                 cv2.putText(image, str(angle),
-                            tuple(np.multiply(elbow, [640, 480]).astype(int)),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
+                            tuple(np.multiply(elbow, [imgwidth, imgheight]).astype(int)),
+                            cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA
                             )
+                
+                text = 'STATE: RECORDING'
+                org = (10, 50)
+                cv2.putText(image, text, org, cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2, cv2.LINE_AA)
             except:
                 pass
 
