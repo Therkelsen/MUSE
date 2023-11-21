@@ -23,7 +23,7 @@ int main() {
 	utils::MainStatus status = utils::MainStatus::IDLE;
 
 	// Standard deviation for the extremity cutting
-	unsigned int std_dev = 2;
+	unsigned int std_dev = 3;
 
 	// Datatypes for sensor data and filter coefficients
 	std::pair<std::vector<float>, std::vector<float>> data;

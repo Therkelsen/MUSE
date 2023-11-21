@@ -3,6 +3,7 @@ import csv
 import time
 import mediapipe
 import numpy as np
+import math
 mp_drawing = mediapipe.solutions.drawing_utils
 mp_pose = mediapipe.solutions.pose
 
@@ -114,7 +115,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
                 current_state = State.RECORDING
         elif current_state == State.RECORDING:
             # Get the current system time
-            current_time = time.time()
+            current_time = math.floor(time.time())
 
             # # Calculate the elapsed time in seconds
             # elapsed_time = current_time - start_time
@@ -150,7 +151,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
 
                 # Save to angles array
                 angles = np.vstack((angles, angle))
-                times = np.vstack((times, current_time))
+                times = np.vstack((times, current_time), dtype=str)
 
                 # Visualize. Coordinates of the elbow is being multiplied by the webcam image resolution (640,480), to put the coordinate at the tip of the elbow
                 cv2.putText(image, str(angle),
