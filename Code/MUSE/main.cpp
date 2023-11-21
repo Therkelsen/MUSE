@@ -37,8 +37,6 @@ int main() {
 	std::vector<float> filter_coefficients;
 
 	// Paths to the input data and filter coefficients
-	/*const std::string modulus_input_file = "../Data/modulus_input_data.csv";
-	const std::string phase_input_file = "../Data/phase_input_data.csv";*/
 	const std::string raw_input_file = "../Data/raw_input_data.csv";
 	const std::string filter_coefficients_file = "../Data/filter_coefficients.csv";
 
@@ -49,7 +47,6 @@ int main() {
 	// User input variables
 	std::string user_input_fresh_sample;
 	bool delete_existing = false;
-	int user_input_data_index;
 
 	filter_init(&filter, utils::get_filter_coefficients(filter_coefficients_file));
 	bool print_start_info = true;
@@ -108,17 +105,14 @@ int main() {
 			if (PC == nullptr) {
 				PC = new PicometerController();
 			}
+			std::cout << "Collecting data..." << std::endl;
 			utils::collect_data(*PC, filter, modulus_input_signal, phase_input_signal, time_steps);
-			//data = { modulus_input_signal, phase_input_signal };
-
-			/*modulus_input_signal = data.first;
-			phase_input_signal = data.second;*/
 
 			if (_kbhit()) {
 				char key = _getch();
 				if (key == 'k') {
 					std::cout << "Key Pressed: " << key << std::endl;
-					std::cout << "Stopping..." << std::endl;
+					std::cout << "Stopping and saving..." << std::endl;
 
 					modulus_output_signal = data_processing::cut_extremities(apply_filter(&filter, modulus_input_signal), std_dev);
 					modulus_processed_signal = data_processing::rolling_mean(modulus_output_signal);
@@ -141,12 +135,18 @@ int main() {
 			delete_existing = false;
 			if (user_input_fresh_sample == "y") {
 				delete_existing = true;
+			} else if (user_input_fresh_sample == "n") {
+				delete_existing = false;
+			} else {
+				std::cout << "Invalid input: " << user_input_fresh_sample << std::endl;
+				break;
 			}
 
 			utils::write_data_to_csv(modulus_input_signal, phase_input_signal, time_steps, raw_output_file, delete_existing);
 			utils::write_data_to_csv(modulus_output_signal, phase_output_signal, time_steps, processed_output_file, delete_existing);
 			utils::write_data_to_csv(modulus_processed_signal, phase_processed_signal, time_steps, filtered_output_file, delete_existing);
 
+			std::cout << "Data gathered and saved, stopping..." << std::endl;
 			status = utils::MainStatus::STOPPING;
 			break;
 
@@ -161,7 +161,6 @@ int main() {
 		* @brief Stopping state, Resets program variables, and goes back to idle state.
 		*/
 		case utils::MainStatus::STOPPING:
-			std::cout << "Data gathered and saved, stopping..." << std::endl;
 			print_start_info = true;
 			modulus_input_signal.clear();
 			modulus_output_signal.clear();
@@ -178,7 +177,7 @@ int main() {
 		*/
 		default:
 			std::cout << "Error: Invalid state reached, returning to Idle state" << std::endl;
-			status = utils::MainStatus::IDLE;
+			status = utils::MainStatus::STOPPING;
 			break;
 		}
 	}

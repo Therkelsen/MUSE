@@ -34,13 +34,20 @@ namespace utils {
 	}
 
 	/**
-	* @brief Write data to a CSV file down a specific column given by the index
+	* @brief Write data to a CSV file along a specific column, given by the index.
 	*
-	* @param data The data to write
-	* @param path The path to the file
-	* @param column_index The index of the column to write the data
-	* @param add_index Whether to add an index column to the CSV file
-	* @param delete_existing Whether to delete the existing file before writing
+	* This function writes data to a CSV file, appending the provided vectors of magnitude,
+	* phase, and time to the specified file path. The data is written down a column specified
+	* by the `column_index`. Additionally, an index column may be added, and the existing file
+	* can be deleted before writing if specified.
+	*
+	* @param mag The vector of magnitudes to write to the CSV file.
+	* @param phase The vector of phases to write to the CSV file.
+	* @param time The vector of time values to write to the CSV file.
+	* @param path The path to the CSV file.
+	* @param delete_existing Whether to delete the existing file before writing.
+	*
+	* @note The vectors `mag`, `phase`, and `time` must have the same size.
 	*/
 	void write_data_to_csv(const std::vector<float>& mag, const std::vector<float>& phase, const std::vector<std::time_t>& time, const std::string& path, bool delete_existing) {
 		std::string header = "Sample,EIMMagnitude,EIMPhase,JointAngle,Mass,Time";
@@ -77,7 +84,9 @@ namespace utils {
 			}
 		}
 
-		std::cout << "Sample: " << (curr_sample_index + 1) << std::endl;
+		if (curr_sample_index > 1) {
+			std::cout << "Sample: " << curr_sample_index << std::endl;
+		}
 
 		std::ofstream o_file(path, std::ios::app);
 		if (!o_file.is_open()) {
@@ -99,9 +108,7 @@ namespace utils {
 			o_file.close();
 			return;
 		}
-		//auto time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		for (size_t i = 0; i < data_size; ++i) {
-			//time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 			o_file << "\n" << last_sample_index << "," << mag[i] << "," << phase[i] << ",0,0," << time[i];
 		}
 
@@ -150,13 +157,19 @@ namespace utils {
 	}
 
 	/**
-	* Collect data from the picometer and apply the filter to the input data, returning both the raw and filtered data
+	* @brief Collect data from the Picometer, apply a filter, and return both raw and filtered data.
 	*
-	* @param PC The PicometerController object
-	* @param filter The FIRFilter object
-	* @param input_signal The input signal
-	* @param output_signal The output signal
-	* @return A pair containing the raw and filtered data
+	* This function collects data from a PicometerController object, applies a Finite Impulse Response (FIR) filter
+	* specified by the FIRFilter object, and returns both the raw and filtered data. The input signal is obtained from
+	* the Picometer, and the modulus, phase, and time components are extracted and stored in the provided vectors.
+	*
+	* @param PC The PicometerController object providing the input signal.
+	* @param filter The FIRFilter object used to filter the input signal.
+	* @param modulus_input_signal Vector to store the raw modulus data.
+	* @param phase_input_signal Vector to store the raw phase data.
+	* @param time Vector to store the time data corresponding to the collected samples.
+	*
+	* @note The Picometer must be in a connected state (PicometerStatus::CONNECTED) for data collection to occur.
 	*/
 	void collect_data(PicometerController& PC, FIRFilter filter, std::vector<float>& modulus_input_signal, std::vector<float>& phase_input_signal, std::vector<std::time_t>& time) {
 		if (PC.picometer_status == PicometerController::PicometerStatus::CONNECTED) {
@@ -172,12 +185,22 @@ namespace utils {
 	}
 
 	/**
-	* @brief Collect data from a file and apply the filter to the input data, storing both raw and filtered data
+	* @brief Collect data from a CSV file, apply a filter, and store both raw and filtered data.
 	*
-	* @param filter The FIRFilter object
-	* @param input_file The path to the input file
-	* @param raw The raw data
-	* @param filtered The filtered data
+	* This function reads data from a CSV file specified by the input file path, extracts modulus,
+	* phase, and time components, and stores the raw data in the provided vectors `mod`, `phase`,
+	* and `time`. It then applies a Finite Impulse Response (FIR) filter to the modulus and phase
+	* data and stores the filtered results in the vectors `filt_mod` and `filt_phase`.
+	*
+	* @param filter The FIRFilter object used to filter the input data.
+	* @param input_file The path to the input CSV file.
+	* @param mod Vector to store the raw modulus data.
+	* @param phase Vector to store the raw phase data.
+	* @param time Vector to store the time data corresponding to the collected samples.
+	* @param filt_mod Vector to store the filtered modulus data.
+	* @param filt_phase Vector to store the filtered phase data.
+	*
+	* @throws std::runtime_error If there is an error loading or processing the input file.
 	*/
 	void collect_data_from_file(FIRFilter& filter, const std::string& input_file, std::vector<float>& mod, std::vector<float>& phase, std::vector<std::time_t>& time,std::vector<float>& filt_mod, std::vector<float>& filt_phase) {
 		if (!utils::file_exists(input_file)) {

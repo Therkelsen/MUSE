@@ -21,7 +21,6 @@
 extern "C" char* GetDLLVersion(unsigned long*);
 extern "C" char* PicometerControl(unsigned char, unsigned long, unsigned long*, unsigned char*);
 
-// 15 (number of frequencies) x 4 (float byte size) = 60
 constexpr auto BUFFER_SIZE = 1;
 
 class PicometerController {
@@ -68,22 +67,11 @@ public:
 		set_samplingrate_divider(); // this function should be run in idle mode
 		get_configuration(); // this function should be run in idle mode
 		device_start();
-		//set_compensation();
-		//set_excitation_level(ExcitationLevel); // changes the excitation amplitude 
-		//set_input_gains(GainVals); // setting the two gains, local in the initial parameter setting.
 		std::cout << "PicometerController: Initialized" << std::endl;
 	}
 
 	~PicometerController() {
 		device_stop();
-		//return 0;
-		//examples
-		//HMODULE	dll_com = LoadLibrary(L"PicometerCtrl.dll");
-		//if (dll_com == NULL)
-		//{
-		//	printf("fail to load the .dll file");
-		//	return 0;
-		//}
 		disconnect_device();
 	}
 
