@@ -204,7 +204,7 @@ namespace utils {
 	*/
 	void collect_data_from_file(FIRFilter& filter, const std::string& input_file, std::vector<float>& mod, std::vector<float>& phase, std::vector<std::time_t>& time,std::vector<float>& filt_mod, std::vector<float>& filt_phase) {
 		if (!utils::file_exists(input_file)) {
-			throw std::runtime_error("Error loading file: " + input_file + "\nExiting...");
+			throw std::runtime_error("File: " + input_file + " does not exist\nExiting...");
 		}
 
 		std::ifstream file(input_file);

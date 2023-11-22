@@ -143,8 +143,8 @@ int main() {
 			}
 
 			utils::write_data_to_csv(modulus_input_signal, phase_input_signal, time_steps, raw_output_file, delete_existing);
-			utils::write_data_to_csv(modulus_output_signal, phase_output_signal, time_steps, processed_output_file, delete_existing);
-			utils::write_data_to_csv(modulus_processed_signal, phase_processed_signal, time_steps, filtered_output_file, delete_existing);
+			utils::write_data_to_csv(modulus_output_signal, phase_output_signal, time_steps, filtered_output_file, delete_existing);
+			utils::write_data_to_csv(modulus_processed_signal, phase_processed_signal, time_steps, processed_output_file, delete_existing);
 
 			std::cout << "Data gathered and saved, stopping..." << std::endl;
 			status = utils::MainStatus::STOPPING;
