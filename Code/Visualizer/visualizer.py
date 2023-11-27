@@ -57,13 +57,13 @@ def update_data(i):
         None
     """
     # modulus_raw_data = load_data("Code/Data/raw_output_data.csv", 1)
-    modulus_filtered_data = load_data("Code/Data/filtered_output_data.csv", 1)
-    modulus_processed_data = load_data("Code/Data/processed_output_data.csv", 1)
+    modulus_filtered_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/filtered_output_data.csv", 1)
+    modulus_processed_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/processed_output_data.csv", 1)
     angles_raw_data = remove_character(remove_character(load_data("elbow_angles.csv", 0), '['), ']')
     
     # phase_raw_data = load_data("Code/Data/raw_output_data.csv", 2)
-    phase_processed_data = load_data("Code/Data/MoCap/static/1_0kg_180deg_reg/filtered_output_data.csv", 2)
-    phase_filtered_data = load_data("Code/Data/MoCap/static/1_0kg_180deg_reg/processed_output_data.csv", 2)
+    phase_processed_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/filtered_output_data.csv", 2)
+    phase_filtered_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/processed_output_data.csv", 2)
 
     plt.clf()
     
