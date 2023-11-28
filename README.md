@@ -51,21 +51,43 @@ The intended recipients are people with disruptive or weak motor control of thei
 
 4. Connect the Eliko device with EIM electrodes
 5. From `MUSE` open `Code/PicometerReader.sln`
-6. Make sure you're using the x86 compiler when running or debugging
-7. Great success!
+6. Make sure you're using the x86 compiler when running or debugging, otherwise it won't build!
+7. When you've run the program, create a throwaway sample (**S**, **K**, then **Y** and **Enter**) so the startup sequence of the Eliko device doesn't cause a mismatch in time. Now you're ready to record.
 
-   ![](https://th.bing.com/th/id/R.96690b2065c29c6e848b69e15c94d0a0?rik=PbCJ86cV%2bS4Gow&riu=http%3a%2f%2fdailyurbanista.com%2fwp-content%2fuploads%2f2016%2f02%2fgreat-success-gif.gif&ehk=QL3L4jXfujCmot5FczjvzdLFwJmBX%2bFG5v2lYJJPkLE%3d&risl=&pid=ImgRaw&r=0)
-
-# Setup Visualizer on Windows
-
-(Assumes you have the repo cloned from the previous step)
+# Setup Visualizer and Angle Tracker on Windows
 
 1. Install [Python](https://www.python.org/downloads/)
 2. Install requirements
 
-   1. From `MUSE` run `$ pip install -r Code/Visualizer/requirements.txt`
+   1. From `MUSE` run `$ pip install -r requirements.txt`
 
 3. Run the visualizer
 
    1. From `MUSE` run `$ py Code/Visualizer/visualizer.py`
    2. It updates the figure once every second, so if you run the MUSE program and gather new data, it will update the figure accordingly.
+
+4. Run the angle tracker
+
+   1. From `MUSE` run `$ py Code/angle_tracker/angle_calculator.py`
+   2. Once the program is running, press **S** to start recording data, **K** while recording to save, and **Q** to exit the program.
+
+# Setup hotkeys to start and stop recording
+
+1. Install [MacroRecorder](https://www.macrorecorder.com/download/)
+2. Install [PhraseExpress](https://www.phraseexpress.com/download/)
+3. Open **MacroRecorder**
+   
+   1. Open `start_recording.mrf` located in `Assets/Macros`
+   2. Click **Send to PhraseExpress** in the toolbar
+   3. Select **Hotkey** as your trigger in the dropdown, then configure a hotkey combination to start the macro. We used **Ctrl + Shift + F8**
+   4. Repeat for `stop_recording.mrf`, for that we used **Ctrl + Shift + F9**
+   5. Click **File** and **Save**
+   6. You may close **PhraseExpress**, just make sure it's running in the background still so it can register the hotkey combinations.
+
+# Record samples
+
+1. Following **Experimental protocol.pdf** located in `Assets`, prepare for sample recording.
+2. Once you have everything prepared, use the **start_recording** macro hotkey to start recording a sample, and the **stop_recording** macro hotkey to stop recording.
+3. NOW you're fully ready to record! Great success!
+
+   ![](https://th.bing.com/th/id/R.96690b2065c29c6e848b69e15c94d0a0?rik=PbCJ86cV%2bS4Gow&riu=http%3a%2f%2fdailyurbanista.com%2fwp-content%2fuploads%2f2016%2f02%2fgreat-success-gif.gif&ehk=QL3L4jXfujCmot5FczjvzdLFwJmBX%2bFG5v2lYJJPkLE%3d&risl=&pid=ImgRaw&r=0)

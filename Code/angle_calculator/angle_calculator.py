@@ -1,9 +1,9 @@
-import cv2
 import csv
-import time
+import cv2
+import math
 import mediapipe
 import numpy as np
-import math
+import time
 mp_drawing = mediapipe.solutions.drawing_utils
 mp_pose = mediapipe.solutions.pose
 
@@ -13,7 +13,7 @@ print(np.__version__)
 
 def calculate_angle(a, b, c):
     a = np.array(a)         # First
-    b = np.array(b)         # Midd
+    b = np.array(b)         # Middle
     c = np.array(c)         # End
 
     radians = np.arctan2(c[1]-b[1], c[0]-b[0]) - np.arctan2(a[1]-b[1], a[0]-b[0])
@@ -47,8 +47,8 @@ angles = np.zeros(shape)
 times = np.zeros(shape)
 
 # Image width and height
-imgwidth = 980
-imgheight = 1000
+img_width = 980
+img_height = 1000
 
 # Initialize a variable to keep track of the start time
 start_time = time.time()
@@ -61,13 +61,15 @@ with mp_pose.Pose(min_detection_confidence=0.5,
                   min_tracking_confidence=0.5) as pose:
     while current_state != State.EXIT:
         cap.isOpened()
-        ret, frame = cap.read()     # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
+        # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
+        ret, frame = cap.read()
 
         if current_state == State.IDLE:
             angles = np.zeros(shape)
             times = np.zeros(shape)
 
-            ret, frame = cap.read()     # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
+            # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
+            ret, frame = cap.read()
 
             # Recolor image. frame comes in BGR, but we need it in RGB to predict the pose
             image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -78,7 +80,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
             # Changes back to BGR, since openCV wants it in that format
             image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
-            image = cv2.resize(image, (imgwidth, imgheight))
+            image = cv2.resize(image, (img_width, img_height))
 
             # Extract landmarks
             try:
@@ -94,7 +96,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
 
                 # Visualize. Coordinates of the elbow is being multiplied by the webcam image resolution (640,480), to put the coordinate at the tip of the elbow
                 cv2.putText(image, str(angle),
-                            tuple(np.multiply(elbow, [imgwidth, imgheight]).astype(int)),
+                            tuple(np.multiply(elbow, [img_width, img_height]).astype(int)),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA
                             )
                 
@@ -117,14 +119,8 @@ with mp_pose.Pose(min_detection_confidence=0.5,
             # Get the current system time
             current_time = math.floor(time.time())
 
-            # # Calculate the elapsed time in seconds
-            # elapsed_time = current_time - start_time
-            # #     # Check if 1 second has passed
-            # if elapsed_time >= 10.0:
-            #     print("Broke loop after ", elapsed_time, " seconds")
-            #     current_state = State.SAVING
-
-            ret, frame = cap.read()     # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
+            # Gets the current feed from the camera. ret isn't used, frame gives the actual videoframe
+            ret, frame = cap.read()
 
             # Recolor image. frame comes in BGR, but we need it in RGB to predict the pose
             image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -135,7 +131,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
             # Changes back to BGR, since openCV wants it in that format
             image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
-            image = cv2.resize(image, (imgwidth, imgheight))
+            image = cv2.resize(image, (img_width, img_height))
 
             # Extract landmarks
             try:
@@ -155,7 +151,7 @@ with mp_pose.Pose(min_detection_confidence=0.5,
 
                 # Visualize. Coordinates of the elbow is being multiplied by the webcam image resolution (640,480), to put the coordinate at the tip of the elbow
                 cv2.putText(image, str(angle),
-                            tuple(np.multiply(elbow, [imgwidth, imgheight]).astype(int)),
+                            tuple(np.multiply(elbow, [img_width, img_height]).astype(int)),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA
                             )
                 
@@ -185,8 +181,10 @@ with mp_pose.Pose(min_detection_confidence=0.5,
                     csv_writer.writerows(data)
                     current_state = State.IDLE
 
-        if key == ord('q'):  # Checks if we try to close the feed by pressing 'q'
+        # Check if key 'q' was pressed
+        if key == ord('q'):
             current_state = State.EXIT
 
-    cap.release()   # Releases the webcam
+    # Releases the webcam
+    cap.release()
     cv2.destroyAllWindows()

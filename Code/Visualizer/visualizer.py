@@ -1,9 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import re
 from matplotlib import gridspec
-from matplotlib.animation import FuncAnimation
 
 
 def load_data(file_path, col_idx):
@@ -42,7 +40,7 @@ def remove_character(data, character):
     """
     # Apply the replacement to all rows except the first (header) row
     data = data.apply(lambda x: x.str.replace(character, ''), axis=1)
-    
+
     return data
 
 
@@ -60,30 +58,12 @@ def update_data(i):
     modulus_filtered_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/filtered_output_data.csv", 1)
     modulus_processed_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/processed_output_data.csv", 1)
     angles_raw_data = remove_character(remove_character(load_data("elbow_angles.csv", 0), '['), ']')
-    
+
     # phase_raw_data = load_data("Code/Data/raw_output_data.csv", 2)
     phase_processed_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/filtered_output_data.csv", 2)
     phase_filtered_data = load_data("Code/GRU_network/MoCap/dynamic/46_FRM_0kg_reg/processed_output_data.csv", 2)
 
     plt.clf()
-    
-    # # Create the 2D plot for modulus_raw_data
-    # num_rows, num_cols = modulus_raw_data.shape
-
-    # x = np.arange(1, num_cols + 1)
-    # y = np.arange(1, num_rows + 1)
-    # X, Y = np.meshgrid(x, y)
-    
-    # ax1 = plt.subplot(gs[0, 0])
-    # modulus_raw_data_column = modulus_raw_data.iloc[:, 0]
-    # ax1.plot(y, modulus_raw_data_column, marker='', linestyle='-', color=[.84, .15, .29], linewidth=0.5, label='Raw Data')
-    # ax1.set_xlabel('Time ms')
-    # ax1.set_ylabel('Modulus of impedance |Ω|')
-    # ax1.set_title('Raw bioelectrical impedance modulus')
-    # ax1.grid(True)
-    # ax1.set_xlim(1, num_rows)
-    # ax1.spines['right'].set_color((.8, .8, .8))
-    # ax1.spines['top'].set_color((.8, .8, .8))
 
     # Create the 2D plot for modulus_filtered_data
     num_rows, num_cols = modulus_filtered_data.shape
@@ -91,7 +71,7 @@ def update_data(i):
     x = np.arange(1, num_cols + 1)
     y = np.arange(1, num_rows + 1)
     X, Y = np.meshgrid(x, y)
-    
+
     ax1 = plt.subplot(gs[0, 0])
     modulus_filtered_data_column = modulus_filtered_data.iloc[:, 0]
     ax1.plot(y, modulus_filtered_data_column, marker='', linestyle='-', color=[.15, .28, .73], label='Low-Pass Filtered Data', linewidth=0.5)
@@ -102,14 +82,14 @@ def update_data(i):
     ax1.set_xlim(1, num_rows)
     ax1.spines['right'].set_color((.8, .8, .8))
     ax1.spines['top'].set_color((.8, .8, .8))
-    
+
     # Create the 2D plot for processed_sensor_data
     num_rows, num_cols = modulus_processed_data.shape
 
     x = np.arange(1, num_cols + 1)
     y = np.arange(1, num_rows + 1)
     X, Y = np.meshgrid(x, y)
-    
+
     ax2 = plt.subplot(gs[1, 0])
     modulus_processed_data_column = modulus_processed_data.iloc[:, 0]
     min_value = modulus_processed_data_column.min()
@@ -148,23 +128,11 @@ def update_data(i):
     ax3.set_xlim(1, num_rows)
     ax3.spines['right'].set_color((.8, .8, .8))
     ax3.spines['top'].set_color((.8, .8, .8))
-    
-    
-    # # FFT of raw data
-    # modulus_raw_fft_result = np.fft.fft(modulus_raw_data_column)
-    # modulus_raw_magnitude = np.abs(modulus_raw_fft_result)[5:]
 
-    nyquist_frequency = 500
-    # modulus_raw_frequency_values = np.linspace(0, nyquist_frequency, len(modulus_raw_magnitude) // 2)
 
-    # ax4 = plt.subplot(gs[0, 1])
-    # ax4 = plt.plot(modulus_raw_frequency_values, modulus_raw_magnitude[:len(modulus_raw_magnitude) // 2])
-    # ax4 = plt.xlabel('Frequency Hz')
-    # ax4 = plt.ylabel('Magnitude')
-    # ax4 = plt.title('Magnitude Spectrum for FFT of raw data')
-    # ax4 = plt.grid(True)
-    
     # FFT of filtered data
+    nyquist_frequency = 500
+
     modulus_filtered_fft_result = np.fft.fft(modulus_filtered_data_column)
     modulus_filtered_magnitude = np.abs(modulus_filtered_fft_result)[5:]
 
@@ -180,7 +148,7 @@ def update_data(i):
     # FFT of processed data
     modulus_processed_fft_result = np.fft.fft(modulus_processed_data_column)
     modulus_processed_magnitude = np.abs(modulus_processed_fft_result)[5:]
-    
+
     modulus_processed_frequency_values = np.linspace(0, nyquist_frequency, len(modulus_processed_magnitude) // 2)
 
     ax5 = plt.subplot(gs[1, 1])
@@ -189,11 +157,11 @@ def update_data(i):
     ax5 = plt.ylabel('Magnitude')
     ax5 = plt.title('Magnitude Spectrum for FFT of processed data')
     ax5 = plt.grid(True)
-    
+
     # FFT of angle data
     angles_raw_data_column_fft_result = np.fft.fft(angles_raw_data_column)
     angles_raw_data_column_magnitude = np.abs(angles_raw_data_column_fft_result)[5:]
-    
+
     angles_raw_data_column_frequency_values = np.linspace(0, nyquist_frequency, len(angles_raw_data_column_magnitude) // 2)
 
     ax6 = plt.subplot(gs[2, 1])
@@ -202,24 +170,6 @@ def update_data(i):
     ax6 = plt.ylabel('Magnitude')
     ax6 = plt.title('Magnitude Spectrum for FFT of angle data')
     ax6 = plt.grid(True)
-    
-    # # Create the 2D plot for phase_raw_data
-    # num_rows, num_cols = phase_raw_data.shape
-
-    # x = np.arange(1, num_cols + 1)
-    # y = np.arange(1, num_rows + 1)
-    # X, Y = np.meshgrid(x, y)
-    
-    # ax7 = plt.subplot(gs[0, 2])
-    # phase_raw_data_column = phase_raw_data.iloc[:, 0]
-    # ax7.plot(y, phase_raw_data_column, marker='', linestyle='-', color=[.84, .15, .29], linewidth=0.5, label='Raw Data')
-    # ax7.set_xlabel('Time ms')
-    # ax7.set_ylabel('Phase of impedance φ(Ω)')
-    # ax7.set_title('Raw bioelectrical impedance phase')
-    # ax7.grid(True)
-    # ax7.set_xlim(1, num_rows)
-    # ax7.spines['right'].set_color((.8, .8, .8))
-    # ax7.spines['top'].set_color((.8, .8, .8))
 
     # Create the 2D plot for phase_filtered_data
     num_rows, num_cols = phase_filtered_data.shape
@@ -227,7 +177,7 @@ def update_data(i):
     x = np.arange(1, num_cols + 1)
     y = np.arange(1, num_rows + 1)
     X, Y = np.meshgrid(x, y)
-    
+
     ax7 = plt.subplot(gs[0, 2])
     phase_filtered_data_column = phase_filtered_data.iloc[:, 0]
     ax7.plot(y, phase_filtered_data_column, marker='', linestyle='-', color=[.15, .28, .73], label='Low-Pass Filtered Data', linewidth=0.5)
@@ -238,14 +188,14 @@ def update_data(i):
     ax7.set_xlim(1, num_rows)
     ax7.spines['right'].set_color((.8, .8, .8))
     ax7.spines['top'].set_color((.8, .8, .8))
-    
+
     # Create the 2D plot for processed_sensor_data
     num_rows, num_cols = phase_processed_data.shape
 
     x = np.arange(1, num_cols + 1)
     y = np.arange(1, num_rows + 1)
     X, Y = np.meshgrid(x, y)
-    
+
     ax8 = plt.subplot(gs[1, 2])
     phase_processed_data_column = phase_processed_data.iloc[:, 0]
     min_value = phase_processed_data_column.min()
@@ -260,22 +210,11 @@ def update_data(i):
     l.set_linewidths([0.1])
     ax8.spines['right'].set_color((.8, .8, .8))
     ax8.spines['top'].set_color((.8, .8, .8))
-    
-    # # FFT of raw data
-    # phase_raw_fft_result = np.fft.fft(phase_raw_data_column)
-    # phase_raw_magnitude = np.abs(phase_raw_fft_result)[5:]
 
-    nyquist_frequency = 500
-    # phase_raw_frequency_values = np.linspace(0, nyquist_frequency, len(phase_raw_magnitude) // 2)
 
-    # ax10 = plt.subplot(gs[0, 3])
-    # ax10 = plt.plot(phase_raw_frequency_values, phase_raw_magnitude[:len(phase_raw_magnitude) // 2])
-    # ax10 = plt.xlabel('Frequency Hz')
-    # ax10 = plt.ylabel('Magnitude')
-    # ax10 = plt.title('Magnitude Spectrum for FFT of raw data')
-    # ax10 = plt.grid(True)
-    
     # FFT of filtered data
+    nyquist_frequency = 500
+
     phase_filtered_fft_result = np.fft.fft(phase_filtered_data_column)
     phase_filtered_magnitude = np.abs(phase_filtered_fft_result)[5:]
 
@@ -291,7 +230,7 @@ def update_data(i):
     # FFT of processed data
     phase_processed_fft_result = np.fft.fft(phase_processed_data_column)
     phase_processed_magnitude = np.abs(phase_processed_fft_result)[5:]
-    
+
     phase_processed_frequency_values = np.linspace(0, nyquist_frequency, len(phase_processed_magnitude) // 2)
 
     ax10 = plt.subplot(gs[1, 3])
@@ -300,20 +239,24 @@ def update_data(i):
     ax10 = plt.ylabel('Magnitude')
     ax10 = plt.title('Magnitude Spectrum for FFT of processed data')
     ax10 = plt.grid(True)
-    
+
     plt.tight_layout()
 
 
-if __name__ == "__main__":
-    """
-    Main entry point of the script.
+def on_key_press(event):
+    if event.key == 'u':
+        update_data(0)  # Call the update_data function when the 'u' key is pressed
+        plt.draw()  # Redraw the plot after updating the data
 
-    Creates subplots for raw, filtered, and processed sensor data. 
-    Uses FuncAnimation to update the plots every second.
-    """
+
+if __name__ == "__main__":
     fig = plt.figure(figsize=(18, 15))
     gs = gridspec.GridSpec(3, 4, height_ratios=[1, 1, 1])
 
-    ani = FuncAnimation(fig, update_data, interval=1000, cache_frame_data=False)
+    # Connect the key press event to the on_key_press function
+    fig.canvas.mpl_connect('key_press_event', on_key_press)
 
+    update_data(0)  # Call the update_data function initially
+
+    plt.tight_layout()
     plt.show()
