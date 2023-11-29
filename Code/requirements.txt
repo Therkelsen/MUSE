@@ -3,3 +3,7 @@ mediapipe
 numpy
 opencv-contrib-python==4.5.5.62
 pandas
+plotly
+scikit-learn
+scipy
+tensorflow
