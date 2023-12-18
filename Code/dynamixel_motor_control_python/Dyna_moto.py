@@ -32,9 +32,6 @@ import os
 import numpy as np
 import time
 
-
-print("setup done")
-
 if os.name == 'nt':
 	import msvcrt
 	def getch():
@@ -213,6 +210,8 @@ class Dyna_moto():
 		for i in range(self.moto_num):
 			print("The initial position: %f" % self.init_var[i])
 
+		self.init_pos = self.init_var[0]
+  
 		self.con_pos = copy.copy(self.now_pos)
 
 		
@@ -235,7 +234,7 @@ class Dyna_moto():
 				print("The motor# %d is torque-off." % self.moto_ids[i])
 	def get_gsw(self, add_write, len_write):
 		return GroupSyncWrite(self.port_hand, self.pack_hand, add_write, len_write)
-	def get_feedbacks(self):
+	def get_feedbacks(self):	# Updates feedbacks from motors
 
 		#time.sleep(0.01)
 		'''
@@ -299,8 +298,8 @@ class Dyna_moto():
 		for i in range(self.moto_num):
 			cur = self.read(self.moto_ids[i], ADDR_PRO_PRESENT_CURRENT, 2)	
 			cur = self.byte2num(cur, 2)
-			self.now_cur[i] = cur * UNITCUR
-			self.now_tor[i] = self.cur2tor(self.now_cur[i])
+			self.now_cur[i] = cur * UNITCUR	# Sets current 
+			self.now_tor[i] = self.cur2tor(self.now_cur[i])	# Sets torque
 	def byte2num(self, var, byte_num):
 		rvar = 0.00
 		if byte_num == 4:
@@ -322,8 +321,8 @@ class Dyna_moto():
 			if self.con_mode[i] != self.moto_control:
 				self.write(self.moto_ids[i], ADDR_CON_MODE, 1, self.moto_control)
 				print("The control mode of the motor %3d is changed into %s " % (self.moto_ids[i], Con_Mode[self.moto_control]))
-	def cur2tor(self, var):
-		rvar = var/A#(var -B)/A
+	def cur2tor(self, var):	# var = current(A)
+		rvar = var/A#(var -B)/A. A is a constant, B is a constant
 		return rvar
 	def tor2curcom(self, var):
 		rvar = 0
@@ -369,7 +368,7 @@ class Dyna_moto():
 			print("The maximum and minimum currents are: %f and %f" %(self.MaxCur[i], self.MinCur[i]))
 
 	def read(self, motor_id, add_read, byte_num):
-		assert (byte_num in [1,2,4]), "the reading byte should be one of [1, 2, 4]"
+		assert (byte_num in [1,2,4]), "the reading byte should be one of [1, 2, 4]"	# Error if byte_num is not 1, 2, or 4
 		if (byte_num == 1):
 			cl_dxl, cl_dxl_comm_result, cl_dxl_error = self.pack_hand.read1ByteTxRx(self.port_hand, motor_id, add_read)
 		elif (byte_num == 2):

@@ -47,10 +47,25 @@ import math
 import numpy as np
 import numpy.random as npr
 import time
+import threading
 
 from datetime import datetime
 from os.path import *
 from scipy import *
+
+# Deep learning imports
+from keras.models import load_model
+import pandas as pd
+
+# Visualization
+import matplotlib.pyplot as plt
+
+# For keyboard interrupt
+import keyboard
+
+# Ignore warnings
+import warnings
+warnings.filterwarnings("ignore")
 
 DXL_MOVING_STATUS_THRESHOLD = 20 
 import os
@@ -97,8 +112,8 @@ CHECK_ID = 0
 CHECK_CUR_NUM = 6
 BAUDRATE = 3000000#4000000#57600#
 
-CONTROLLER = 'ada_imp'#'const_imp'#
-TASK = 'track'#'post_con'#
+CONTROLLER = 'ada_imp'  #'const_imp'# 'ada_imp'
+TASK = 'track'  #'post_con'# 'dynamic' #'track'
 
 class Ada_con():
 	def __init__(self, con_type = 'impe_con', co_mod = 3, re_only = False, dn = 'COM3'):
@@ -138,89 +153,197 @@ class Ada_con():
 		self.task = CONTROLLER #'const_imp'#'ada_imp'#
 		self.tra_type = TASK #'track'#'post_con'#
 
-		self.max_noi = np.pi/10.0
+		self.max_noi = np.pi/10.0 # Potential change if it limits the range of motion
 
-		self.safe_rad = np.pi/2.0 + self.max_noi
+		self.safe_rad = 0.0 # Potential change if it limits the range of motion np.pi/2.0  + self.max_noi
 
+		# Program time. TASK gets set before program start. defualt = 'track'
 		if self.tra_type == 'track':
-			self.go_t = 7.5#15.0#33.0#51.0#5.0#50.0#160.0#15.0#20.0
+			self.go_t = 30#15.0#33.0#51.0#5.0#50.0#160.0#15.0#20.0
 		else:
 			self.go_t = 10.0#20.0#8.0#15.0#20.0#50.0#160.0
 
 		#tracking
-		self.max_tar_rad = np.pi/4.0#np.pi/2.0#np.pi/6.0
-		self.cir_num = 3#3
-		self.cir_fre = self.cir_num*2*np.pi/self.go_t
-		self.tra_pos = 0.00
+		self.max_tar_rad = -np.pi/1.5 #np.pi/2.0#np.pi/6.0 Max target in radians? np.pi/4.0
+		self.min_tar_rad = 0.0
+		self.cir_num = 3#3	# Radius of the circle
+		self.cir_fre = self.cir_num*2*np.pi/self.go_t # Frequency of the circle
+		self.tra_pos = 0.00	# Potential starting position
 
-		self.goal_theta = np.pi/2.0#10.0
+		self.goal_theta = np.pi/2.0#10.0 How does this align with the max_tar_rad?
 		
-		self.n_t = 0.00
-		self.dt = 0.00
-		self.pre_t = 0.00
+		self.n_t = 0.00	# Program time?
+		self.dt = 0.00	# Time step?
+		self.pre_t = 0.00	# Previous time step?
 
-		self.init_pos = 0.00
 		self.target_pos = self.goal_theta
-		self.t_s = 0
+		self.t_s = 0	# Time step counter?
 
 		self.beta = 0.05#1.0#2.0#5.0
 		self.a = 35#0.2
 		self.b = 5.0
 		self.ine = 0.1#0.05#1
 
-		self.tor_out = False
+		self.tor_out = False	# Torque output?
 
-		self.kp = 100
-		self.kv = math.sqrt(self.kp)
-		self.cur_k = 60
+		self.kp = 100	# Proportional gain
+		self.kv = math.sqrt(self.kp) # Derivative gain
+		self.cur_k = 60	# Current gain
 
-		self.dif_pos_ave = np.zeros(self.dm.moto_num)
-		self.dif_vel_ave = np.zeros(self.dm.moto_num)
-		self.cur_ave = np.zeros(self.dm.moto_num)
+		self.dif_pos_ave = np.zeros(self.dm.moto_num) # Average position difference
+		self.dif_vel_ave = np.zeros(self.dm.moto_num) # Average velocity difference
+		self.cur_ave = np.zeros(self.dm.moto_num) # Average current
 
 		#variable impedance
-		self.pre_dif_pos = np.zeros(self.num_moto)
-		self.pre_dif_vel = np.zeros(self.num_moto)
-		self.pre_des_pos = np.zeros(self.num_moto)
+		self.pre_dif_pos = np.zeros(self.num_moto) # Previous position difference
+		self.pre_dif_vel = np.zeros(self.num_moto) # Previous velocity difference
+		self.pre_des_pos = np.zeros(self.num_moto) # Previous desired position
 
 		self.save_result = True
 		if (self.save_result):
 			self.open_files()
-
+		
+		self.cur_pos = 0.0
+		self.max_pos = 0.0
+  
+		# Loads the neural network model
+		self.model_path = 'Code/GRU_network/first_16_feat_10ts_200ep_no_kin.h5'
+		self.model = read_nn_model(self.model_path)
+  
+		# Loads csv "data_base"
+		self.csv_database_path = 'Code/GRU_network/test_samples.csv'
+		self.df_data_base = load_csv_data(self.csv_database_path)
+  
+		# Loads means and standard deviations for scaling
+		self.mean_path = 'Code/GRU_network/means.csv'
+		self.std_path = 'Code/GRU_network/std_devs.csv'
+  
+		# Defines the sample length pr prediction
+		self.sample_columns = ['Sample', 'JointAngle', 'Mass', 'EIMMagnitude', 'EIMPhase', 'RollingAverageMag',
+								'RollingAveragePhase', 'MedianEIMMagnitude', 'MedianEIMPhase',
+								'MeanEIMMagnitude', 'MeanEIMPhase', 'StdEIMMagnitude',
+								'StdEIMPhase', 'VarEIMMagnitude', 'VarEIMPhase', 'KurtEIMMagnitude',
+								'KurtEIMPhase', 'ROCEIMMagnitude','ROCEIMPhase']
+		self.sample_length = 250
+		self.sample_upper_limit = 250
+		self.sample_count = 0
+		self.sample = pd.DataFrame(columns=self.sample_columns)
+		self.sample_normalized = pd.DataFrame(columns=self.sample_columns)
+		self.sequence_length = 10
+		self.num_features = 16
+		self.num_targets = 2
+		self.X_seq = np.zeros((1, self.sequence_length, self.num_features))
+		self.y_seq = np.zeros((1, self.sequence_length, self.num_targets))
+  
+		# Thresholds
+		self.threshold_pos_min = self.max_tar_rad
+		self.threshold_pos_max = 0.0
+		self.delta_target_pos_thresh = 0.0
+  
 	def start(self):
 		self.start_timer()
+		self.get_states()
+		self.get_pos_diff()
+		self.max_pos = 360.0 * np.pi / 180.0
+		print("The maximum position is: %f rad" % self.max_tar_rad)
+		self.cur_pos = ((self.dm.init_pos / 4095) * 360.0 * np.pi / 180.0) - 3.938690
+		print("The initial position is: %f rad" % self.cur_pos)
+		self.min_tar_rad = self.max_tar_rad
+		self.safe_rad = ((2566 / 4095) * 360.0 * np.pi / 180.0) - 3.938690
 
-		while(abs(self.pos_rad[CHECK_ID])< self.safe_rad and (self.n_t <= self.go_t)):
-			self.n_t = self.now_timer()
-			self.dt = self.n_t - self.pre_t
+		while True:
+			# Check if any key is pressed
+			if keyboard.is_pressed(hotkey='q'):
+				print("Keyboard interrupt")
+				break
 
-			#Get position and velocity feedbacks from the motor
-			self.get_states()
+			self.sample = self.read_from_database()
 
-			#Generate the desired motor position
-			self.gen_des()
+			if len(self.sample) <= self.sequence_length:
+				print("Not enough samples in database.")
+				exit()
+   
+			self.sample_normalized = normalize_data(self.sample, self.mean_path, self.std_path)
+			self.X_seq, self.y_seq = create_sequences(self.sample_normalized, self.sequence_length)
+			self.predictions = predict(self.model, self.X_seq)
+   
+			self.predictions_denorm = denormalize_data(self.predictions, self.mean_path, self.std_path)
+  
+			pred = self.predictions_denorm['JointAngle'].iloc[-1]
+			print("Predicted joint angle:\n %f deg" % -pred)
+			ref = 0.0
+			print("input to deg_to_rad:" + str(pred))
+			ref = self.deg_to_rad(pred)
+			print("output from deg_to_rad:" + str(ref))
+			ref = ref * (-1)
+			print(" %f rad" % ref)
+			if (ref - self.cur_pos < self.delta_target_pos_thresh):
+				print("Updating reference")
+				self.target_pos = ref
+			if (ref < self.min_tar_rad):
+				print("Reference is too low, clamping to " + str(self.min_tar_rad) + " rad")
+				ref = self.min_tar_rad
+			elif (ref > self.safe_rad):
+				print("Reference is too high, clamping to " + str(self.safe_rad) + " rad")
+				ref = self.safe_rad
 
-			#Impedance contollers
-			self.controllers()
+			self.pos_des[0] = self.tra_plan(self.n_t, self.cur_pos, ref)
+			diff = abs(self.pos_des[0] - self.cur_pos)
 
-			#Send commands to the motor
-			self.SendMotoComm()
-			
-			self.CalFbAve()
+			while (diff > 0.50):
+				if keyboard.is_pressed(hotkey='q'):
+					print("Keyboard interrupt")
+					break
+				self.n_t = self.now_timer()
+				self.dt = self.n_t - self.pre_t
 
-			if (self.save_result):
-				self.save_data()
-		self.stop_motors()
+				# Get position and velocity feedbacks from the motor
+				self.get_states()
+
+				# Generate the desired motor position
+				self.gen_des()
+
+				# Impedance contollers
+				self.controllers()
+
+				# Send commands to the motor
+				self.SendMotoComm()
+				
+				# self.CalFbAve()
+    
+				# Create a new thread object for each iteration
+				my_thread = MyThread()
+				
+				# Start the thread
+				my_thread.start()
+
+				# Wait for the thread to finish
+				my_thread.join()
+
+				print("Main loop continues...")
+    
+				self.cur_pos = ((self.dm.now_pos[0] / 4095) * 360.0 * np.pi / 180.0) - 3.938690
+    
+				self.pos_des[0] = self.tra_plan(self.n_t, self.cur_pos, ref)
+				
+				diff -= abs(self.cur_pos)
+    
+				# if (self.cur_pos > self.safe_rad):
+				# 	self.stop_motors()
+				# 	break
+ 
+				# if (self.save_result):
+				# 	self.save_data()
+			self.stop_motors()
 
 #(start)------------Generate the desired motor position-------------
 	def gen_des(self):
 		for i in range(self.num_moto):
-			if self.tra_type == 'track':# periodic tracking
-				self.init_pos = 0.00
-				self.target_pos = self.max_tar_rad
-			self.pos_des[i] = self.tra_plan(self.n_t,self.init_pos,self.target_pos) # generate the desired positions
-
-			if self.dt > 0.00:# calculate the desired velocity
+			# if self.tra_type == 'track':		# periodic tracking
+			# 	self.cur_pos = 0.00
+			# 	self.target_pos = self.target_pos
+    
+			if self.dt > 0.00:		# calculate the desired velocity
 				self.vel_des[i] = (self.pos_des[i] - self.pre_pos_des[i])/self.dt
 			else:
 				self.vel_des[i] = self.vel_des[i]
@@ -231,7 +354,7 @@ class Ada_con():
 
 	def tra_plan(self,t, ini_pos, tar_pos):	
 		# two desired position generators
-		if self.tra_type == 'track':
+		if self.tra_type == 'track': # 'dynamic' 'track'
 			return self.pla_tra(t, ini_pos, tar_pos)# periodic tracking
 		else:
 			return self.pla_postu_con(t, ini_pos, tar_pos)# posture control
@@ -250,7 +373,20 @@ class Ada_con():
 		self.cir_fre: frequency
 		'''
 		#T2
-		return (ini_pos + tar_pos * math.sin(self.cir_fre*t))
+  		#return (ini_pos + tar_pos * math.sin(self.cir_fre*t))
+		return (tar_pos - ini_pos)
+
+	def read_from_database(self):
+		# Loads csv "data_base"
+		sample = pd.DataFrame(columns=self.sample_columns)
+		sample[self.sample_columns] = self.df_data_base[self.sample_columns].iloc[self.sample_count:self.sample_upper_limit].copy()
+		self.sample_upper_limit += self.sample_length
+		self.sample_count += self.sample_length
+    
+		return sample
+  
+	def deg_to_rad(self, deg):
+		return deg * np.pi / 180.0
 
 #(above)------------Generate the desired motor position---------------
 
@@ -279,7 +415,7 @@ class Ada_con():
 			self.vel_diff[i]: velocity difference
 			'''
 
-			#T4
+			#T4 self.vel_des[i]
 			self.vel_diff[i] = self.dm.now_vel[i] - self.vel_des[i]
 
 	def get_tra_diff(self):# tracking difference, see Eq.(3)
@@ -508,10 +644,10 @@ class Ada_con():
 	def start_timer(self):
 		self.s_t = datetime.now()
 	def now_timer(self):
-		self.diff_t = datetime.now() - self.s_t
+		self.diff_t = datetime.now() - self.s_t	# Calculates the time difference
 		return (self.diff_t.seconds + self.diff_t.microseconds/1E6)
 	def get_states(self):
-		self.t_s = self.t_s + 1
+		self.t_s = self.t_s + 1	# Time step counter?
 		self.dm.get_feedbacks()
 
 	def close(self):
@@ -530,10 +666,137 @@ class Ada_con():
 
 
 
+
+#(start)------------Neural network-------------
+def read_nn_model(nn_model_path):
+	# Load the model with custom_objects to recognize the GRU layer
+	loaded_model = load_model(nn_model_path)
+
+	print("Model loaded successfully.")
+	print(loaded_model.summary())
+	return loaded_model
+
+def load_csv_data(csv_path):
+	df_test = pd.read_csv(csv_path, encoding='utf-8')
+
+	return df_test
+
+def create_sequences(dataframe, sequence_length=10):
+	X_seq, y_seq = [], []
+
+	df_grouped_test = dataframe.groupby('Sample')
+ 
+	for groupname, group_data in df_grouped_test:
+
+		group_data_temp = group_data[['EIMMagnitude', 'EIMPhase', 'RollingAverageMag',
+									'RollingAveragePhase', 'MedianEIMMagnitude', 'MedianEIMPhase',
+									'MeanEIMMagnitude', 'MeanEIMPhase', 'StdEIMMagnitude',
+									'StdEIMPhase', 'VarEIMMagnitude', 'VarEIMPhase', 'KurtEIMMagnitude',
+									'KurtEIMPhase', 'ROCEIMMagnitude','ROCEIMPhase']]
+
+		group_data_x = np.array(group_data_temp)  # Convert to NumPy array
+
+		group_data_temp = group_data[['JointAngle', 'Mass']]
+		group_data_y = np.array(group_data_temp)  # Convert to NumPy array
+
+		# Create sequences (adjust sequence_length as needed)
+		for i in range(len(group_data) - sequence_length + 1):
+			X_seq.append(group_data_x[i:i+sequence_length, :])
+			y_seq.append(group_data_y[i+sequence_length-1, :])
+   
+   # Convert to numpy arrays
+	X_seq = np.array(X_seq)
+	y_seq = np.array(y_seq)
+   
+	return X_seq, y_seq
+
+def predict(model, X_seq, y_seq=None):
+	# Predict on test data
+	# Now you can use the new_model for predictions
+	predictions_scaled = model.predict(X_seq)
+
+	if(y_seq is not None):
+		# Evaluate the model on the test set.
+		model.evaluate(X_seq, y_seq)
+  
+	predictions_df = pd.DataFrame(predictions_scaled, columns=['JointAngle', 'Mass'])
+	# Isolate the needed means and standard deviations for reversing the scale
+
+	return predictions_df
+
+def normalize_data(dataframe, mean_path, std_path):
+	# Load the mean and standard deviation of the training data
+	loaded_means = pd.read_csv(mean_path, index_col=0, squeeze=True)
+	loaded_std_devs = pd.read_csv(std_path, index_col=0, squeeze=True)
+	
+	sample_column = dataframe['Sample'].values
+	df_test = dataframe.drop(['Sample'], axis=1)
+
+	# Normalize the test data
+	df_test_normalized = (df_test-loaded_means)/loaded_std_devs
+
+	# Add the sample column again
+	df_test_normalized['Sample'] = sample_column
+
+	# Normalize the test data
+	return df_test_normalized
+
+def denormalize_data(predictions_normalized, mean_path, std_path):
+	# Load the mean and standard deviation of the training data
+	loaded_means = pd.read_csv(mean_path, index_col=0, squeeze=True)
+	loaded_std_devs = pd.read_csv(std_path, index_col=0, squeeze=True)
+ 
+	df_mean_pred = loaded_means[['JointAngle', 'Mass']]
+	df_std_pred = loaded_std_devs[['JointAngle', 'Mass']]
+ 
+ 	# Denormalize the test data
+	predictions = predictions_normalized*df_std_pred+df_mean_pred
+
+	return predictions
+
+class MyThread(threading.Thread):
+    def run(self):
+        print("Thread is starting...")
+        
+        # Sleep for 0.3 seconds
+        time.sleep(0.3)
+        
+        print("Thread is waking up after 0.3 seconds.")
+
 if __name__ == '__main__':
 	ac = Ada_con(co_mod = 0, re_only = True)
+ 
+	# # ------------ Test load csv data ------------
+	# dir_test = 'Code/GRU_network/test_samples.csv'
+	# mean_path = 'Code/GRU_network/means.csv'
+	# std_path = 'Code/GRU_network/std_devs.csv'
+	# loaded_csv = load_csv_data(dir_test)
+	# print('Before normalization', end='\n')
+	# print(loaded_csv)
+ 
+	# # ------------ Test load model ------------
+	# model_path = 'Code/GRU_network/first_16_feat_10ts_200ep_no_kin.h5'
+	# model = read_nn_model(model_path)
+ 
+	# # ------------ Test normalize data ------------
+	# normalized_data = normalize_data(loaded_csv, mean_path, std_path)
+	# print('After normalization', end='\n')
+	# print(normalized_data)
+ 
+	# # ------------ Test create sequences ------------
+	# seq_X, seq_y = create_sequences(normalized_data, 10)
+	# print('Seq_X: ', seq_X, 'Seq_y', seq_y)
+ 
+	# # ------------ Test predict ------------
+	# predictions = predict(model, seq_X, seq_y)
+ 
+	# # ------------ Test denormalize data ------------
+	# pred_denorm = denormalize_data(predictions, mean_path, std_path)
+	# print('Predictions: ', pred_denorm)
+
 	# commenting the above line, using the follwing line if your USBToSerial port ID is not default (i.e., ttyUSB0)
 	# ac = Ada_con(co_mod = 0, re_only = True, dn = '/dev/ttyUSB1') # In this case, USBToSerial port ID is ttyUSB1.
 	ac.start()
 
 	ac.close()
+

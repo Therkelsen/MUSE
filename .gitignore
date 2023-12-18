@@ -7,3 +7,5 @@
 /Code/.vs/PicometerReader/v16
 /Code/.vs/PicometerReader/v17
 .ipynb_checkpoints
+plots/
+*/__pycache__/

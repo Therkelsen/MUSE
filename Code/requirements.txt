@@ -2,8 +2,8 @@ matplotlib
 mediapipe
 numpy
 opencv-contrib-python==4.5.5.62
-pandas
+pandas==1.5.3
 plotly
 scikit-learn
 scipy
-tensorflow
+tensorflow==2.15.0
