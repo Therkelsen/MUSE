@@ -235,7 +235,7 @@ namespace utils {
 					} else if (col_idx == 2) {
 						phase_value = abs(value);
 					} else if (col_idx == 5) {
-						time_value = value;
+						time_value = static_cast<time_t>(value);
 					}
 				}
 				catch (const std::invalid_argument& e) {

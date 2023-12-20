@@ -157,7 +157,6 @@
     <ClCompile Include="FIR_filter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PicometerController.cpp" />
-    <ClCompile Include="PicometerReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PicometerCtrl.dll" />

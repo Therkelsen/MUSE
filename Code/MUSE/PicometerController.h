@@ -90,7 +90,7 @@ public:
 	void set_samplingrate_divider();
 	void set_compensation();
 	void set_excitation_level(unsigned long excitation_level);
-	void set_input_gains(unsigned long gianvalues);
+	void set_input_gains(unsigned long gain_values);
 
 	void write_data_to_csv(const std::vector<std::vector<float>>& data, const std::string& path);
 
