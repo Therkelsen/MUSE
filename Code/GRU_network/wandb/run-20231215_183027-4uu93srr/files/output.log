@@ -1,0 +1,141 @@
+
+Epoch 1/10
+
+
+
+
+
+
+
+
+
+
+
+1274/1275 [============================>.] - ETA: 0s - loss: 0.6237 - accuracy: 0.8126
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+1275/1275 [==============================] - 47s 31ms/step - loss: 0.6236 - accuracy: 0.8126 - val_loss: 0.4210 - val_accuracy: 0.8425
+Epoch 2/10
+
+
+
+
+
+
+
+
+
+1274/1275 [============================>.] - ETA: 0s - loss: 0.4251 - accuracy: 0.8265
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+1275/1275 [==============================] - 38s 30ms/step - loss: 0.4251 - accuracy: 0.8265 - val_loss: 0.4077 - val_accuracy: 0.7930
+Epoch 3/10
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 25s 20ms/step - loss: 0.3993 - accuracy: 0.8307 - val_loss: 0.5041 - val_accuracy: 0.7972
+Epoch 4/10
+
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - ETA: 0s - loss: 0.3997 - accuracy: 0.8330
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+1275/1275 [==============================] - 38s 29ms/step - loss: 0.3997 - accuracy: 0.8330 - val_loss: 0.3953 - val_accuracy: 0.8535
+Epoch 5/10
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 25s 20ms/step - loss: 0.3966 - accuracy: 0.8383 - val_loss: 0.3967 - val_accuracy: 0.8331
+Epoch 6/10
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - ETA: 0s - loss: 0.3970 - accuracy: 0.8359
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+1275/1275 [==============================] - 37s 29ms/step - loss: 0.3970 - accuracy: 0.8359 - val_loss: 0.3572 - val_accuracy: 0.8485
+Epoch 7/10
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 25s 20ms/step - loss: 0.3894 - accuracy: 0.8411 - val_loss: 0.4465 - val_accuracy: 0.8440
+Epoch 8/10
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 25s 20ms/step - loss: 0.3837 - accuracy: 0.8411 - val_loss: 0.4410 - val_accuracy: 0.8349
+Epoch 9/10
+
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - ETA: 0s - loss: 0.3934 - accuracy: 0.8401
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+1275/1275 [==============================] - 37s 29ms/step - loss: 0.3934 - accuracy: 0.8401 - val_loss: 0.3215 - val_accuracy: 0.8261
+Epoch 10/10
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 24s 19ms/step - loss: 0.3654 - accuracy: 0.8462 - val_loss: 0.4091 - val_accuracy: 0.8524

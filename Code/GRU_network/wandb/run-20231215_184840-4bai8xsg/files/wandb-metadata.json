@@ -1,0 +1,44 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.11.6",
+    "heartbeatAt": "2023-12-15T17:48:41.472783",
+    "startedAt": "2023-12-15T17:48:40.210964",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:/Users/Simons Lenovo/Documents/GitHub/MUSE/Code/GRU_network/network.ipynb",
+    "codePathLocal": "network.ipynb",
+    "git": {
+        "remote": "https://github.com/Therkelsen/MUSE.git",
+        "commit": "05c8343754bf1f9f3431cc49aa3c210f72ee69b1"
+    },
+    "email": "80058249+SimonCV@users.noreply.github.com",
+    "root": "C:/Users/Simons Lenovo/Documents/GitHub/MUSE",
+    "host": "Simon",
+    "username": "Simons Lenovo",
+    "executable": "c:\\Users\\Simons Lenovo\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1600.0,
+        "min": 0.0,
+        "max": 1800.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1600.0,
+            "min": 0.0,
+            "max": 1800.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 476.03808212280273,
+            "used": 436.513671875
+        }
+    },
+    "memory": {
+        "total": 19.818103790283203
+    }
+}

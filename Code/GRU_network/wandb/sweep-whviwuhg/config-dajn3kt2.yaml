@@ -1,0 +1,10 @@
+wandb_version: 1
+
+batch_size:
+  value: 80
+epochs:
+  value: 10
+learning_rate:
+  value: 0.03413987124541906
+optimizer:
+  value: rmsprop

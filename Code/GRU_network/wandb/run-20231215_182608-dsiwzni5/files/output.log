@@ -1,0 +1,112 @@
+
+Epoch 1/10
+
+
+
+
+
+
+
+
+
+
+637/638 [============================>.] - ETA: 0s - loss: 0.5594 - accuracy: 0.8131
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+638/638 [==============================] - 63s 67ms/step - loss: 0.5594 - accuracy: 0.8131 - val_loss: 0.4747 - val_accuracy: 0.8187
+Epoch 2/10
+
+
+
+
+
+
+
+638/638 [==============================] - 22s 34ms/step - loss: 0.3990 - accuracy: 0.8355 - val_loss: 0.4775 - val_accuracy: 0.8044
+Epoch 3/10
+
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 22s 34ms/step - loss: 0.8750 - accuracy: 0.7711 - val_loss: 1.2933 - val_accuracy: 0.4649
+Epoch 4/10
+
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 22s 35ms/step - loss: 0.8383 - accuracy: 0.7450 - val_loss: 1.2318 - val_accuracy: 0.4649
+Epoch 5/10
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 20s 31ms/step - loss: 0.7659 - accuracy: 0.7475 - val_loss: 1.1053 - val_accuracy: 0.5351
+Epoch 6/10
+
+
+
+
+
+
+
+
+638/638 [==============================] - 18s 29ms/step - loss: 0.6767 - accuracy: 0.7554 - val_loss: 1.1504 - val_accuracy: 0.5350
+Epoch 7/10
+
+
+
+
+
+
+
+
+638/638 [==============================] - 18s 29ms/step - loss: 0.6546 - accuracy: 0.7547 - val_loss: 1.0967 - val_accuracy: 0.5351
+Epoch 8/10
+
+
+
+
+
+
+
+
+638/638 [==============================] - 19s 29ms/step - loss: 0.6765 - accuracy: 0.7418 - val_loss: 1.0602 - val_accuracy: 0.4649
+Epoch 9/10
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 18s 29ms/step - loss: 0.7463 - accuracy: 0.7419 - val_loss: 1.1254 - val_accuracy: 0.5351
+Epoch 10/10
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 18s 29ms/step - loss: 0.8518 - accuracy: 0.7264 - val_loss: 1.1794 - val_accuracy: 0.5351

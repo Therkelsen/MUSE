@@ -1,0 +1,10 @@
+wandb_version: 1
+
+batch_size:
+  value: 144
+epochs:
+  value: 10
+learning_rate:
+  value: 0.04293794652357516
+optimizer:
+  value: nadam

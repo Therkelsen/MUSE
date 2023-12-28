@@ -1,0 +1,18 @@
+
+Epoch 1/10
+
+
+
+
+
+
+
+
+
+
+
+
+
+1274/1275 [============================>.] - ETA: 0s - loss: 0.5333 - accuracy: 0.8322
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(

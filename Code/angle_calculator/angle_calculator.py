@@ -95,9 +95,9 @@ with mp_pose.Pose(min_detection_confidence=0.5,
                 landmarks = results.pose_landmarks.landmark
 
                 # Get coordinates
-                shldr = landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y
-                elbow = landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x, landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y
-                wrist = landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y
+                shoulder = landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y
+                elbow = landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].y
+                wrist = landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].y
 
                 # Calculate angle
                 angle = calculate_angle(shldr, elbow, wrist)
@@ -149,12 +149,9 @@ with mp_pose.Pose(min_detection_confidence=0.5,
                 landmarks = results.pose_landmarks.landmark
 
                 # Get coordinates
-                shldr_x = landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x
-                shldr_y = landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y
-                elbow_x = landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x
-                elbow_y = landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y
-                wrist_x = landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x
-                wrist_y = landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y
+                shoulder = landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y
+                elbow = landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_ELBOW.value].y
+                wrist = landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].y
 
                 # Calculate angle
                 angle = calculate_angle((shldr_x, shldr_y),

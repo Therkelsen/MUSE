@@ -1,0 +1,116 @@
+
+Epoch 1/10
+
+
+
+
+
+
+
+
+
+637/638 [============================>.] - ETA: 0s - loss: 0.8941 - accuracy: 0.7536
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+
+638/638 [==============================] - 47s 52ms/step - loss: 0.8940 - accuracy: 0.7535 - val_loss: 1.1194 - val_accuracy: 0.5351
+Epoch 2/10
+
+
+
+
+
+
+
+636/638 [============================>.] - ETA: 0s - loss: 0.6608 - accuracy: 0.7668
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+638/638 [==============================] - 33s 52ms/step - loss: 0.6609 - accuracy: 0.7667 - val_loss: 1.0963 - val_accuracy: 0.4649
+Epoch 3/10
+
+
+
+
+
+
+
+638/638 [==============================] - 21s 33ms/step - loss: 0.7704 - accuracy: 0.7461 - val_loss: 1.1282 - val_accuracy: 0.4649
+Epoch 4/10
+
+
+
+
+
+
+
+638/638 [==============================] - 16s 26ms/step - loss: 0.7843 - accuracy: 0.7295 - val_loss: 1.1625 - val_accuracy: 0.4649
+Epoch 5/10
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 20s 31ms/step - loss: 0.7326 - accuracy: 0.7414 - val_loss: 1.1639 - val_accuracy: 0.4649
+Epoch 6/10
+
+
+
+
+
+
+
+
+
+
+637/638 [============================>.] - ETA: 0s - loss: 0.6559 - accuracy: 0.7464
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+638/638 [==============================] - 31s 49ms/step - loss: 0.6559 - accuracy: 0.7464 - val_loss: 1.0722 - val_accuracy: 0.5351
+Epoch 7/10
+
+
+
+
+
+
+
+638/638 [==============================] - 20s 31ms/step - loss: 0.6448 - accuracy: 0.7457 - val_loss: 1.0868 - val_accuracy: 0.5351
+Epoch 8/10
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 21s 33ms/step - loss: 0.6436 - accuracy: 0.7439 - val_loss: 1.1033 - val_accuracy: 0.4649
+Epoch 9/10
+
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 22s 34ms/step - loss: 0.7404 - accuracy: 0.7386 - val_loss: 1.1077 - val_accuracy: 0.5351
+Epoch 10/10
+
+
+
+
+
+
+
+
+
+
+638/638 [==============================] - 20s 31ms/step - loss: 0.7107 - accuracy: 0.7403 - val_loss: 1.1134 - val_accuracy: 0.5351

@@ -1,0 +1,20 @@
+wandb_version: 1
+
+batch_size:
+  value: 192
+dropout:
+  value: 0.4
+epochs:
+  value: 10
+fc_layer_size1:
+  value: 256
+fc_layer_size2:
+  value: 32
+kernel_regularizer:
+  value: 0.08606768122997722
+learning_rate:
+  value: 0.027971571168866307
+optimizer:
+  value: nadam
+reccurent_dropout:
+  value: 0.2

@@ -1,0 +1,631 @@
+2023-12-15 18:19:19,750 INFO    StreamThr :6656 [internal.py:wandb_internal():86] W&B internal server running at pid: 6656, started at: 2023-12-15 18:19:19.749582
+2023-12-15 18:19:19,753 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status
+2023-12-15 18:19:19,781 INFO    WriterThread:6656 [datastore.py:open_for_write():85] open: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\run-od32mhdf.wandb
+2023-12-15 18:19:19,782 DEBUG   SenderThread:6656 [sender.py:send():382] send: header
+2023-12-15 18:19:19,876 DEBUG   SenderThread:6656 [sender.py:send():382] send: run
+2023-12-15 18:19:21,000 INFO    SenderThread:6656 [dir_watcher.py:__init__():211] watching files in: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files
+2023-12-15 18:19:21,000 INFO    SenderThread:6656 [sender.py:_start_run_threads():1136] run started: od32mhdf with start time 1702660759.747583
+2023-12-15 18:19:21,031 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: check_version
+2023-12-15 18:19:21,032 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: check_version
+2023-12-15 18:19:22,096 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: run_start
+2023-12-15 18:19:22,132 DEBUG   HandlerThread:6656 [system_info.py:__init__():32] System info init
+2023-12-15 18:19:22,132 DEBUG   HandlerThread:6656 [system_info.py:__init__():47] System info init done
+2023-12-15 18:19:22,132 INFO    HandlerThread:6656 [system_monitor.py:start():194] Starting system monitor
+2023-12-15 18:19:22,132 INFO    SystemMonitor:6656 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-12-15 18:19:22,132 INFO    HandlerThread:6656 [system_monitor.py:probe():214] Collecting system info
+2023-12-15 18:19:22,139 INFO    SystemMonitor:6656 [interfaces.py:start():190] Started cpu monitoring
+2023-12-15 18:19:22,146 DEBUG   HandlerThread:6656 [system_info.py:probe():196] Probing system
+2023-12-15 18:19:22,146 INFO    SystemMonitor:6656 [interfaces.py:start():190] Started disk monitoring
+2023-12-15 18:19:22,157 INFO    SystemMonitor:6656 [interfaces.py:start():190] Started memory monitoring
+2023-12-15 18:19:22,173 INFO    SystemMonitor:6656 [interfaces.py:start():190] Started network monitoring
+2023-12-15 18:19:22,192 DEBUG   HandlerThread:6656 [system_info.py:_probe_git():181] Probing git
+2023-12-15 18:19:22,361 DEBUG   HandlerThread:6656 [system_info.py:_probe_git():189] Probing git done
+2023-12-15 18:19:22,362 DEBUG   HandlerThread:6656 [system_info.py:probe():244] Probing system done
+2023-12-15 18:19:22,362 DEBUG   HandlerThread:6656 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.11.6', 'heartbeatAt': '2023-12-15T17:19:22.146204', 'startedAt': '2023-12-15T17:19:19.704049', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'C:/Users/Simons Lenovo/Documents/GitHub/MUSE/Code/GRU_network/network.ipynb', 'codePathLocal': 'network.ipynb', 'git': {'remote': 'https://github.com/Therkelsen/MUSE.git', 'commit': '05c8343754bf1f9f3431cc49aa3c210f72ee69b1'}, 'email': '80058249+SimonCV@users.noreply.github.com', 'root': 'C:/Users/Simons Lenovo/Documents/GitHub/MUSE', 'host': 'Simon', 'username': 'Simons Lenovo', 'executable': 'c:\\Users\\Simons Lenovo\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1600.0, 'min': 0.0, 'max': 1800.0}, 'cpu_freq_per_core': [{'current': 1600.0, 'min': 0.0, 'max': 1800.0}], 'disk': {'/': {'total': 476.03808212280273, 'used': 436.97809982299805}}, 'memory': {'total': 19.818103790283203}}
+2023-12-15 18:19:22,362 INFO    HandlerThread:6656 [system_monitor.py:probe():224] Finished collecting system info
+2023-12-15 18:19:22,362 INFO    HandlerThread:6656 [system_monitor.py:probe():227] Publishing system info
+2023-12-15 18:19:22,362 DEBUG   HandlerThread:6656 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-12-15 18:19:22,364 DEBUG   HandlerThread:6656 [system_info.py:_save_pip():68] Saving pip packages done
+2023-12-15 18:19:22,365 INFO    HandlerThread:6656 [system_monitor.py:probe():229] Finished publishing system info
+2023-12-15 18:19:22,403 DEBUG   SenderThread:6656 [sender.py:send():382] send: files
+2023-12-15 18:19:22,403 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-metadata.json with policy now
+2023-12-15 18:19:22,440 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:19:22,441 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:19:22,447 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:19:23,042 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\requirements.txt
+2023-12-15 18:19:23,043 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-metadata.json
+2023-12-15 18:19:23,479 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-15 18:19:23,620 DEBUG   SenderThread:6656 [sender.py:send():382] send: telemetry
+2023-12-15 18:19:23,621 DEBUG   SenderThread:6656 [sender.py:send():382] send: telemetry
+2023-12-15 18:19:23,622 DEBUG   SenderThread:6656 [sender.py:send():382] send: telemetry
+2023-12-15 18:19:23,622 DEBUG   SenderThread:6656 [sender.py:send():382] send: files
+2023-12-15 18:19:23,623 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file model-best.h5 with policy live
+2023-12-15 18:19:23,623 DEBUG   SenderThread:6656 [sender.py:send():382] send: telemetry
+2023-12-15 18:19:23,624 DEBUG   SenderThread:6656 [sender.py:send():382] send: telemetry
+2023-12-15 18:19:23,884 INFO    wandb-upload_0:6656 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpd_q38qcbwandb\cz3ud02e-wandb-metadata.json
+2023-12-15 18:19:24,044 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:24,813 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:19:26,063 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:29,849 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:19:34,886 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:19:37,446 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:19:37,446 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:19:37,447 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:19:39,528 DEBUG   SenderThread:6656 [sender.py:send():382] send: files
+2023-12-15 18:19:39,528 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file media\graph\graph_summary_5d4e51ef1ec5f9aba582.graph.json with policy now
+2023-12-15 18:19:39,531 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:19:39,534 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:19:39,889 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:19:40,148 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:19:40,149 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\media\graph\graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 18:19:40,151 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\media
+2023-12-15 18:19:40,151 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\media\graph
+2023-12-15 18:19:40,338 INFO    wandb-upload_0:6656 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpd_q38qcbwandb\1dk5fdrv-media/graph/graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 18:19:40,810 INFO    wandb-upload_0:6656 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpd_q38qcbwandb\msd2p9h6-media/graph/graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 18:19:42,175 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:44,197 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:44,917 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:19:46,220 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:48,230 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:49,958 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:19:50,243 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:50,244 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\config.yaml
+2023-12-15 18:19:52,253 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:52,437 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:19:52,440 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:19:52,453 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:19:54,317 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:55,231 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:19:56,406 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:19:58,441 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:00,298 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:00,474 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:02,492 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:04,515 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:05,393 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:06,544 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:07,450 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:20:07,450 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:20:07,467 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:20:08,562 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:10,659 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:11,110 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:20:11,111 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:20:11,119 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:20:11,119 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:20:11,123 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:20:11,124 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:20:11,126 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:20:11,126 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:20:11,127 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:20:11,606 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:20:11,606 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best.h5
+2023-12-15 18:20:12,415 INFO    wandb-upload_0:6656 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpd_q38qcbwandb\yttux190-model-best.h5
+2023-12-15 18:20:13,629 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:16,146 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:21,178 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:22,193 DEBUG   SystemMonitor:6656 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-12-15 18:20:22,196 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:20:22,491 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:20:22,492 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:20:22,497 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:20:26,739 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:31,775 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:32,982 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables\variables.index
+2023-12-15 18:20:32,983 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 18:20:32,984 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best
+2023-12-15 18:20:32,984 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\assets
+2023-12-15 18:20:32,984 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables
+2023-12-15 18:20:36,836 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:37,507 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:20:37,508 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:20:37,554 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:20:38,131 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\saved_model.pb
+2023-12-15 18:20:38,132 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\keras_metadata.pb
+2023-12-15 18:20:38,133 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\fingerprint.pb
+2023-12-15 18:20:38,133 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best
+2023-12-15 18:20:38,734 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 18:20:38,734 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 18:20:40,180 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:42,420 INFO    wandb-upload_4:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpm2ms3avm
+2023-12-15 18:20:42,525 INFO    wandb-upload_0:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpvagkh59n
+2023-12-15 18:20:42,638 INFO    wandb-upload_1:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpwnu2cm3x
+2023-12-15 18:20:42,799 INFO    wandb-upload_3:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpsjycwt01
+2023-12-15 18:20:43,120 INFO    wandb-upload_2:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpzsjo6det
+2023-12-15 18:20:45,255 INFO    SenderThread:6656 [sender.py:send_request_log_artifact():1458] logged artifact model-decent-sweep-5 - {'id': 'QXJ0aWZhY3Q6NjY3OTAxOTYy', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgyMjg3MQ==', 'latestArtifact': None}}
+2023-12-15 18:20:45,260 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:46,350 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:48,429 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:50,296 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:50,559 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:52,213 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:20:52,511 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:20:52,512 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:20:52,607 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:20:52,612 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:54,668 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:55,339 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:20:56,726 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:20:58,787 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:00,347 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:00,843 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:02,911 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:04,982 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:05,347 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:07,056 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:07,522 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:21:07,523 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:21:07,582 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:21:09,031 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:21:09,032 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:21:09,037 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:21:09,038 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:21:09,040 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:21:09,041 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:21:09,042 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:21:09,043 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:21:09,044 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:21:09,088 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:21:09,089 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best.h5
+2023-12-15 18:21:09,090 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:11,061 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:12,137 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:16,107 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:21,120 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:22,227 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:21:22,526 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:21:22,527 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:21:22,574 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:21:26,736 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:29,524 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables\variables.index
+2023-12-15 18:21:29,525 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 18:21:29,526 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best
+2023-12-15 18:21:29,526 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\assets
+2023-12-15 18:21:29,526 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables
+2023-12-15 18:21:31,762 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:32,568 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\saved_model.pb
+2023-12-15 18:21:32,569 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\keras_metadata.pb
+2023-12-15 18:21:32,570 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\fingerprint.pb
+2023-12-15 18:21:32,570 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best
+2023-12-15 18:21:33,437 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 18:21:33,437 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 18:21:33,625 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:34,426 INFO    wandb-upload_0:6656 [upload_job.py:push():86] Skipped uploading C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpxlknhcj5
+2023-12-15 18:21:36,578 INFO    wandb-upload_4:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpxdgd1zf8
+2023-12-15 18:21:36,682 INFO    wandb-upload_2:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp8_f4_bzj
+2023-12-15 18:21:36,917 INFO    wandb-upload_3:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp4gidimuv
+2023-12-15 18:21:37,027 INFO    wandb-upload_1:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpypai5bl5
+2023-12-15 18:21:37,517 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:21:37,578 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:21:37,902 INFO    SenderThread:6656 [sender.py:send_request_log_artifact():1458] logged artifact model-decent-sweep-5 - {'id': 'QXJ0aWZhY3Q6NjY3OTAyNDA5', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgyMjg3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjY3OTAxOTYy', 'versionIndex': 0}}}
+2023-12-15 18:21:37,906 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:21:37,906 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:40,798 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:42,869 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:42,941 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:44,971 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:47,026 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:47,977 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:49,062 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:51,074 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:52,252 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:21:52,530 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:21:52,531 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:21:52,594 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:21:52,996 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:53,112 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:55,142 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:57,160 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:21:58,032 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:21:59,190 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:01,244 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:02,822 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:22:02,823 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:22:02,825 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:22:02,825 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:22:02,826 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:22:03,091 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:03,270 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:22:03,271 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:04,288 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:06,300 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:07,550 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:22:07,551 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:22:07,614 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:22:08,153 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:08,342 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:10,367 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:12,389 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:13,198 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:14,412 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:16,447 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:18,233 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:18,462 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:20,488 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:22,261 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:22:22,526 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:22,556 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:22:22,557 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:22:22,639 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:22:23,260 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:24,557 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:26,588 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:28,301 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:28,621 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:30,642 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:31,863 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:22:31,864 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:22:31,868 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:22:31,869 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:22:31,870 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:22:32,676 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:22:32,677 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:33,388 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:34,716 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:36,764 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:37,558 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:22:37,559 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:22:37,640 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:22:38,425 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:38,790 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:40,854 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:42,904 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:43,436 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:44,937 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:46,973 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:48,489 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:48,996 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:51,031 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:52,269 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:22:52,563 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:22:52,564 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:22:52,660 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:22:53,048 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:53,506 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:55,062 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:57,111 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:22:58,513 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:22:59,170 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:01,246 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:02,874 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:23:02,875 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:23:02,878 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:23:02,878 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:23:02,880 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:23:03,284 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:23:03,286 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:03,528 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:05,343 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:07,404 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:07,564 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:23:07,565 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:23:07,674 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:23:08,541 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:08,544 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:10,601 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:12,664 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:13,565 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:14,731 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:16,796 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:18,571 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:18,864 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:20,922 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:22,276 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:23:22,576 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:23:22,576 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:23:22,685 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:23:22,984 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:23,588 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:25,038 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:27,086 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:28,633 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:29,147 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:31,191 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:32,036 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:23:32,036 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:23:32,039 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:23:32,040 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:23:32,041 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:23:32,202 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:23:33,250 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:33,666 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:35,308 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:37,354 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:37,594 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:23:37,595 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:23:37,690 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:23:38,713 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:39,413 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:41,461 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:43,522 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:43,747 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:45,594 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:47,741 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:48,756 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:48,767 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:50,819 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:52,293 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:23:52,607 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:23:52,608 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:23:52,701 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:23:52,918 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:53,834 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:54,967 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:57,060 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:23:58,839 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:23:59,134 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:01,163 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:01,759 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:24:01,760 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:24:01,766 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:24:01,767 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:24:01,768 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:24:01,769 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:24:01,770 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:24:01,771 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:24:01,772 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:24:02,206 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:24:02,206 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best.h5
+2023-12-15 18:24:04,241 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:04,800 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:07,622 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:24:07,623 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:24:07,776 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:24:09,821 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:14,850 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:19,866 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:21,583 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables\variables.index
+2023-12-15 18:24:21,584 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 18:24:21,585 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best
+2023-12-15 18:24:21,585 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\assets
+2023-12-15 18:24:21,586 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\variables
+2023-12-15 18:24:22,302 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:24:22,676 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:24:22,677 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:24:22,847 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:24:24,870 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:25,658 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\saved_model.pb
+2023-12-15 18:24:25,659 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\keras_metadata.pb
+2023-12-15 18:24:25,659 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best\fingerprint.pb
+2023-12-15 18:24:25,660 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best
+2023-12-15 18:24:26,170 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 18:24:26,190 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 18:24:26,713 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:27,111 INFO    wandb-upload_4:6656 [upload_job.py:push():86] Skipped uploading C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpc69p404u
+2023-12-15 18:24:29,282 INFO    wandb-upload_1:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmphzo8ef3h
+2023-12-15 18:24:29,296 INFO    wandb-upload_0:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpfwzu2aat
+2023-12-15 18:24:29,566 INFO    wandb-upload_3:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpqpjcj9kn
+2023-12-15 18:24:29,775 INFO    wandb-upload_2:6656 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpp6jbu_dh
+2023-12-15 18:24:37,672 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:24:37,770 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:24:39,006 INFO    SenderThread:6656 [sender.py:send_request_log_artifact():1458] logged artifact model-decent-sweep-5 - {'id': 'QXJ0aWZhY3Q6NjY3OTAzODYy', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgyMjg3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjY3OTAyNDA5', 'versionIndex': 1}}}
+2023-12-15 18:24:39,012 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:24:39,016 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:41,139 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:43,209 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:44,029 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:45,278 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:47,316 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:49,088 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:49,398 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:51,477 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:52,318 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:24:52,676 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:24:52,677 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:24:52,789 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:24:53,543 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:54,832 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:24:55,596 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:55,913 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:24:55,914 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:24:55,917 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:24:55,918 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:24:55,919 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:24:56,605 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:24:57,657 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:59,721 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:24:59,875 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:01,797 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:02,804 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:04,886 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:04,917 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:06,951 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:07,681 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:25:07,682 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:25:07,790 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:25:08,993 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:09,920 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:11,061 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:13,135 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:14,973 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:15,186 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:17,252 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:19,319 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:20,011 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:21,374 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:22,333 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:25:22,677 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:25:22,678 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:25:22,786 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:25:23,446 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:25,222 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:25,266 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:25:25,267 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:25:25,270 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:25:25,270 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:25:25,272 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:25:25,493 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:25:25,493 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:27,586 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:29,660 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:30,231 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:31,710 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:33,756 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:35,242 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:35,813 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:36,852 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:37,676 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:25:37,676 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:25:37,801 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:25:38,908 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:40,254 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:40,968 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:43,033 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:45,088 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:45,319 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:47,159 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:49,228 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:50,324 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:51,266 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:52,342 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:25:52,686 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 18:25:52,686 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 18:25:52,814 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:25:53,311 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:55,228 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:25:55,229 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 18:25:55,232 DEBUG   SenderThread:6656 [sender.py:send():382] send: history
+2023-12-15 18:25:55,233 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 18:25:55,234 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:25:55,241 DEBUG   SenderThread:6656 [sender.py:send():382] send: telemetry
+2023-12-15 18:25:55,243 DEBUG   SenderThread:6656 [sender.py:send():382] send: exit
+2023-12-15 18:25:55,243 INFO    SenderThread:6656 [sender.py:send_exit():589] handling exit code: 0
+2023-12-15 18:25:55,244 INFO    SenderThread:6656 [sender.py:send_exit():591] handling runtime: 393
+2023-12-15 18:25:55,245 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:25:55,245 INFO    SenderThread:6656 [sender.py:send_exit():597] send defer
+2023-12-15 18:25:55,245 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,245 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 0
+2023-12-15 18:25:55,247 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,247 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 0
+2023-12-15 18:25:55,247 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 1
+2023-12-15 18:25:55,247 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,247 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 1
+2023-12-15 18:25:55,248 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,248 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 1
+2023-12-15 18:25:55,248 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 2
+2023-12-15 18:25:55,249 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,249 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 2
+2023-12-15 18:25:55,249 INFO    HandlerThread:6656 [system_monitor.py:finish():203] Stopping system monitor
+2023-12-15 18:25:55,249 DEBUG   SystemMonitor:6656 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-12-15 18:25:55,250 DEBUG   SystemMonitor:6656 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-12-15 18:25:55,250 INFO    HandlerThread:6656 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-15 18:25:55,252 INFO    HandlerThread:6656 [interfaces.py:finish():202] Joined disk monitor
+2023-12-15 18:25:55,252 INFO    HandlerThread:6656 [interfaces.py:finish():202] Joined memory monitor
+2023-12-15 18:25:55,252 INFO    HandlerThread:6656 [interfaces.py:finish():202] Joined network monitor
+2023-12-15 18:25:55,253 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,254 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 2
+2023-12-15 18:25:55,254 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 3
+2023-12-15 18:25:55,254 DEBUG   SenderThread:6656 [sender.py:send():382] send: stats
+2023-12-15 18:25:55,254 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,255 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 3
+2023-12-15 18:25:55,256 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,256 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 3
+2023-12-15 18:25:55,256 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 4
+2023-12-15 18:25:55,257 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,257 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 4
+2023-12-15 18:25:55,257 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,258 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 4
+2023-12-15 18:25:55,258 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 5
+2023-12-15 18:25:55,258 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,258 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 5
+2023-12-15 18:25:55,260 DEBUG   SenderThread:6656 [sender.py:send():382] send: summary
+2023-12-15 18:25:55,261 INFO    SenderThread:6656 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 18:25:55,262 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,262 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 5
+2023-12-15 18:25:55,262 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 6
+2023-12-15 18:25:55,263 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,263 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 6
+2023-12-15 18:25:55,263 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,263 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 6
+2023-12-15 18:25:55,269 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:25:55,333 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:25:55,334 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:55,444 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 7
+2023-12-15 18:25:55,444 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:55,444 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 7
+2023-12-15 18:25:55,445 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:55,445 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 7
+2023-12-15 18:25:56,252 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 18:25:56,347 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\config.yaml
+2023-12-15 18:25:57,352 INFO    Thread-16 :6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:58,019 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 8
+2023-12-15 18:25:58,019 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 18:25:58,019 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:58,020 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 8
+2023-12-15 18:25:58,021 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:58,021 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 8
+2023-12-15 18:25:58,021 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 9
+2023-12-15 18:25:58,022 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:58,022 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 9
+2023-12-15 18:25:58,022 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:58,022 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 9
+2023-12-15 18:25:58,022 INFO    SenderThread:6656 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-12-15 18:25:58,262 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 18:25:58,358 INFO    SenderThread:6656 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:25:58,360 INFO    SenderThread:6656 [dir_watcher.py:finish():388] scan: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files
+2023-12-15 18:25:58,360 INFO    SenderThread:6656 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\config.yaml config.yaml
+2023-12-15 18:25:58,361 INFO    SenderThread:6656 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\model-best.h5 model-best.h5
+2023-12-15 18:25:58,366 INFO    SenderThread:6656 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log output.log
+2023-12-15 18:25:58,367 INFO    SenderThread:6656 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\requirements.txt requirements.txt
+2023-12-15 18:25:58,368 INFO    SenderThread:6656 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-metadata.json wandb-metadata.json
+2023-12-15 18:25:58,368 INFO    SenderThread:6656 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json wandb-summary.json
+2023-12-15 18:25:58,370 INFO    SenderThread:6656 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\media\graph\graph_summary_5d4e51ef1ec5f9aba582.graph.json media/graph/graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 18:25:58,370 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 10
+2023-12-15 18:25:58,370 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 18:25:58,370 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:25:58,371 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 10
+2023-12-15 18:25:58,372 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:25:58,372 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 10
+2023-12-15 18:25:58,372 INFO    SenderThread:6656 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-15 18:25:58,801 INFO    wandb-upload_4:6656 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\config.yaml
+2023-12-15 18:25:59,263 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 18:25:59,263 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 18:25:59,763 INFO    wandb-upload_1:6656 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\requirements.txt
+2023-12-15 18:26:00,232 INFO    wandb-upload_0:6656 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpd_q38qcbwandb\fy36ovs0-model-best.h5
+2023-12-15 18:26:00,279 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 18:26:00,279 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 18:26:00,753 INFO    wandb-upload_3:6656 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\output.log
+2023-12-15 18:26:00,762 INFO    wandb-upload_2:6656 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\files\wandb-summary.json
+2023-12-15 18:26:00,969 INFO    Thread-15 (_thread_body):6656 [sender.py:transition_state():617] send defer: 11
+2023-12-15 18:26:00,969 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:26:00,970 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 11
+2023-12-15 18:26:00,970 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:26:00,970 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 11
+2023-12-15 18:26:00,971 INFO    SenderThread:6656 [file_pusher.py:join():181] waiting for file pusher
+2023-12-15 18:26:00,971 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 12
+2023-12-15 18:26:00,971 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:26:00,971 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 12
+2023-12-15 18:26:00,971 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 18:26:00,972 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:26:00,972 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 12
+2023-12-15 18:26:00,972 INFO    SenderThread:6656 [file_stream.py:finish():595] file stream finish called
+2023-12-15 18:26:01,283 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 18:26:01,524 INFO    SenderThread:6656 [file_stream.py:finish():599] file stream finish is done
+2023-12-15 18:26:01,525 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 13
+2023-12-15 18:26:01,525 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 18:26:01,525 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:26:01,525 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 13
+2023-12-15 18:26:01,526 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:26:01,526 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 13
+2023-12-15 18:26:01,527 INFO    SenderThread:6656 [sender.py:transition_state():617] send defer: 14
+2023-12-15 18:26:01,528 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 18:26:01,528 DEBUG   SenderThread:6656 [sender.py:send():382] send: final
+2023-12-15 18:26:01,528 INFO    HandlerThread:6656 [handler.py:handle_request_defer():172] handle defer: 14
+2023-12-15 18:26:01,528 DEBUG   SenderThread:6656 [sender.py:send():382] send: footer
+2023-12-15 18:26:01,529 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: defer
+2023-12-15 18:26:01,529 INFO    SenderThread:6656 [sender.py:send_request_defer():613] handle sender defer: 14
+2023-12-15 18:26:01,531 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 18:26:01,532 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 18:26:01,538 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 18:26:01,540 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: server_info
+2023-12-15 18:26:01,540 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-15 18:26:01,540 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: server_info
+2023-12-15 18:26:01,541 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: sampled_history
+2023-12-15 18:26:01,547 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: job_info
+2023-12-15 18:26:01,698 DEBUG   SenderThread:6656 [sender.py:send_request():409] send_request: job_info
+2023-12-15 18:26:01,701 DEBUG   HandlerThread:6656 [handler.py:handle_request():146] handle_request: shutdown
+2023-12-15 18:26:01,701 INFO    HandlerThread:6656 [handler.py:finish():866] shutting down handler
+2023-12-15 18:26:02,551 INFO    WriterThread:6656 [datastore.py:close():294] close: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_181919-od32mhdf\run-od32mhdf.wandb
+2023-12-15 18:26:02,708 INFO    SenderThread:6656 [sender.py:finish():1548] shutting down sender
+2023-12-15 18:26:02,708 INFO    SenderThread:6656 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-15 18:26:02,708 INFO    SenderThread:6656 [file_pusher.py:join():181] waiting for file pusher

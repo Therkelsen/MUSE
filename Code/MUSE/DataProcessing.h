@@ -13,7 +13,7 @@ namespace data_processing {
     */
     std::vector<float> rolling_mean(const std::vector<float>& input_signal) {
         std::vector<float> output_signal = input_signal;
-        size_t buffer = input_signal.size() / 75;
+        size_t buffer = input_signal.size() / 50;
         float running_sum = 0.0f;
 
         for (size_t i = 0; i < input_signal.size(); ++i) {

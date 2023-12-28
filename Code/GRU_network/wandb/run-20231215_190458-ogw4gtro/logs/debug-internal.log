@@ -1,0 +1,578 @@
+2023-12-15 19:04:58,602 INFO    StreamThr :20924 [internal.py:wandb_internal():86] W&B internal server running at pid: 20924, started at: 2023-12-15 19:04:58.600419
+2023-12-15 19:04:58,605 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status
+2023-12-15 19:04:58,620 INFO    WriterThread:20924 [datastore.py:open_for_write():85] open: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\run-ogw4gtro.wandb
+2023-12-15 19:04:58,621 DEBUG   SenderThread:20924 [sender.py:send():382] send: header
+2023-12-15 19:04:58,683 DEBUG   SenderThread:20924 [sender.py:send():382] send: run
+2023-12-15 19:04:59,814 INFO    SenderThread:20924 [dir_watcher.py:__init__():211] watching files in: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files
+2023-12-15 19:04:59,814 INFO    SenderThread:20924 [sender.py:_start_run_threads():1136] run started: ogw4gtro with start time 1702663498.599422
+2023-12-15 19:04:59,827 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: check_version
+2023-12-15 19:04:59,828 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: check_version
+2023-12-15 19:05:00,516 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: run_start
+2023-12-15 19:05:00,553 DEBUG   HandlerThread:20924 [system_info.py:__init__():32] System info init
+2023-12-15 19:05:00,553 DEBUG   HandlerThread:20924 [system_info.py:__init__():47] System info init done
+2023-12-15 19:05:00,553 INFO    HandlerThread:20924 [system_monitor.py:start():194] Starting system monitor
+2023-12-15 19:05:00,561 INFO    SystemMonitor:20924 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-12-15 19:05:00,561 INFO    HandlerThread:20924 [system_monitor.py:probe():214] Collecting system info
+2023-12-15 19:05:00,571 DEBUG   HandlerThread:20924 [system_info.py:probe():196] Probing system
+2023-12-15 19:05:00,579 INFO    SystemMonitor:20924 [interfaces.py:start():190] Started cpu monitoring
+2023-12-15 19:05:00,580 INFO    SystemMonitor:20924 [interfaces.py:start():190] Started disk monitoring
+2023-12-15 19:05:00,592 INFO    SystemMonitor:20924 [interfaces.py:start():190] Started memory monitoring
+2023-12-15 19:05:00,607 INFO    SystemMonitor:20924 [interfaces.py:start():190] Started network monitoring
+2023-12-15 19:05:00,623 DEBUG   HandlerThread:20924 [system_info.py:_probe_git():181] Probing git
+2023-12-15 19:05:00,782 DEBUG   HandlerThread:20924 [system_info.py:_probe_git():189] Probing git done
+2023-12-15 19:05:00,783 DEBUG   HandlerThread:20924 [system_info.py:probe():244] Probing system done
+2023-12-15 19:05:00,783 DEBUG   HandlerThread:20924 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.11.6', 'heartbeatAt': '2023-12-15T18:05:00.579145', 'startedAt': '2023-12-15T18:04:58.573102', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'C:/Users/Simons Lenovo/Documents/GitHub/MUSE/Code/GRU_network/network.ipynb', 'codePathLocal': 'network.ipynb', 'git': {'remote': 'https://github.com/Therkelsen/MUSE.git', 'commit': '05c8343754bf1f9f3431cc49aa3c210f72ee69b1'}, 'email': '80058249+SimonCV@users.noreply.github.com', 'root': 'C:/Users/Simons Lenovo/Documents/GitHub/MUSE', 'host': 'Simon', 'username': 'Simons Lenovo', 'executable': 'c:\\Users\\Simons Lenovo\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1600.0, 'min': 0.0, 'max': 1800.0}, 'cpu_freq_per_core': [{'current': 1600.0, 'min': 0.0, 'max': 1800.0}], 'disk': {'/': {'total': 476.03808212280273, 'used': 436.526309967041}}, 'memory': {'total': 19.818103790283203}}
+2023-12-15 19:05:00,784 INFO    HandlerThread:20924 [system_monitor.py:probe():224] Finished collecting system info
+2023-12-15 19:05:00,784 INFO    HandlerThread:20924 [system_monitor.py:probe():227] Publishing system info
+2023-12-15 19:05:00,784 DEBUG   HandlerThread:20924 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-12-15 19:05:00,786 DEBUG   HandlerThread:20924 [system_info.py:_save_pip():68] Saving pip packages done
+2023-12-15 19:05:00,788 INFO    HandlerThread:20924 [system_monitor.py:probe():229] Finished publishing system info
+2023-12-15 19:05:00,824 DEBUG   SenderThread:20924 [sender.py:send():382] send: files
+2023-12-15 19:05:00,824 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-metadata.json with policy now
+2023-12-15 19:05:00,827 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-metadata.json
+2023-12-15 19:05:00,828 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\requirements.txt
+2023-12-15 19:05:00,858 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:05:00,859 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:05:00,863 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:05:01,766 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-15 19:05:01,862 DEBUG   SenderThread:20924 [sender.py:send():382] send: telemetry
+2023-12-15 19:05:01,862 DEBUG   SenderThread:20924 [sender.py:send():382] send: telemetry
+2023-12-15 19:05:01,864 DEBUG   SenderThread:20924 [sender.py:send():382] send: telemetry
+2023-12-15 19:05:01,864 DEBUG   SenderThread:20924 [sender.py:send():382] send: files
+2023-12-15 19:05:01,865 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file model-best.h5 with policy live
+2023-12-15 19:05:01,866 DEBUG   SenderThread:20924 [sender.py:send():382] send: telemetry
+2023-12-15 19:05:01,866 DEBUG   SenderThread:20924 [sender.py:send():382] send: telemetry
+2023-12-15 19:05:02,131 INFO    wandb-upload_0:20924 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpfszqjx7ywandb\na1btj8e-wandb-metadata.json
+2023-12-15 19:05:02,831 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:04,064 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:04,861 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:09,128 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:09,457 DEBUG   SenderThread:20924 [sender.py:send():382] send: files
+2023-12-15 19:05:09,458 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file media\graph\graph_summary_5d4e51ef1ec5f9aba582.graph.json with policy now
+2023-12-15 19:05:09,459 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:05:09,461 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:05:09,879 INFO    wandb-upload_0:20924 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpfszqjx7ywandb\8e0x03fw-media/graph/graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 19:05:09,938 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:05:09,939 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\media\graph\graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 19:05:09,940 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\media\graph
+2023-12-15 19:05:09,941 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\media
+2023-12-15 19:05:10,423 INFO    wandb-upload_0:20924 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpfszqjx7ywandb\2ylfiho3-media/graph/graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 19:05:10,944 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:12,973 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:14,170 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:15,008 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:15,867 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:05:15,886 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:05:15,886 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:05:17,055 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:19,085 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:19,213 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:20,104 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:22,130 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:24,189 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:24,301 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:26,245 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:28,187 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:05:28,188 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:05:28,193 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:05:28,194 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:05:28,197 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:05:28,198 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:05:28,199 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:05:28,199 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:05:28,200 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:05:28,291 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:05:28,292 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best.h5
+2023-12-15 19:05:29,070 INFO    wandb-upload_0:20924 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpfszqjx7ywandb\e0oiafkh-model-best.h5
+2023-12-15 19:05:30,217 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:30,338 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:30,882 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:05:30,883 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:05:30,889 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:05:31,354 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\config.yaml
+2023-12-15 19:05:36,175 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:40,478 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.index
+2023-12-15 19:05:40,478 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 19:05:40,479 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables
+2023-12-15 19:05:40,479 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:05:40,479 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\assets
+2023-12-15 19:05:41,198 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:41,494 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\fingerprint.pb
+2023-12-15 19:05:41,494 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\saved_model.pb
+2023-12-15 19:05:41,494 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:05:42,125 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 19:05:42,125 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 19:05:42,513 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:45,845 INFO    wandb-upload_1:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp142mfttq
+2023-12-15 19:05:45,891 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:05:45,891 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:05:45,893 INFO    wandb-upload_0:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp5i58c4a1
+2023-12-15 19:05:45,988 INFO    wandb-upload_4:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp8_y3uvg_
+2023-12-15 19:05:46,289 INFO    wandb-upload_2:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpt7ebyvm_
+2023-12-15 19:05:46,457 INFO    wandb-upload_3:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpl8zv6gs_
+2023-12-15 19:05:47,430 INFO    SenderThread:20924 [sender.py:send_request_log_artifact():1458] logged artifact model-upbeat-sweep-14 - {'id': 'QXJ0aWZhY3Q6NjY3OTI2NTI5', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgzMDEwMQ==', 'latestArtifact': None}}
+2023-12-15 19:05:47,434 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:05:47,441 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:48,795 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:50,817 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:52,472 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:52,866 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:54,944 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:57,008 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:05:57,514 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:05:59,074 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:00,256 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:06:00,256 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:06:00,259 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:06:00,259 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:06:00,260 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:06:00,261 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:06:00,261 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:06:00,262 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:06:00,263 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:06:00,616 DEBUG   SystemMonitor:20924 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-12-15 19:06:00,620 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:06:00,901 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:06:00,902 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:06:00,906 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:06:01,103 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:06:01,103 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:01,103 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best.h5
+2023-12-15 19:06:03,120 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:03,137 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:08,176 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:12,248 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.index
+2023-12-15 19:06:12,248 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 19:06:12,249 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables
+2023-12-15 19:06:12,249 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:06:12,249 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\assets
+2023-12-15 19:06:13,259 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\keras_metadata.pb
+2023-12-15 19:06:13,259 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\fingerprint.pb
+2023-12-15 19:06:13,259 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\saved_model.pb
+2023-12-15 19:06:13,260 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:06:13,640 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 19:06:13,640 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 19:06:14,334 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:14,511 INFO    wandb-upload_0:20924 [upload_job.py:push():86] Skipped uploading C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpmbu7gnp2
+2023-12-15 19:06:15,915 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:06:15,939 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:06:16,990 INFO    wandb-upload_1:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpsswecnq_
+2023-12-15 19:06:17,058 INFO    wandb-upload_3:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpbad5axpw
+2023-12-15 19:06:17,409 INFO    wandb-upload_2:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp8yb9995b
+2023-12-15 19:06:17,861 INFO    wandb-upload_4:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpq9lmurd7
+2023-12-15 19:06:18,698 INFO    SenderThread:20924 [sender.py:send_request_log_artifact():1458] logged artifact model-upbeat-sweep-14 - {'id': 'QXJ0aWZhY3Q6NjY3OTI2ODIy', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgzMDEwMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjY3OTI2NTI5', 'versionIndex': 0}}}
+2023-12-15 19:06:18,699 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:06:18,700 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:20,562 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:22,607 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:23,717 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:24,666 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:26,751 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:28,854 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:28,859 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:30,639 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:06:30,918 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:06:30,919 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:06:30,925 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:30,934 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:06:32,962 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:33,352 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:06:33,356 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:06:33,361 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:06:33,362 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:06:33,363 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:06:33,364 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:06:33,365 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:06:33,365 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:06:33,366 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:06:33,974 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:06:33,975 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best.h5
+2023-12-15 19:06:34,377 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:34,997 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:39,418 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:42,077 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.index
+2023-12-15 19:06:42,078 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 19:06:42,078 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables
+2023-12-15 19:06:42,079 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:06:42,079 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\assets
+2023-12-15 19:06:43,957 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 19:06:43,958 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 19:06:44,813 INFO    wandb-upload_1:20924 [upload_job.py:push():86] Skipped uploading C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpy_p7dtj7
+2023-12-15 19:06:45,164 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:45,938 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:06:45,961 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:06:47,243 INFO    wandb-upload_0:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp5bo0mg3l
+2023-12-15 19:06:47,311 INFO    wandb-upload_4:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp7zwbg83p
+2023-12-15 19:06:47,574 INFO    wandb-upload_2:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmptrujjb6j
+2023-12-15 19:06:47,794 INFO    wandb-upload_3:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpr_vguobb
+2023-12-15 19:06:48,707 INFO    SenderThread:20924 [sender.py:send_request_log_artifact():1458] logged artifact model-upbeat-sweep-14 - {'id': 'QXJ0aWZhY3Q6NjY3OTI3MDg2', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgzMDEwMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjY3OTI2ODIy', 'versionIndex': 1}}}
+2023-12-15 19:06:48,709 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:06:48,710 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:50,286 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:52,356 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:53,762 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:06:54,402 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:56,463 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:58,538 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:06:58,790 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:00,588 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:00,649 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:07:00,945 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:07:00,945 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:07:00,975 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:07:01,727 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:07:01,727 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:07:01,730 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:07:01,730 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:07:01,732 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:07:02,622 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:07:02,624 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:03,804 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:04,668 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:06,731 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:08,766 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:08,845 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:10,834 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:12,898 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:13,851 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:15,040 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:15,961 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:07:15,961 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:07:15,996 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:07:17,111 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:18,340 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:07:18,341 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:07:18,343 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:07:18,344 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:07:18,345 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:07:18,346 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:07:18,347 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:07:18,347 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:07:18,348 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:07:19,136 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:07:19,136 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:19,137 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best.h5
+2023-12-15 19:07:19,354 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:21,170 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:24,374 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:29,272 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.index
+2023-12-15 19:07:29,272 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 19:07:29,274 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables
+2023-12-15 19:07:29,274 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:07:29,274 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\assets
+2023-12-15 19:07:29,412 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:30,286 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\keras_metadata.pb
+2023-12-15 19:07:30,286 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\fingerprint.pb
+2023-12-15 19:07:30,287 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\saved_model.pb
+2023-12-15 19:07:30,287 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:07:30,387 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 19:07:30,387 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 19:07:30,973 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:07:31,001 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:07:31,237 INFO    wandb-upload_0:20924 [upload_job.py:push():86] Skipped uploading C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp_yoh1b1t
+2023-12-15 19:07:31,324 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:34,261 INFO    wandb-upload_1:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpgouodxr6
+2023-12-15 19:07:34,304 INFO    wandb-upload_3:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp8z9qtinm
+2023-12-15 19:07:34,632 INFO    wandb-upload_2:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp1tlvrjxs
+2023-12-15 19:07:34,775 INFO    wandb-upload_4:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpvuo7_qnn
+2023-12-15 19:07:35,663 INFO    SenderThread:20924 [sender.py:send_request_log_artifact():1458] logged artifact model-upbeat-sweep-14 - {'id': 'QXJ0aWZhY3Q6NjY3OTI3NTI0', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgzMDEwMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjY3OTI3MDg2', 'versionIndex': 2}}}
+2023-12-15 19:07:35,664 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:07:35,664 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:35,665 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:07:36,594 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:38,638 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:40,697 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:40,715 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:42,787 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:44,844 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:45,730 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:45,971 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:07:45,971 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:07:46,004 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:07:46,922 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:48,956 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:49,130 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:07:49,130 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:07:49,133 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:07:49,134 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:07:49,134 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:07:49,135 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:07:49,136 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:07:49,136 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:07:49,137 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:07:49,958 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:07:49,958 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best.h5
+2023-12-15 19:07:50,983 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:07:51,154 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:07:56,192 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:00,167 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.index
+2023-12-15 19:08:00,167 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 19:08:00,167 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables
+2023-12-15 19:08:00,168 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:08:00,168 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\assets
+2023-12-15 19:08:00,669 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:08:01,041 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:08:01,042 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:08:01,073 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:08:01,185 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\saved_model.pb
+2023-12-15 19:08:01,185 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:08:01,213 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:01,791 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 19:08:01,791 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 19:08:02,742 INFO    wandb-upload_1:20924 [upload_job.py:push():86] Skipped uploading C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpkh7tsa4g
+2023-12-15 19:08:03,281 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:05,479 INFO    wandb-upload_0:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpws38kvk3
+2023-12-15 19:08:05,632 INFO    wandb-upload_4:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpgs5a1ea1
+2023-12-15 19:08:06,041 INFO    wandb-upload_2:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpkga_d5vw
+2023-12-15 19:08:06,087 INFO    wandb-upload_3:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp6qreerl0
+2023-12-15 19:08:06,938 INFO    SenderThread:20924 [sender.py:send_request_log_artifact():1458] logged artifact model-upbeat-sweep-14 - {'id': 'QXJ0aWZhY3Q6NjY3OTI3ODA2', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgzMDEwMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjY3OTI3NTI0', 'versionIndex': 3}}}
+2023-12-15 19:08:06,947 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:09,552 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:10,566 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:11,948 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:12,595 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:14,666 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:16,015 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:08:16,016 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:08:16,073 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:08:16,748 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:16,996 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:18,812 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:20,863 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:21,279 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:08:21,279 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:08:21,281 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:08:21,281 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:08:21,282 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:08:21,908 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:08:22,025 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:22,930 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:24,959 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:27,015 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:27,034 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:29,078 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:30,686 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:08:31,031 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:08:31,031 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:08:31,077 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:08:31,144 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:32,049 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:33,197 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:35,256 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:37,093 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:37,311 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:38,835 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:08:38,836 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:08:38,838 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:08:38,839 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:08:38,840 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:08:38,840 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:08:38,841 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:08:38,842 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:08:38,842 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:08:39,357 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:08:39,357 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:39,357 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best.h5
+2023-12-15 19:08:41,402 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:42,874 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:46,053 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:08:46,054 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:08:46,084 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:08:48,235 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:50,658 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.index
+2023-12-15 19:08:50,658 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables\variables.data-00000-of-00001
+2023-12-15 19:08:50,658 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\variables
+2023-12-15 19:08:50,659 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:08:50,659 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\assets
+2023-12-15 19:08:51,668 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\keras_metadata.pb
+2023-12-15 19:08:51,668 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\fingerprint.pb
+2023-12-15 19:08:51,669 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best\saved_model.pb
+2023-12-15 19:08:51,669 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best
+2023-12-15 19:08:52,123 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: log_artifact
+2023-12-15 19:08:52,124 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: log_artifact
+2023-12-15 19:08:52,737 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:08:52,989 INFO    wandb-upload_0:20924 [upload_job.py:push():86] Skipped uploading C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpjhqudd_c
+2023-12-15 19:08:55,073 INFO    wandb-upload_3:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp1qy0d0dy
+2023-12-15 19:08:55,158 INFO    wandb-upload_1:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmp73bkxjz2
+2023-12-15 19:08:55,484 INFO    wandb-upload_2:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmpxmujqoo5
+2023-12-15 19:08:55,691 INFO    wandb-upload_4:20924 [upload_job.py:push():89] Uploaded file C:\Users\Simons Lenovo\AppData\Local\wandb\wandb\artifacts\staging\tmptfws63pj
+2023-12-15 19:08:56,498 INFO    SenderThread:20924 [sender.py:send_request_log_artifact():1458] logged artifact model-upbeat-sweep-14 - {'id': 'QXJ0aWZhY3Q6NjY3OTI4MjY3', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzgzMDEwMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjY3OTI3ODA2', 'versionIndex': 4}}}
+2023-12-15 19:08:56,500 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:08:59,017 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:00,690 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:09:01,060 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:01,068 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:09:01,069 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:09:01,081 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:09:01,555 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:09:03,122 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:05,200 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:06,578 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:09:07,254 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:09,310 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:10,561 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:09:10,562 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:09:10,563 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:09:10,564 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:09:10,565 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:09:11,369 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:09:11,369 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:11,634 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:09:13,425 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:15,479 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:16,077 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-15 19:09:16,078 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: stop_status
+2023-12-15 19:09:16,094 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:09:16,638 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:09:17,555 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:19,615 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:21,658 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:09:21,659 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:23,748 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:25,838 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:26,721 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:09:26,859 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:28,820 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:09:28,822 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-15 19:09:28,823 DEBUG   SenderThread:20924 [sender.py:send():382] send: history
+2023-12-15 19:09:28,824 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: summary_record
+2023-12-15 19:09:28,825 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:09:28,829 DEBUG   SenderThread:20924 [sender.py:send():382] send: telemetry
+2023-12-15 19:09:28,830 DEBUG   SenderThread:20924 [sender.py:send():382] send: exit
+2023-12-15 19:09:28,830 INFO    SenderThread:20924 [sender.py:send_exit():589] handling exit code: 0
+2023-12-15 19:09:28,830 INFO    SenderThread:20924 [sender.py:send_exit():591] handling runtime: 268
+2023-12-15 19:09:28,831 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:09:28,831 INFO    SenderThread:20924 [sender.py:send_exit():597] send defer
+2023-12-15 19:09:28,832 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:28,832 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 0
+2023-12-15 19:09:28,832 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:28,832 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 0
+2023-12-15 19:09:28,832 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 1
+2023-12-15 19:09:28,832 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:28,834 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 1
+2023-12-15 19:09:28,834 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:28,836 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 1
+2023-12-15 19:09:28,836 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 2
+2023-12-15 19:09:28,837 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:28,837 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 2
+2023-12-15 19:09:28,837 INFO    HandlerThread:20924 [system_monitor.py:finish():203] Stopping system monitor
+2023-12-15 19:09:28,837 DEBUG   SystemMonitor:20924 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-12-15 19:09:28,837 DEBUG   SystemMonitor:20924 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-12-15 19:09:28,837 INFO    HandlerThread:20924 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-15 19:09:28,839 INFO    HandlerThread:20924 [interfaces.py:finish():202] Joined disk monitor
+2023-12-15 19:09:28,839 INFO    HandlerThread:20924 [interfaces.py:finish():202] Joined memory monitor
+2023-12-15 19:09:28,839 INFO    HandlerThread:20924 [interfaces.py:finish():202] Joined network monitor
+2023-12-15 19:09:28,840 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:28,840 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 2
+2023-12-15 19:09:28,840 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 3
+2023-12-15 19:09:28,840 DEBUG   SenderThread:20924 [sender.py:send():382] send: stats
+2023-12-15 19:09:28,840 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:28,840 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 3
+2023-12-15 19:09:28,841 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:28,841 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 3
+2023-12-15 19:09:28,841 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 4
+2023-12-15 19:09:28,841 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:28,841 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 4
+2023-12-15 19:09:28,841 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:28,841 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 4
+2023-12-15 19:09:28,842 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 5
+2023-12-15 19:09:28,842 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:28,842 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 5
+2023-12-15 19:09:28,842 DEBUG   SenderThread:20924 [sender.py:send():382] send: summary
+2023-12-15 19:09:28,842 INFO    SenderThread:20924 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-15 19:09:28,844 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:28,844 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 5
+2023-12-15 19:09:28,844 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 6
+2023-12-15 19:09:28,844 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:28,844 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 6
+2023-12-15 19:09:28,845 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:28,845 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 6
+2023-12-15 19:09:28,848 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: status_report
+2023-12-15 19:09:28,867 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:09:28,867 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:29,169 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 7
+2023-12-15 19:09:29,169 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:29,169 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 7
+2023-12-15 19:09:29,169 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:29,169 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 7
+2023-12-15 19:09:29,840 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 19:09:29,870 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\config.yaml
+2023-12-15 19:09:30,874 INFO    Thread-16 :20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:32,836 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 8
+2023-12-15 19:09:32,837 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 19:09:32,837 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:32,837 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 8
+2023-12-15 19:09:32,838 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:32,838 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 8
+2023-12-15 19:09:32,838 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 9
+2023-12-15 19:09:32,838 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:32,838 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 9
+2023-12-15 19:09:32,839 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:32,839 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 9
+2023-12-15 19:09:32,839 INFO    SenderThread:20924 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-12-15 19:09:32,848 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 19:09:32,879 INFO    SenderThread:20924 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:32,879 INFO    SenderThread:20924 [dir_watcher.py:finish():388] scan: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files
+2023-12-15 19:09:32,879 INFO    SenderThread:20924 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\config.yaml config.yaml
+2023-12-15 19:09:32,880 INFO    SenderThread:20924 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\model-best.h5 model-best.h5
+2023-12-15 19:09:32,882 INFO    SenderThread:20924 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log output.log
+2023-12-15 19:09:32,882 INFO    SenderThread:20924 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\requirements.txt requirements.txt
+2023-12-15 19:09:32,882 INFO    SenderThread:20924 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-metadata.json wandb-metadata.json
+2023-12-15 19:09:32,884 INFO    SenderThread:20924 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json wandb-summary.json
+2023-12-15 19:09:32,884 INFO    SenderThread:20924 [dir_watcher.py:finish():402] scan save: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\media\graph\graph_summary_5d4e51ef1ec5f9aba582.graph.json media/graph/graph_summary_5d4e51ef1ec5f9aba582.graph.json
+2023-12-15 19:09:32,884 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 10
+2023-12-15 19:09:32,884 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 19:09:32,885 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:32,885 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 10
+2023-12-15 19:09:32,885 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:32,885 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 10
+2023-12-15 19:09:32,885 INFO    SenderThread:20924 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-15 19:09:33,269 INFO    wandb-upload_0:20924 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\config.yaml
+2023-12-15 19:09:33,851 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 19:09:33,851 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 19:09:34,033 INFO    wandb-upload_3:20924 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\wandb-summary.json
+2023-12-15 19:09:34,069 INFO    wandb-upload_2:20924 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\output.log
+2023-12-15 19:09:34,802 INFO    wandb-upload_4:20924 [upload_job.py:push():131] Uploaded file c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\files\requirements.txt
+2023-12-15 19:09:34,913 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 19:09:34,914 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 19:09:35,184 INFO    wandb-upload_1:20924 [upload_job.py:push():131] Uploaded file C:\Users\SIMONS~1\AppData\Local\Temp\tmpfszqjx7ywandb\cwbnca51-model-best.h5
+2023-12-15 19:09:35,397 INFO    Thread-15 (_thread_body):20924 [sender.py:transition_state():617] send defer: 11
+2023-12-15 19:09:35,398 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:35,398 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 11
+2023-12-15 19:09:35,399 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:35,399 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 11
+2023-12-15 19:09:35,399 INFO    SenderThread:20924 [file_pusher.py:join():181] waiting for file pusher
+2023-12-15 19:09:35,399 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 12
+2023-12-15 19:09:35,399 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:35,399 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 12
+2023-12-15 19:09:35,400 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:35,400 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 12
+2023-12-15 19:09:35,400 INFO    SenderThread:20924 [file_stream.py:finish():595] file stream finish called
+2023-12-15 19:09:35,580 INFO    SenderThread:20924 [file_stream.py:finish():599] file stream finish is done
+2023-12-15 19:09:35,580 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 13
+2023-12-15 19:09:35,580 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:35,580 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 13
+2023-12-15 19:09:35,580 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:35,580 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 13
+2023-12-15 19:09:35,581 INFO    SenderThread:20924 [sender.py:transition_state():617] send defer: 14
+2023-12-15 19:09:35,581 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: defer
+2023-12-15 19:09:35,582 DEBUG   SenderThread:20924 [sender.py:send():382] send: final
+2023-12-15 19:09:35,582 INFO    HandlerThread:20924 [handler.py:handle_request_defer():172] handle defer: 14
+2023-12-15 19:09:35,582 DEBUG   SenderThread:20924 [sender.py:send():382] send: footer
+2023-12-15 19:09:35,582 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: defer
+2023-12-15 19:09:35,582 INFO    SenderThread:20924 [sender.py:send_request_defer():613] handle sender defer: 14
+2023-12-15 19:09:35,583 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-15 19:09:35,584 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: poll_exit
+2023-12-15 19:09:35,586 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-15 19:09:35,587 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: server_info
+2023-12-15 19:09:35,588 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-15 19:09:35,588 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: sampled_history
+2023-12-15 19:09:35,589 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: job_info
+2023-12-15 19:09:35,589 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: server_info
+2023-12-15 19:09:35,867 DEBUG   SenderThread:20924 [sender.py:send_request():409] send_request: job_info
+2023-12-15 19:09:35,869 DEBUG   HandlerThread:20924 [handler.py:handle_request():146] handle_request: shutdown
+2023-12-15 19:09:35,869 INFO    HandlerThread:20924 [handler.py:finish():866] shutting down handler
+2023-12-15 19:09:36,593 INFO    WriterThread:20924 [datastore.py:close():294] close: c:\Users\Simons Lenovo\Documents\GitHub\MUSE\Code\GRU_network\wandb\run-20231215_190458-ogw4gtro\run-ogw4gtro.wandb
+2023-12-15 19:09:36,875 INFO    SenderThread:20924 [sender.py:finish():1548] shutting down sender
+2023-12-15 19:09:36,875 INFO    SenderThread:20924 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-15 19:09:36,875 INFO    SenderThread:20924 [file_pusher.py:join():181] waiting for file pusher

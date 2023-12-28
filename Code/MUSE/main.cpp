@@ -70,6 +70,7 @@ int main() {
 				std::cout << "Key Pressed: " << key << std::endl;
 				if (key == 's') {
 					std::cout << "Starting..." << std::endl;
+					std::cout << "Collecting data..." << std::endl;
 					status = utils::MainStatus::COLLECTING;
 					break;
 				}
@@ -105,7 +106,7 @@ int main() {
 			if (PC == nullptr) {
 				PC = new PicometerController();
 			}
-			std::cout << "Collecting data..." << std::endl;
+
 			utils::collect_data(*PC, filter, modulus_input_signal, phase_input_signal, time_steps);
 
 			if (_kbhit()) {

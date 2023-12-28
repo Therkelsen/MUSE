@@ -1,0 +1,38 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m The save_model argument by default saves the model in the HDF5 format that cannot save custom objects like subclassed models and custom layers. This behavior will be deprecated in a future release in favor of the SavedModel format. Meanwhile, the HDF5 model is saved as W&B files and the SavedModel as W&B Artifacts.
+[34m[1mwandb[39m[22m: [33mWARNING[39m The data_type argument of wandb.keras.WandbCallback is deprecated and will be removed in a future release. Please use input_type instead.
+[34m[1mwandb[39m[22m: [33mWARNING[39m Setting input_type = data_type.
+Epoch 1/10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+212/477 [============>.................] - ETA: 1:23 - loss: 6.7981 - accuracy: 0.7549

@@ -102,7 +102,7 @@ public:
 	unsigned long NrOfDataFramesCopied = 0;
 	unsigned long SamplingRateDivider = 1;// 56;
 	unsigned long CompensationConf = 0;
-	unsigned long ExcitationLevel = 146;// 146;
+	unsigned long ExcitationLevel = 200;// 146;
 	unsigned long GainVals = 0x0011; // 0x0011;
 
 	unsigned long buffer_size = 0;

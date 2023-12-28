@@ -1,0 +1,131 @@
+
+Epoch 1/10
+
+
+
+
+
+
+
+
+
+
+
+1274/1275 [============================>.] - ETA: 0s - loss: 0.6817 - accuracy: 0.8231
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+1275/1275 [==============================] - 40s 26ms/step - loss: 0.6816 - accuracy: 0.8231 - val_loss: 0.3865 - val_accuracy: 0.8176
+Epoch 2/10
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 24s 19ms/step - loss: 0.3594 - accuracy: 0.8445 - val_loss: 0.3892 - val_accuracy: 0.8298
+Epoch 3/10
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 23s 18ms/step - loss: 0.3511 - accuracy: 0.8479 - val_loss: 0.3914 - val_accuracy: 0.8559
+Epoch 4/10
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 23s 18ms/step - loss: 0.3704 - accuracy: 0.8394 - val_loss: 0.3917 - val_accuracy: 0.8215
+Epoch 5/10
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 23s 18ms/step - loss: 0.3724 - accuracy: 0.8388 - val_loss: 0.4964 - val_accuracy: 0.7980
+Epoch 6/10
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 24s 19ms/step - loss: 0.3711 - accuracy: 0.8381 - val_loss: 0.4209 - val_accuracy: 0.7838
+Epoch 7/10
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 23s 18ms/step - loss: 0.3827 - accuracy: 0.8384 - val_loss: 0.4032 - val_accuracy: 0.8520
+Epoch 8/10
+
+
+
+
+
+
+
+
+
+
+
+1274/1275 [============================>.] - ETA: 0s - loss: 0.3670 - accuracy: 0.8430
+c:\Users\Simons Lenovo\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3079: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+1275/1275 [==============================] - 33s 26ms/step - loss: 0.3669 - accuracy: 0.8430 - val_loss: 0.3433 - val_accuracy: 0.8592
+Epoch 9/10
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 23s 18ms/step - loss: 0.3507 - accuracy: 0.8528 - val_loss: 0.3888 - val_accuracy: 0.8081
+Epoch 10/10
+
+
+
+
+
+
+
+
+
+
+
+
+1275/1275 [==============================] - 23s 18ms/step - loss: 0.3437 - accuracy: 0.8519 - val_loss: 0.3680 - val_accuracy: 0.8427
