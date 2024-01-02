@@ -33,7 +33,7 @@ The stack is not quite as polished as we would have liked, that may or may not c
 
 # Setup Visualizer and Angle Tracker
 
-1. Install [Python](https://www.python.org/downloads/)
+1. Install [Python 3.11.6](https://www.python.org/downloads/release/python-3116/)
 2. Install requirements
 
    1. From `MUSE` run `$ pip install -r requirements.txt`

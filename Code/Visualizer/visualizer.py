@@ -1,3 +1,4 @@
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -17,7 +18,9 @@ def load_data(file_path, col_idx):
     """
     try:
         if (col_idx is not None):
+            print(f"Loading data from '{file_path}' with column index {col_idx}.")
             return pd.read_csv(file_path, usecols=[col_idx])
+        print(f"Loading data from '{file_path}'.")
         return pd.read_csv(file_path)
     except FileNotFoundError:
         print(f"Error: File '{file_path}' not found.")
@@ -39,7 +42,8 @@ def remove_character(data, character):
         pandas.DataFrame: Data with the character removed.
     """
     # Apply the replacement to all rows except the first (header) row
-    data = data.apply(lambda x: x.str.replace(character, ''), axis=1)
+    data = data.apply(lambda x: x.str.replace(character, '', regex=False), axis=1)
+    print('Removed character: ' + character + ' from data.')
 
     return data
 
@@ -55,14 +59,12 @@ def update_data(i):
         None
     """
     # modulus_raw_data = load_data("Code/Data/raw_output_data.csv", 1)
-    # Code/GRU_network/MoCap/dynamic/85_FRMJ_6kg_reg/filtered_output_data.csv
-    modulus_filtered_data = load_data("Code/Data/filtered_output_data.csv", 1)
-    modulus_processed_data = load_data("Code/Data/processed_output_data.csv", 1)
-    angles_raw_data = remove_character(remove_character(load_data("Code/Data/elbow_angles.csv", 0), '['), ']')
+    modulus_filtered_data = load_data("Code/GRU_network/MoCap/static/37_6kg_90deg_reg/processed_output_data.csv", 1)
+    modulus_processed_data = load_data("Code/GRU_network/MoCap/static/37_6kg_90deg_reg/filtered_output_data.csv", 1)
+    angles_raw_data = remove_character(remove_character(load_data("Code/GRU_network/MoCap/static/37_6kg_90deg_reg/elbow_angles.csv", 0), '['), ']')
 
-    # phase_raw_data = load_data("Code/Data/raw_output_data.csv", 2)
-    phase_processed_data = load_data("Code/Data/processed_output_data.csv", 2)
-    phase_filtered_data = load_data("Code/Data/filtered_output_data.csv", 2)
+    phase_filtered_data = load_data("Code/GRU_network/MoCap/static/37_6kg_90deg_reg/processed_output_data.csv", 2)
+    phase_processed_data = load_data("Code/GRU_network/MoCap/static/37_6kg_90deg_reg/filtered_output_data.csv", 2)
 
     plt.clf()
 
@@ -105,7 +107,7 @@ def update_data(i):
     l.set_linewidths([0.1])
     ax2.spines['right'].set_color((.8, .8, .8))
     ax2.spines['top'].set_color((.8, .8, .8))
-
+    
     # Create the 2D plot for angles_raw_data
     num_rows, num_cols = angles_raw_data.shape
     x = np.arange(1, num_rows + 1)
@@ -116,7 +118,7 @@ def update_data(i):
     angles_raw_data_column = angles_raw_data.iloc[:, 0]
     angles_raw_data_column = pd.to_numeric(angles_raw_data_column, errors='coerce')
     # Transform angles to make 180 degrees become 0 degrees
-    angles_raw_data_column = 180 - angles_raw_data_column
+    # angles_raw_data_column = 180 - angles_raw_data_column
     min_value = angles_raw_data_column.min()
     mask = angles_raw_data_column >= min_value
     l = ax3.fill_between(x[mask], min_value, angles_raw_data_column[mask], color=[.84, .15, .29], alpha=.3)
@@ -248,9 +250,14 @@ def on_key_press(event):
     if event.key == 'u':
         update_data(0)  # Call the update_data function when the 'u' key is pressed
         plt.draw()  # Redraw the plot after updating the data
+        # plt.savefig('D:/Downloads/6kg_90deg_reg.pdf')
 
 
 if __name__ == "__main__":
+    mpl.rcParams['font.family'] = 'Georgia'
+    mpl.rcParams['font.size'] = 18
+    mpl.rcParams['axes.titlesize'] = 20
+
     fig = plt.figure(figsize=(18, 15))
     gs = gridspec.GridSpec(3, 4, height_ratios=[1, 1, 1])
 
