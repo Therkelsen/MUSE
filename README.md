@@ -1,70 +1,89 @@
 # Muscular Signal Processing for Exoskeleton Control (MUSE)
 
-Authored by Simon Chris Vinkel and Thomas Therkelsen
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
+[![C++](https://img.shields.io/badge/C%2B%2B-MSVC%20x86-00599C?logo=c%2B%2B&logoColor=white)](https://visualstudio.microsoft.com/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![MediaPipe](https://img.shields.io/badge/MediaPipe-009688?logo=google&logoColor=white)](https://developers.google.com/mediapipe)
+[![Weights & Biases](https://img.shields.io/badge/Weights_%26_Biases-FFBE00?logo=weightsandbiases&logoColor=black)](https://wandb.ai/)
 
-Updated December 2023
+## Overview
+This repository contains the software stack for the MUSE project, a Human-Machine Interface (HMI) designed for the POW-EXO exoskeleton. The system processes Electrical Impedance Myography (EIM) signals to predict user intent, enabling dynamic switching between assist- and resist-as-needed exoskeleton control modes. 
 
-# Introduction
+The pipeline handles hardware interfacing, real-time digital signal processing, computer vision-based kinematic tracking, and time-series forecasting using Gated Recurrent Unit (GRU) neural networks.
 
-This is the code stack for the MUSE bachelor's project written by Simon Chris Vinkel and Thomas Therkelsen. To read the full thesis, follow [this link](https://github.com/Therkelsen/MUSE/blob/main/Assets/MUSE___Bachelor_project.pdf).
+## Research Publication
+The bachelor project report can be found here:
+* [Vinkel, S. C., & Therkelsen, T. (2023). **MUSE - Muscular Signal Processing for Exoskeleton Control**](https://www.researchgate.net/publication/395586057_MUSE_-_Muscular_Signal_Processing_for_Exoskeleton_Control)
 
-The stack is not quite as polished as we would have liked, that may or may not change in the future, if we continue working on it.
+## System Architecture
 
-# Prerequisites
+* **Hardware Interfacing (C++)**: Interfaces with the Eliko Quadra Picometer to capture multi-frequency bioimpedance data. Handles memory management and direct device communication via DLLs.
+* **Digital Signal Processing (C++)**: Implements custom FIR (Finite Impulse Response) filters and moving average algorithms to clean raw EIM modulus and phase data in real-time.
+* **Kinematic Tracking (Python)**: Utilizes OpenCV and Google MediaPipe (`angle_calculator.py`) to extract positional landmarks from a webcam feed, calculating real-time elbow joint angles to serve as ground-truth labels for model training.
+* **Deep Learning Pipeline (Python)**: A TensorFlow/Keras stack built around a Bidirectional GRU architecture. Processes multivariate time-series data to predict joint angles and payload mass. Integrates with Weights & Biases (`wandb`) for automated hyperparameter optimization (Bayesian/Random sweeps).
+* **Data Visualization (Python)**: A real-time monitoring suite (`visualizer.py`) using Matplotlib to display raw/filtered impedance signals, kinematic angles, and Fast Fourier Transform (FFT) magnitude spectrums.
 
-1. You'll need a POW-EXO exoskeleton, refer to [this paper](https://github.com/Therkelsen/MUSE/blob/main/Assets/Learning-Based_Multifunctional_Elbow_Exoskeleton_Control.pdf) for more info.
-2. Windows 10/11 PC, as the sensor device used does not run on Ubuntu.
-3. Eliko Quadra device with EIM electrodes, check [this link](https://eliko.tech/quadra-impedance-spectroscopy/) for more info.
-4. Integrated or USB webcam for kinematic angle tracker.
+## Prerequisites
 
-# Setup MUSE project
+**Hardware:**
+* POW-EXO exoskeleton
+* Eliko Quadra device with EIM electrodes
+* Webcam (USB or Integrated)
+* Windows 10/11 (Required for Eliko Quadra drivers)
 
-1. Install [Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2414&workload=dotnetwebcloud&flight=FlipMacCodeCF;35d&installerFlight=FlipMacCodeCF;35d&passive=false#dotnet)
-2. Clone the repo by running the following in your shell: `git clone https://github.com/Therkelsen/MUSE.git`
-3. Install drivers for Eliko device
+**Software:**
+* Python 3.11.6
+* Visual Studio (with x86 C++ build tools)
+* MacroRecorder & PhraseExpress (Optional: for automated experimental protocol scripting)
 
-   1. From `MUSE` run `Assets/Eliko/Drivers/QuadraUSBDriverInstaller_v1.1.EXE`
-   2. From `MUSE` run `Assets/Eliko/Drivers/RunTime Installer v20/install.exe`
+## Installation & Setup
 
-4. Connect the Eliko device with EIM electrodes
-5. From `MUSE` open `Code/PicometerReader.sln`
-6. Make sure you're using the x86 compiler when running or debugging, otherwise it won't build!
-7. When you've run the program, create a throwaway sample (**S**, **K**, then **Y** and **Enter**) so the startup sequence of the Eliko device doesn't cause a mismatch in time. Now you're ready to record.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Therkelsen/MUSE.git
+   cd MUSE
+   ```
 
-# Setup Visualizer and Angle Tracker
+2. **Install Hardware Drivers:**
+   * Execute `Assets/Eliko/Drivers/QuadraUSBDriverInstaller_v1.1.EXE`
+   * Execute `Assets/Eliko/Drivers/RunTime Installer v20/install.exe`
 
-1. Install [Python 3.11.6](https://www.python.org/downloads/release/python-3116/)
-2. Install requirements
+3. **Configure Python Environment:**
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-   1. From `MUSE` run `$ pip install -r requirements.txt`
+4. **Compile C++ Data Reader:**
+   * Open `Code/PicometerReader.sln` in Visual Studio.
+   * **Critical:** Set the build configuration to **x86** (the Eliko DLLs will not link correctly under x64).
+   * Build the solution.
 
-3. Run the visualizer
+## Usage Pipeline
 
-   1. From `MUSE` run `$ py Code/Visualizer/visualizer.py`
-   2. It updates the figure once every second, so if you run the MUSE program and gather new data, it will update the figure accordingly.
+### 1. Data Collection
+1. Connect the Eliko Quadra device and attach EIM electrodes to the subject.
+2. Run the compiled C++ `PicometerReader` executable. Follow the CLI prompts to initialize a throwaway sample (press `s`, `k`, then `y`) to synchronize hardware timers.
+3. Launch the kinematic tracker:
+   ```bash
+   python Code/angle_tracker/angle_calculator.py
+   ```
+4. Press `s` in the Python tracker and begin the experimental protocol. Press `k` to save the CSV output and `q` to exit.
 
-4. Run the angle tracker
+### 2. Visualization
+To monitor the signal quality, filtering efficiency, and FFT spectrums during or after collection:
+```bash
+python Code/Visualizer/visualizer.py
+```
 
-   1. From `MUSE` run `$ py Code/angle_tracker/angle_calculator.py`
-   2. Once the program is running, press **S** to start recording data, **K** while recording to save, and **Q** to exit the program.
+### 3. Model Training & Tuning
+The machine learning pipeline is contained within `Code/GRU_network/network.ipynb` (and `implementation.py`).
+* Data preprocessing includes synchronization of EIM timestamps with OpenCV frame timestamps, interpolation, and `MinMaxScaler` normalization.
+* Hyperparameter sweeps are configured via the `sweep_config` dictionary for `wandb` integration.
+* Execute the notebook cells sequentially to train the Bidirectional GRU model and evaluate prediction accuracy against the test holdout set.
 
-# Setup hotkeys to start and stop recording
-
-1. Install [MacroRecorder](https://www.macrorecorder.com/download/)
-2. Install [PhraseExpress](https://www.phraseexpress.com/download/)
-3. Open **MacroRecorder**
-   
-   1. Open `start_recording.mrf` located in `Assets/Macros`
-   2. Click **Send to PhraseExpress** in the toolbar
-   3. Select **Hotkey** as your trigger in the dropdown, then configure a hotkey combination to start the macro. We used **Ctrl + Shift + F8**
-   4. Repeat for `stop_recording.mrf`, for that we used **Ctrl + Shift + F9**
-   5. Click **File** and **Save**
-   6. You may close **PhraseExpress**, just make sure it's running in the background still so it can register the hotkey combinations.
-
-# Record samples
-
-1. Following **Experimental protocol.pdf** located in `Assets`, prepare for sample recording.
-2. Once you have everything prepared, use the **start_recording** macro hotkey to start recording a sample, and the **stop_recording** macro hotkey to stop recording.
-3. NOW you're fully ready to record! Great success!
-
-   ![](https://th.bing.com/th/id/R.96690b2065c29c6e848b69e15c94d0a0?rik=PbCJ86cV%2bS4Gow&riu=http%3a%2f%2fdailyurbanista.com%2fwp-content%2fuploads%2f2016%2f02%2fgreat-success-gif.gif&ehk=QL3L4jXfujCmot5FczjvzdLFwJmBX%2bFG5v2lYJJPkLE%3d&risl=&pid=ImgRaw&r=0)
+## Documentation & Resources
+* [MUSE Bachelor Thesis Document](https://github.com/Therkelsen/MUSE/blob/main/Assets/MUSE___Bachelor_project.pdf)
+* [POW-EXO Exoskeleton Reference Paper](https://github.com/Therkelsen/MUSE/blob/main/Assets/Learning-Based_Multifunctional_Elbow_Exoskeleton_Control.pdf)
+* [Eliko Quadra Impedance Spectroscopy](https://eliko.tech/quadra-impedance-spectroscopy/)
